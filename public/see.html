@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scient E-Library | College</title>
+    <link rel="icon" type="image/png" href="logo11.jpg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Additional Styles */
+        body {
+            background-color: #f9fafb;
+        }
+
+        .cta-button {
+            background-color: #002f6c;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #003366;
+            transform: scale(1.05);
+        }
+
+        /* Larger Banner Style */
+        .banner {
+            background-color: #FF9800;
+            color: white;
+            text-align: center;
+            padding: 24px 0;  /* Larger padding for more visibility */
+            font-size: 24px;  /* Larger font size */
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;  /* Increased height */
+        }
+
+        .banner .dismiss-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 24px;  /* Increased button size */
+            font-weight: bold;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .banner .dismiss-btn:hover {
+            color: #d69e00;
+        }
+
+        /* Fixed Navigation Bar */
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #e7ecef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .fab.fa-facebook {
+            color: #1877f2;
+        }
+
+        .fab.fa-twitter {
+            color: #1da1f2;
+        }
+
+        .fab.fa-instagram {
+            color: #e1306c;
+        }
+
+        .fab.fa-linkedin {
+            color: #0a66c2;
+        }
+
+        .social-media a:hover {
+            opacity: 0.8;
+        }
+
+        /* Adjust Hero Section */
+        .hero-section {
+            padding: 8rem 0; /* Reduced padding for hero section */
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem; /* Reduced font size */
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+        }
+
+    </style>
+
+    <script>
+        // Displaying the alert on page load
+        window.onload = function () {
+            alert("Kindly Register & Access the content with login details. No content is shared without login details.");
+        };
+
+        // Function to hide the banner
+        function hideBanner() {
+            document.querySelector('.banner').style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Promotional Banner -->
+    <div class="banner" id="promo-banner">
+        <span>Welcome to Scient Institute of Technology, Ibrahimpatnam! Register now and unlock a world of educational opportunities.</span>
+        <button class="dismiss-btn" onclick="hideBanner()">X</button>
+    </div>
+
+    <!-- Fixed Navigation Bar -->
+    <nav class="bg-blue-800 text-white py-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold">Scient E-Library</a>
+            <div class="space-x-6">
+                <a href="index.html" class="hover:text-yellow-400">Home</a>
+                <a href="about.html" class="hover:text-yellow-400">About Us</a>
+                <a href="/register" class="hover:text-yellow-400">Register</a>
+                <a href="login.html" class="hover:text-yellow-400">Login</a>
+                <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="text-4xl font-extrabold">Scient E-Library</h1>
+        <p class="text-xl mt-4 max-w-3xl mx-auto">Empowering students with limitless knowledge. Explore a world of academic excellence, innovation, and success. Join Scient Institute of Technology in Ibrahimpatnam.</p>
+        <a href="/register" class="cta-button mt-8 inline-block">Join Now and Start Learning</a>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="my-12 max-w-7xl mx-auto px-4">
+        <!-- Welcome Text -->
+        <div class="text-center">
+            <h2 class="text-3xl font-semibold text-blue-900">Welcome to Scient E-Library</h2>
+            <p class="text-lg mt-4 max-w-3xl mx-auto">Explore cutting-edge technology, timeless literature, and all the academic resources you need for success. Scient E-Library is here to support your educational journey with accessible and diverse materials.</p>
+        </div>
+
+        <!-- About Us Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div class="card p-6 bg-white rounded-lg shadow-md">
+                <h5 class="text-xl font-semibold text-blue-900">Our Vision</h5>
+                <p class="mt-4">We aim to be the global leader in providing students with high-quality academic resources, fostering growth, and promoting a lifelong love of learning.</p>
+            </div>
+            <div class="card p-6 bg-white rounded-lg shadow-md">
+                <h5 class="text-xl font-semibold text-blue-900">Our Courses</h5>
+                <p class="mt-4">We offer a wide range of courses across various disciplines including technology, business, humanities, and arts to meet the needs of future leaders.</p>
+            </div>
+            <div class="card p-6 bg-white rounded-lg shadow-md">
+                <h5 class="text-xl font-semibold text-blue-900">Student Resources</h5>
+                <p class="mt-4">Our extensive library of e-books, research papers, and interactive tutorials is designed to enhance your understanding and academic performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="text-center">
+            <h2 class="text-3xl font-semibold text-blue-900">Featured Courses</h2>
+            <p class="text-lg mt-4 max-w-3xl mx-auto">Browse through our diverse range of online courses, designed to equip you with the knowledge and skills needed for academic and professional success.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div class="course-card p-6 bg-white rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-900">Advanced Web Development</h3>
+                <p class="mt-4">Learn the latest frameworks and tools to build modern, responsive websites and web applications.</p>
+            </div>
+            <div class="course-card p-6 bg-white rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-900">Digital Marketing</h3>
+                <p class="mt-4">Dive into the world of digital marketing with practical strategies for success in SEO, PPC, and social media marketing.</p>
+            </div>
+            <div class="course-card p-6 bg-white rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-900">Data Science and AI</h3>
+                <p class="mt-4">Dive deep into data analysis, machine learning, and artificial intelligence concepts for real-world applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+                <!-- About Us Section -->
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">ABOUT US</h5>
+                    <ul>
+                        <li><a href="about.html" class="text-sm hover:text-yellow-400">About Scient E-Library</a></li>
+                        <li><a href="vision-mission.html" class="text-sm hover:text-yellow-400">Vision & Mission</a></li>
+                        <li><a href="team.html" class="text-sm hover:text-yellow-400">Our Team</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-yellow-400">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-sm hover:text-yellow-400">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Courses & Resources Section -->
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">COURSES & RESOURCES</h5>
+                    <ul>
+                        <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">Browse Courses</a></li>
+                        <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">E-Books Library</a></li>
+                        <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">Tutorials</a></li>
+                        <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">Research Papers</a></li>
+                        <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">Webinars</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">QUICK LINKS</h5>
+                    <ul>
+                        <li><a href="register.html" class="text-sm hover:text-yellow-400">Register</a></li>
+                        <li><a href="login.html" class="text-sm hover:text-yellow-400">Login</a></li>
+                        <li><a href="terms.html" class="text-sm hover:text-yellow-400">Terms of Use</a></li>
+                        <li><a href="privacy.html" class="text-sm hover:text-yellow-400">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="text-sm hover:text-yellow-400">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Section -->
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">FOLLOW US ON</h5>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com" target="_blank">
+                          <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/varungoud___21/" target="_blank">
+                          <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank">
+                          <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Section -->
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm">© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showAlertAndRedirect() {
+            alert("Kindly Register & Access the content with login details. No content is shared without login details.");
+            window.location.href = "register.html"; // Redirect to register page
+        }
+    </script>
+
+</body>
+
+</html>
