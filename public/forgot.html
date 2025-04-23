@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forgot Password | Scient E-Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e96443, #904e95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      animation: slideUp 1.2s ease-out;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      border: 2px solid #904e95;
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    input[type="email"]:focus {
+      border-color: #e96443;
+      box-shadow: 0 0 6px rgba(233, 100, 67, 0.5);
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #904e95;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #e96443;
+      transform: scale(1.05);
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reset Your Password</h2>
+    <input type="email" id="email" placeholder="Enter your registered email" />
+    <button onclick="sendResetLink()">Send Reset Link</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
+      authDomain: "scient-e-library.firebaseapp.com",
+      projectId: "scient-e-library",
+      storageBucket: "scient-e-library.firebasestorage.app",
+      messagingSenderId: "724674392756",
+      appId: "1:724674392756:web:631eb7c59445f5a2509de1"
+  
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    async function sendResetLink() {
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const messageBox = document.getElementById("message");
+
+      // Reset message
+      messageBox.textContent = "";
+      messageBox.style.color = "red";
+
+      // Validate email input
+      if (!email) {
+        messageBox.textContent = "Please enter your email.";
+        return;
+      }
+
+      // Check if email format is valid
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        messageBox.textContent = "Please enter a valid email address.";
+        return;
+      }
+
+      try {
+        // Fetch all users and manually check emails (case-insensitive)
+        console.log("Checking Firestore for email:", email);
+        const usersRef = collection(db, "users");
+        const querySnapshot = await getDocs(usersRef);
+
+        let emailFound = false;
+        querySnapshot.forEach((doc) => {
+          const userEmail = doc.data().email;
+          if (userEmail && userEmail.toLowerCase() === email) {
+            emailFound = true;
+          }
+        });
+
+        if (!emailFound) {
+          console.log("Email not found in Firestore 'users' collection.");
+          messageBox.textContent = "Email not registered in our records.";
+          return;
+        }
+
+        console.log("Email found in Firestore 'users' collection.");
+        // If email is found, send password reset email
+        await sendPasswordResetEmail(auth, email);
+        messageBox.textContent = "Password reset link sent! Check your inbox.";
+        messageBox.style.color = "green";
+      } catch (error) {
+        console.error("Error:", error.message);
+        if (error.code === "auth/invalid-email") {
+          messageBox.textContent = "Invalid email format.";
+        } else if (error.code === "permission-denied") {
+          messageBox.textContent = "Database access denied. Please check Firestore rules.";
+        } else {
+          messageBox.textContent = "Failed to send link. Please try again.";
+        }
+      }
+    }
+
+    window.sendResetLink = sendResetLink;
+  </script>
+</body>
+</html>

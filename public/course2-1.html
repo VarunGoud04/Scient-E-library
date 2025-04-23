@@ -157,16 +157,16 @@
             <tr>
                 <td>1</td>
                 <td>CS401PC</td>
-                <td><a href="#" class="course-link">Discrete Mathematics</a></td>
-                <td>3</td>
+                <td><a href="cosm.html" class="course-link">Computer oriented statistical Methods</a></td>
+                <td>4</td>
                 <td>0</td>
                 <td>0</td>
-                <td>3</td>
+                <td>4</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>SM402MS</td>
-                <td><a href="#" class="course-link">Business Economics & Financial Analysis</a></td>
+                <td><a href="coa.html" class="course-link">Computer organization and Architecture </a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -175,7 +175,7 @@
             <tr>
                 <td>3</td>
                 <td>CS403PC</td>
-                <td><a href="#" class="course-link">Operating Systems</a></td>
+                <td><a href="java.html" class="course-link">Java</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -184,7 +184,7 @@
             <tr>
                 <td>4</td>
                 <td>CS404PC</td>
-                <td><a href="#" class="course-link">Database Management Systems</a></td>
+                <td><a href="ds.html" class="course-link">Data Structures</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -193,7 +193,7 @@
             <tr>
                 <td>5</td>
                 <td>CS405PC</td>
-                <td><a href="#" class="course-link">Software Engineering</a></td>
+                <td><a href="de.html" class="course-link">Digital Electronics</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -275,9 +275,14 @@
         // Function to open the modal
         courseLinks.forEach(link => {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                modal.style.display = 'flex'; // Show the modal
+                const href = link.getAttribute('href');
+                if (href === "#") {
+                    event.preventDefault(); // Only prevent if it's a placeholder
+                    modal.style.display = 'flex';
+                }
             });
+    
+        
         });
 
         // Function to close the modal

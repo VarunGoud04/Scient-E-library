@@ -12,7 +12,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* Modal style */
         .modal {
             display: none;
             position: fixed;
@@ -61,7 +60,6 @@
                 <a href="#overview" class="hover:text-yellow-400">Overview</a>
                 <a href="#key-topics" class="hover:text-yellow-400">Key Topics</a>
                 <a href="#resources" class="hover:text-yellow-400">Resources</a>
-                <!-- Link that will trigger the popup -->
                 <a href="#" id="maintenance-link" class="hover:text-yellow-400">Maintenance</a>
             </div>
         </div>
@@ -73,6 +71,49 @@
         <p class="text-xl mt-4 max-w-3xl mx-auto">Learn about the application of statistical methods through computational techniques. This subject covers data analysis, statistical software, and the use of computers for efficient statistical computation.</p>
     </section>
 
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Course Overview</h2>
+            <p class="text-lg text-gray-700">This course introduces statistical methods essential for analyzing and interpreting data. You'll gain practical skills in using software tools to conduct statistical tests, visualize data, and derive insights from raw numbers. Real-world case studies ensure you understand the application of theory.</p>
+        </div>
+    </section>
+
+    <!-- Key Topics Section -->
+    <section id="key-topics" class="py-16 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Key Topics Covered</h2>
+            <ul class="list-disc list-inside text-gray-800 space-y-4">
+                <li>Descriptive Statistics</li>
+                <li>Probability Distributions</li>
+                <li>Sampling and Estimation</li>
+                <li>Hypothesis Testing</li>
+                <li>Linear Regression and Correlation</li>
+                <li>Chi-square and t-tests</li>
+                <li>Introduction to R and Python for statistics</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Study Resources</h2>
+            <p class="mb-4 text-lg">Here are some downloadable resources to help you succeed in this course:</p>
+            <ul class="text-blue-700 underline space-y-2">
+                <li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer">Course Notes (PDF)</a></li>
+                <li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer">Practice Problems (Excel)</a></li>
+<li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer">Lab Manual</a></li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white text-center py-6 mt-10">
+        <p class="text-sm">&copy; 2024 Scient E-Library. Developed by B. Varun Goud | CSE Dept, Scient Institute of Technology.</p>
+    </footer>
+
     <!-- Modal for Maintenance Message -->
     <div id="maintenance-modal" class="modal">
         <div class="modal-content">
@@ -83,35 +124,32 @@
     </div>
 
     <script>
-        // Get the modal element
+        function showResourceNotice(event) {
+            event.preventDefault();
+            alert("Currently, some resources are removed. Please check back later.");
+        }
+        
         const modal = document.getElementById('maintenance-modal');
         const link = document.getElementById('maintenance-link');
 
-        // Function to open the modal
         link.onclick = function (event) {
-            event.preventDefault(); // Prevent the default behavior of the link
-            modal.style.display = 'flex'; // Display the modal
+            event.preventDefault();
+            modal.style.display = 'flex';
         };
 
-        // Function to close the modal
         function closeModal() {
-            modal.style.display = 'none'; // Hide the modal
+            modal.style.display = 'none';
         }
-    </script>
-    <script>
-        // Disable Right-Click
+
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
         });
-    
-        // Disable Double-Click
+
         document.addEventListener('dblclick', function(event) {
             event.preventDefault();
         });
-    
-        // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
+
         document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
             if ((event.key === 'F12') || 
                 (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
                 (event.ctrlKey && (event.key === 'U'))) {
@@ -119,7 +157,6 @@
             }
         });
     </script>
-    
 
 </body>
 
