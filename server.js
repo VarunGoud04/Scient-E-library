@@ -1,17 +1,16 @@
 const express = require('express');
 const path = require('path');
-const bcrypt = require('bcryptjs');
 const { auth, db } = require('./firebaseConfig');
 const { createUserWithEmailAndPassword, signInWithEmailAndPassword } = require('firebase/auth');
 const { doc, setDoc, getDoc } = require('firebase/firestore');
 require('dotenv').config();
-
 
 const app = express();
 const port = process.env.PORT || 2008;
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
@@ -26,8 +25,11 @@ app.get('/register', (req, res) => {
 app.post('/register', async (req, res) => {
   const { name, email, password, university, college, regulation, branch } = req.body;
 
+  if (!name || !email || !password || !university || !college || !regulation || !branch) {
+    return res.status(400).send('All fields are required.');
+  }
+
   try {
-    // Check if user already exists in Firestore
     const userDocRef = doc(db, 'users', email);
     const userSnapshot = await getDoc(userDocRef);
 
@@ -35,11 +37,9 @@ app.post('/register', async (req, res) => {
       return res.status(400).send('User already exists!');
     }
 
-    // Create user in Firebase Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    // Save additional user data in Firestore
-    await setDoc(doc(db, 'users', email), {
+    await setDoc(userDocRef, {
       uid: userCredential.user.uid,
       name,
       email,
@@ -64,9 +64,13 @@ app.get('/login', (req, res) => {
 app.post('/login', async (req, res) => {
   const { email, password, regulation } = req.body;
 
+  if (!email || !password || !regulation) {
+    return res.status(400).send('All fields are required.');
+  }
+
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    
+
     const userDocRef = doc(db, 'users', email);
     const userSnapshot = await getDoc(userDocRef);
 

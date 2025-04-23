@@ -234,13 +234,82 @@
                 <a href="https://www.instagram.com/varungoud___21/" target="_blank">
                   <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com" target="_blank">
+                <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank">
                   <i class="fab fa-linkedin"></i>
                 </a>
               </div>
               <p>Developed by Varun Goud & Team| Department of CSE (AY 2022-2026) | All rights reserved</p>
               <div>
     </footer>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
+          authDomain: "scient-e-library.firebaseapp.com",
+          projectId: "scient-e-library",
+          storageBucket: "scient-e-library.appspot.com",
+          messagingSenderId: "724674392756",
+          appId: "1:724674392756:web:631eb7c59445f5a2509de1"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+      
+        function showError(message) {
+          const error = document.getElementById('error-message');
+          error.textContent = message;
+          error.style.display = 'block';
+        }
+      
+        document.querySelector('form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+      
+          const email = document.getElementById('email').value.trim();
+          const password = document.getElementById('password').value;
+          const regulation = document.getElementById('regulations').value;
+      
+          document.getElementById('error-message').style.display = 'none';
+      
+          if (!email || !password || regulation === 'choose') {
+            showError('Please fill in all fields and select a regulation.');
+            return;
+          }
+      
+          if (regulation === 'R18') {
+            showError('We are currently not accepting R18 Regulations.');
+            return;
+          }
+      
+          try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+      
+            // Now check if the user exists in Firestore
+            const q = query(collection(db, "users"), where("uid", "==", user.uid));
+            const querySnapshot = await getDocs(q);
+      
+            if (querySnapshot.empty) {
+              showError("User data not found in database.");
+              return;
+            }
+      
+            // You can access user data here if needed
+            const userData = querySnapshot.docs[0].data();
+            console.log("User found:", userData);
+      
+            // Redirect to course page
+            window.location.href = 'courses.html';
+          } catch (error) {
+            showError(error.message);
+          }
+        });
+      </script>
+      
+      
 
     <!-- JavaScript for Regulation Change -->
     <script>
