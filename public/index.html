@@ -93,59 +93,67 @@
       alert("Kindly Register & Access the content with login details. No content is shared without login details.");
     };
   </script>
-    <!-- Mobile Access Restriction -->
+    <!-- Restrict Mobile Access & Show Warning -->
     <style>
-      #mobile-warning {
+      #mobile-block {
         display: none;
         position: fixed;
-        z-index: 9999;
-        background-color: white;
-        color: black;
+        z-index: 99999;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+        background-color: #ffffff;
+        color: #000000;
         padding: 30px;
         text-align: center;
-        font-family: sans-serif;
-        overflow: auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-y: auto;
       }
   
-      #mobile-warning h2 {
-        color: red;
-        font-size: 24px;
+      #mobile-block h2 {
+        font-size: 26px;
+        color: #c53030;
         margin-bottom: 20px;
       }
   
-      #mobile-warning p,
-      #mobile-warning ul {
+      #mobile-block p {
         font-size: 18px;
         line-height: 1.6;
+        margin: 10px 0;
       }
   
-      #mobile-warning ul {
+      #mobile-block ul {
         text-align: left;
         max-width: 600px;
         margin: 20px auto;
+        font-size: 16px;
+        padding-left: 20px;
+      }
+  
+      #mobile-block ul li {
+        margin-bottom: 10px;
       }
     </style>
   
     <script>
       window.onload = function () {
         if (window.innerWidth <= 768) {
+          // Clear the current page and show a warning
           document.body.innerHTML = '';
           const warning = document.createElement('div');
-          warning.id = 'mobile-warning';
+          warning.id = 'mobile-block';
           warning.innerHTML = `
-            <h2>Mobile Access Restricted</h2>
-            <p>This website is optimized for desktop devices only.</p>
-            <p>Please switch to <strong>Desktop Site Mode</strong> on your mobile browser to continue.</p>
-            <p><strong>How to do that?</strong></p>
+            <h2>⚠️ Desktop Site Required</h2>
+            <p>This website is designed for desktop and laptop devices only.</p>
+            <p>If you're seeing a blank screen, it's because you're currently on a mobile or tablet device.</p>
+            <p>To access the content, please enable <strong>Desktop Site Mode</strong> on your browser:</p>
             <ul>
-              <li><strong>Chrome (Android):</strong> Tap the three dots (⋮) > Check "Desktop Site".</li>
-              <li><strong>Safari (iPhone):</strong> Tap the "aA" icon in the URL bar > Request Desktop Website.</li>
+              <li><strong>Android (Chrome):</strong> Tap the three dots (⋮) in the top-right > Check <em>"Desktop site"</em>.</li>
+              <li><strong>iPhone (Safari):</strong> Tap the "aA" icon in the address bar > Select <em>"Request Desktop Website"</em>.</li>
             </ul>
-            <p>We apologize for the inconvenience. For the best experience, please use a desktop or laptop.</p>
+            <p>Once enabled, reload the page to view the content.</p>
+            <p>Thank you for your understanding!</p>
           `;
           document.body.appendChild(warning);
         } else {
