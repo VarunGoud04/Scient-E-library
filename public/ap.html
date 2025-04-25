@@ -95,6 +95,25 @@
     .popup-content button:hover {
       background-color: #003366;
     }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+      }
+    
+      .hamburger {
+        display: flex;
+      }
+    }    
   </style>
 </head>
 
@@ -109,6 +128,11 @@
         <a href="#previous-questions" class="hover:text-yellow-400">Previous Year Questions</a>
         <a href="#reference-notes" class="hover:text-yellow-400">Reference Notes</a>
       </div>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
 
