@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Contact Us | Scient E-Library</title>
   <link rel="icon" type="image/png" href="logo11.jpg">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -18,102 +19,113 @@
     header {
       background-color: #002f6c;
       color: white;
-      padding: 30px 0;
+      padding: 1.5rem 0;
       text-align: center;
     }
 
     nav {
       background-color: #004a94;
       text-align: center;
-      padding: 15px 0;
+      padding: 0.75rem 0;
     }
 
     nav a {
       color: white;
-      padding: 12px 25px;
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 0.5rem;
+      display: inline-block;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:active {
       background-color: #003366;
-      border-radius: 4px;
+      border-radius: 0.25rem;
     }
 
     .contact-form-section {
-      padding: 50px 20px;
+      padding: 2rem 1rem;
       text-align: center;
     }
 
     .contact-form-section h2 {
       color: #002f6c;
+      font-size: 1.875rem;
     }
 
     .contact-form {
       max-width: 600px;
       margin: 0 auto;
       background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.25rem 0.375rem rgba(0,0,0,0.1);
     }
 
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
     }
 
     .contact-form button {
       background-color: #002f6c;
       color: white;
-      padding: 15px 30px;
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 5px;
-      font-size: 18px;
+      border-radius: 0.3125rem;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
-    .contact-form button:hover {
+    .contact-form button:hover,
+    .contact-form button:active {
       background-color: #003366;
+      transform: scale(1.05);
     }
 
     .contact-info-section {
-      padding: 50px 20px;
+      padding: 2rem 1rem;
       background-color: #f2f5f6;
     }
 
     .contact-info-section h3 {
       color: #002f6c;
+      font-size: 1.5rem;
     }
 
     .contact-details {
       display: flex;
       justify-content: space-around;
-      margin-top: 30px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .contact-details div {
       text-align: center;
+      margin: 1rem;
     }
 
     .contact-details i {
-      font-size: 36px;
+      font-size: 2rem;
       color: #002f6c;
     }
 
     footer {
       background-color: #7cb0e4;
-      padding: 20px;
+      padding: 1.5rem;
       text-align: center;
     }
 
     .social-media a {
-      margin: 0 10px;
-      font-size: 24px;
+      margin: 0 0.625rem;
+      font-size: 1.5rem;
+      display: inline-block;
     }
 
     .fab.fa-facebook { color: #1877f2; }
@@ -121,11 +133,38 @@
     .fab.fa-instagram { color: #e1306c; }
     .fab.fa-linkedin { color: #0a66c2; }
 
-    .social-media a:hover {
+    .social-media a:hover,
+    .social-media a:active {
       opacity: 0.8;
     }
 
-    @media screen and (max-width: 768px) {
+    /* Responsive Adjustments */
+    @media screen and (max-width: 640px) {
+      header h1 {
+        font-size: 1.875rem;
+      }
+
+      .contact-form-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .contact-info-section h3 {
+        font-size: 1.25rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        margin: 0.25rem 0;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
       .contact-details {
         flex-direction: column;
       }
@@ -133,7 +172,7 @@
 
     #response-message {
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 0.9375rem;
       color: green;
     }
   </style>
@@ -146,11 +185,11 @@
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="/register">Register</a>
-    <a href="login.html">Login</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" aria-label="Home">Home</a>
+    <a href="about.html" aria-label="About Us">About Us</a>
+    <a href="/register" aria-label="Register">Register</a>
+    <a href="login.html" aria-label="Login">Login</a>
+    <a href="contact.html" aria-label="Contact">Contact</a>
   </nav>
 
   <div class="contact-form-section">
@@ -158,10 +197,10 @@
     <p>If you have any questions, suggestions, or feedback, feel free to reach out using the form below.</p>
 
     <form id="contact-form" class="contact-form">
-      <input type="text" name="from_name" placeholder="Your Name" required>
-      <input type="email" name="from_email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" name="from_name" placeholder="Your Name" required aria-label="Your Name">
+      <input type="email" name="from_email" placeholder="Your Email" required aria-label="Your Email">
+      <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
+      <button type="submit" aria-label="Send Message">Send Message</button>
     </form>
     <p id="response-message"></p>
   </div>
@@ -185,11 +224,11 @@
     <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Dept. of CSE (AY 2022-2026)</p>
     <div>
       <h5>FOLLOW US ON</h5>
-      <div class="social-media">
-        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <div class="social-media flex justify-center gap-4 mt-2">
+        <a href="https://www.facebook.com" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/varungoud___21/" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </footer>
@@ -198,7 +237,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("DJnB8i1ZXCRJ0-cya"); // Replace with your actual public key
+      emailjs.init("DJnB8i1ZXCRJ0-cya");
     })();
 
     document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -211,6 +250,26 @@
           document.getElementById('response-message').textContent = "Oops! Something went wrong.";
           console.error('FAILED...', error);
         });
+    });
+
+    // Add touch support for buttons
+    document.querySelectorAll('.contact-form button').forEach(button => {
+      button.addEventListener('touchstart', () => {
+        button.classList.add('hover');
+      });
+      button.addEventListener('touchend', () => {
+        button.classList.remove('hover');
+      });
+    });
+
+    // Add touch support for social media links
+    document.querySelectorAll('.social-media a').forEach(link => {
+      link.addEventListener('touchstart', () => {
+        link.classList.add('hover');
+      });
+      link.addEventListener('touchend', () => {
+        link.classList.remove('hover');
+      });
     });
   </script>
 
