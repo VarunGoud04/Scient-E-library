@@ -93,6 +93,67 @@
       alert("Kindly Register & Access the content with login details. No content is shared without login details.");
     };
   </script>
+    <!-- Mobile Access Restriction -->
+    <style>
+      #mobile-warning {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        background-color: white;
+        color: black;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 30px;
+        text-align: center;
+        font-family: sans-serif;
+        overflow: auto;
+      }
+  
+      #mobile-warning h2 {
+        color: red;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+  
+      #mobile-warning p,
+      #mobile-warning ul {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+  
+      #mobile-warning ul {
+        text-align: left;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+    </style>
+  
+    <script>
+      window.onload = function () {
+        if (window.innerWidth <= 768) {
+          document.body.innerHTML = '';
+          const warning = document.createElement('div');
+          warning.id = 'mobile-warning';
+          warning.innerHTML = `
+            <h2>Mobile Access Restricted</h2>
+            <p>This website is optimized for desktop devices only.</p>
+            <p>Please switch to <strong>Desktop Site Mode</strong> on your mobile browser to continue.</p>
+            <p><strong>How to do that?</strong></p>
+            <ul>
+              <li><strong>Chrome (Android):</strong> Tap the three dots (⋮) > Check "Desktop Site".</li>
+              <li><strong>Safari (iPhone):</strong> Tap the "aA" icon in the URL bar > Request Desktop Website.</li>
+            </ul>
+            <p>We apologize for the inconvenience. For the best experience, please use a desktop or laptop.</p>
+          `;
+          document.body.appendChild(warning);
+        } else {
+          alert("Kindly Register & Access the content with login details. No content is shared without login details.");
+        }
+      };
+    </script>
+  
 </head>
 
 <body class="text-gray-900">
