@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Business Economics & Financial Analysis | Scient E-Library</title>
     <link rel="icon" type="image/png" href="logo11.jpg">
@@ -17,14 +17,15 @@
 
     <style>
         /* Custom Styles */
-        .navbar a:hover {
+        .navbar a:hover,
+        .navbar a:active {
             color: #ffeb3b;
             transition: color 0.3s ease;
         }
 
         footer {
-            background-color: #e7ecef;  /* Dark background for footer */
-            padding: 20px;
+            background-color: #e7ecef;
+            padding: 1.5rem;
             text-align: center;
         }
 
@@ -33,19 +34,21 @@
         }
 
         section {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
 
         .cta-button {
             background-color: #002f6c;
             color: white;
-            padding: 12px 25px;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
         }
 
-        .cta-button:hover {
+        .cta-button:hover,
+        .cta-button:active {
             background-color: #003366;
             transform: scale(1.05);
         }
@@ -54,9 +57,10 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        .card:hover,
+        .card:active {
+            transform: translateY(-0.625rem);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
         }
 
         /* Full-height Section for better page coverage */
@@ -70,7 +74,7 @@
 
         /* Adjust grid for better display */
         .grid-cols-custom {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
 
         /* Popup Styling */
@@ -89,22 +93,25 @@
 
         .popup-content {
             background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 1.5rem;
+            border-radius: 0.625rem;
             text-align: center;
-            width: 80%;
+            width: 90%;
             max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .popup button {
             background-color: #e53e3e;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
             cursor: pointer;
         }
 
-        .popup button:hover {
+        .popup button:hover,
+        .popup button:active {
             background-color: #c53030;
         }
 
@@ -112,7 +119,8 @@
             color: #e1306c;
         }
 
-        .social-media a:hover {
+        .social-media a:hover,
+        .social-media a:active {
             opacity: 0.8;
         }
 
@@ -123,6 +131,34 @@
         .fab.fa-twitter {
             color: #1da1f2;
         }
+
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+
+            .text-3xl {
+                font-size: 1.875rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1.5rem 0;
+            }
+
+            .grid-cols-custom {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -130,9 +166,9 @@
 
     <!-- Fixed Navigation Bar -->
     <nav class="bg-blue-800 text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
             <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
-            <div class="space-x-6 navbar">
+            <div class="navbar flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-4 sm:mt-0">
                 <a href="#important-concepts" class="hover:text-yellow-400">Important Concepts</a>
                 <a href="#previous-exams" class="hover:text-yellow-400">Previous Year Exams</a>
                 <a href="#reference-materials" class="hover:text-yellow-400">Reference Materials</a>
@@ -143,102 +179,102 @@
     <!-- Home Section -->
     <section id="home" class="bg-blue-900 text-white full-height">
         <div>
-            <h1 class="text-5xl font-extrabold">Business Economics & Financial Analysis</h1>
-            <p class="text-xl mt-4 max-w-3xl mx-auto">Explore key resources related to **Business Economics** and **Financial Analysis**. This includes important concepts, previous year exam papers, and reference materials.</p>
-            <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-8 inline-block">Start Exploring</a>
+            <h1 class="text-4xl sm:text-5xl font-extrabold">Business Economics & Financial Analysis</h1>
+            <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">Explore key resources related to **Business Economics** and **Financial Analysis**. This includes important concepts, previous year exam papers, and reference materials.</p>
+            <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-8" aria-label="Start Exploring">Start Exploring</a>
         </div>
     </section>
 
     <!-- Important Concepts Section -->
-    <section id="important-concepts" class="bg-gray-50 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Important Concepts - Business Economics & Financial Analysis</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Here are the key concepts for **Business Economics** and **Financial Analysis**, essential for your exam preparation.</p>
-        <div class="grid grid-cols-custom gap-6 mt-12">
+    <section id="important-concepts" class="bg-gray-50 text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Important Concepts - Business Economics & Financial Analysis</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Here are the key concepts for **Business Economics** and **Financial Analysis**, essential for your exam preparation.</p>
+        <div class="grid grid-cols-custom gap-6 mt-8 sm:mt-12 px-4">
             <!-- Microeconomics -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Microeconomics</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Microeconomics</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Demand and Supply Analysis</li>
                     <li>Cost and Revenue Analysis</li>
                     <li>Market Structures</li>
                     <li>Elasticity</li>
                 </ul>
-                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4">Explore</a>
+                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4" aria-label="Explore Microeconomics">Explore</a>
             </div>
             <!-- Macroeconomics -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Macroeconomics</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Macroeconomics</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>National Income Accounting</li>
                     <li>Monetary and Fiscal Policy</li>
                     <li>Inflation and Unemployment</li>
                     <li>Economic Growth</li>
                 </ul>
-                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4">Explore</a>
+                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4" aria-label="Explore Macroeconomics">Explore</a>
             </div>
             <!-- Financial Management -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Financial Management</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Financial Management</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Time Value of Money</li>
                     <li>Capital Budgeting</li>
                     <li>Risk and Return Analysis</li>
                     <li>Cost of Capital</li>
                 </ul>
-                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4">Explore</a>
+                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4" aria-label="Explore Financial Management">Explore</a>
             </div>
             <!-- Financial Statement Analysis -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Financial Statement Analysis</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Financial Statement Analysis</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Balance Sheet Analysis</li>
                     <li>Income Statement Analysis</li>
                     <li>Cash Flow Analysis</li>
                     <li>Ratio Analysis</li>
                 </ul>
-                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4">Explore</a>
+                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4" aria-label="Explore Financial Statement Analysis">Explore</a>
             </div>
             <!-- Investment Analysis -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Investment Analysis</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Investment Analysis</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Types of Investments</li>
                     <li>Portfolio Management</li>
                     <li>Capital Market Instruments</li>
                     <li>Stock Valuation</li>
                 </ul>
-                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4">Explore</a>
+                <a href="#" onclick="showPopup('Content is not updated yet. We will update soon!')" class="cta-button mt-4" aria-label="Explore Investment Analysis">Explore</a>
             </div>
         </div>
     </section>
 
     <!-- Previous Year Exams Section -->
-    <section id="previous-exams" class="bg-blue-100 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Previous Year Exams - Business Economics & Financial Analysis</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Here are previous year exam papers for **Business Economics** and **Financial Analysis**, helping you to prepare for the exams effectively.</p>
-        <div class="grid grid-cols-custom gap-6 mt-12">
+    <section id="previous-exams" class="bg-blue-100 text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Previous Year Exams - Business Economics & Financial Analysis</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Here are previous year exam papers for **Business Economics** and **Financial Analysis**, helping you to prepare for the exams effectively.</p>
+        <div class="grid grid-cols-custom gap-6 mt-8 sm:mt-12 px-4">
             <!-- Business Economics Exam Papers -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Business Economics - Previous Year Papers</h3>
-                <p class="mt-4">Download and practice previous year exam papers on topics such as demand analysis, market structures, financial management, and more.</p><br>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Business Economics - Previous Year Papers</h3>
+                <p class="mt-4 text-sm sm:text-base">Download and practice previous year exam papers on topics such as demand analysis, market structures, financial management, and more.</p><br>
                 <div>
-                    <a href="./allnotes/Business_Economics_Question_Papers.pdf" class="cta-button mt-4">Download Previous Year Question Papers</a>
+                    <a href="./allnotes/Business_Economics_Question_Papers.pdf" class="cta-button mt-4" aria-label="Download Previous Year Question Papers">Download Previous Year Question Papers</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reference Materials Section -->
-    <section id="reference-materials" class="bg-white text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Reference Materials - Business Economics & Financial Analysis</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Download essential reference materials and notes to enhance your understanding of **Business Economics** and **Financial Analysis**.</p>
-        <div class="grid grid-cols-custom gap-6 mt-12">
+    <section id="reference-materials" class="bg-white text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Reference Materials - Business Economics & Financial Analysis</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Download essential reference materials and notes to enhance your understanding of **Business Economics** and **Financial Analysis**.</p>
+        <div class="grid grid-cols-custom gap-6 mt-8 sm:mt-12 px-4">
             <!-- Business Economics Notes -->
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Business Economics - Key Concepts</h3>
-                <p class="mt-4">Download notes covering the essential concepts of Business Economics and Financial Analysis, including demand-supply, financial ratios, and investment strategies.</p><br>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Business Economics - Key Concepts</h3>
+                <p class="mt-4 text-sm sm:text-base">Download notes covering the essential concepts of Business Economics and Financial Analysis, including demand-supply, financial ratios, and investment strategies.</p><br>
                 <div>
-                    <a href="./allnotes/Business_Economics_Notes.pdf" class="cta-button mt-4">Download Notes</a>
+                    <a href="./allnotes/Business_Economics_Notes.pdf" class="cta-button mt-4" aria-label="Download Business Economics Notes">Download Notes</a>
                 </div>
             </div>
         </div>
@@ -247,20 +283,28 @@
     <!-- Footer -->
     <footer>
         <p>Follow us on 
-        <div class="social-media">
-            <a href="https://www.facebook.com" target="_blank">
-                <i class="fab fa-facebook"></i>
+        <div class="social-media flex justify-center gap-4 mt-2">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Follow us on Facebook">
+                <i class="fab fa-facebook text-2xl"></i>
             </a>
-            <a href="https://www.twitter.com" target="_blank">
-                <i class="fab fa-twitter"></i>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Follow us on Twitter">
+                <i class="fab fa-twitter text-2xl"></i>
             </a>
-            <a href="https://www.instagram.com/varungoud___21/" target="_blank">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/varungoud___21/" target="_blank" aria-label="Follow us on Instagram">
+                <i class="fab fa-instagram text-2xl"></i>
             </a>
         </div>
         </p>
-        <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
+        <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
     </footer>
+
+    <!-- Popup Modal -->
+    <div class="popup" id="popup" role="dialog" aria-labelledby="popup-message">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button onclick="closePopup()" aria-label="Close popup">Close</button>
+        </div>
+    </div>
 
     <script>
         function showPopup(message) {
@@ -271,29 +315,46 @@
         function closePopup() {
             document.getElementById("popup").style.display = "none";
         }
-    </script>
-    <script>
-        // Disable Right-Click
-        document.addEventListener('contextmenu', function(event) {
+
+        // Consolidated event listeners for security and touch support
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled for security purposes.");
+        });
+
+        document.addEventListener('dblclick', (event) => {
             event.preventDefault();
         });
-    
-        // Disable Double-Click
-        document.addEventListener('dblclick', function(event) {
-            event.preventDefault();
-        });
-    
-        // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
-        document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
+                alert("Inspect Element is disabled.");
             }
         });
+
+        // Add touch support for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.classList.add('hover');
+            });
+            card.addEventListener('touchend', () => {
+                card.classList.remove('hover');
+            });
+        });
+
+        // Add touch support for cta-buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('hover');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('hover');
+            });
+        });
     </script>
-    
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Computer-Oriented Statistical Methods | Scient E-Library</title>
     <link rel="icon" type="image/png" href="logo11.jpg">
@@ -27,25 +27,65 @@
 
         .modal-content {
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
+            padding: 1.5rem;
+            border-radius: 0.375rem;
+            width: 90%;
             max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
             text-align: center;
         }
 
         .modal-close {
             background-color: red;
             color: white;
-            padding: 10px 15px;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .modal-close:hover {
+        .modal-close:hover,
+        .modal-close:active {
             background-color: darkred;
+            transform: scale(1.05);
+        }
+
+        /* Custom Styles */
+        .navbar a:hover,
+        .navbar a:active {
+            color: #ffeb3b;
+            transition: color 0.3s ease;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+
+            .text-3xl {
+                font-size: 1.875rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1.5rem 1rem;
+            }
+
+            ul.list-disc {
+                text-align: left;
+            }
         }
     </style>
 </head>
@@ -54,36 +94,36 @@
 
     <!-- Navbar -->
     <nav class="bg-blue-800 text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
             <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
-            <div class="space-x-6 navbar">
-                <a href="#overview" class="hover:text-yellow-400">Overview</a>
-                <a href="#key-topics" class="hover:text-yellow-400">Key Topics</a>
-                <a href="#resources" class="hover:text-yellow-400">Resources</a>
-                <a href="#" id="maintenance-link" class="hover:text-yellow-400">Maintenance</a>
+            <div class="navbar flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-4 sm:mt-0">
+                <a href="#overview" class="hover:text-yellow-400" aria-label="Overview">Overview</a>
+                <a href="#key-topics" class="hover:text-yellow-400" aria-label="Key Topics">Key Topics</a>
+                <a href="#resources" class="hover:text-yellow-400" aria-label="Resources">Resources</a>
+                <a href="#" id="maintenance-link" class="hover:text-yellow-400" aria-label="Maintenance">Maintenance</a>
             </div>
         </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="bg-blue-900 text-white text-center py-20">
-        <h1 class="text-5xl font-extrabold">Computer-Oriented Statistical Methods</h1>
-        <p class="text-xl mt-4 max-w-3xl mx-auto">Learn about the application of statistical methods through computational techniques. This subject covers data analysis, statistical software, and the use of computers for efficient statistical computation.</p>
+    <section id="home" class="bg-blue-900 text-white text-center py-12 sm:py-20">
+        <h1 class="text-4xl sm:text-5xl font-extrabold">Computer-Oriented Statistical Methods</h1>
+        <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">Learn about the application of statistical methods through computational techniques. This subject covers data analysis, statistical software, and the use of computers for efficient statistical computation.</p>
     </section>
 
     <!-- Overview Section -->
-    <section id="overview" class="py-16 px-4 bg-white">
+    <section id="overview" class="py-12 sm:py-16 px-4 bg-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Course Overview</h2>
-            <p class="text-lg text-gray-700">This course introduces statistical methods essential for analyzing and interpreting data. You'll gain practical skills in using software tools to conduct statistical tests, visualize data, and derive insights from raw numbers. Real-world case studies ensure you understand the application of theory.</p>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">Course Overview</h2>
+            <p class="text-base sm:text-lg text-gray-700">This course introduces statistical methods essential for analyzing and interpreting data. You'll gain practical skills in using software tools to conduct statistical tests, visualize data, and derive insights from raw numbers. Real-world case studies ensure you understand the application of theory.</p>
         </div>
     </section>
 
     <!-- Key Topics Section -->
-    <section id="key-topics" class="py-16 px-4 bg-gray-100">
+    <section id="key-topics" class="py-12 sm:py-16 px-4 bg-gray-100">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Key Topics Covered</h2>
-            <ul class="list-disc list-inside text-gray-800 space-y-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Key Topics Covered</h2>
+            <ul class="list-disc list-inside text-gray-800 space-y-4 text-base sm:text-lg">
                 <li>Descriptive Statistics</li>
                 <li>Probability Distributions</li>
                 <li>Sampling and Estimation</li>
@@ -96,30 +136,29 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="py-16 px-4 bg-white">
+    <section id="resources" class="py-12 sm:py-16 px-4 bg-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Study Resources</h2>
-            <p class="mb-4 text-lg">Here are some downloadable resources to help you succeed in this course:</p>
-            <ul class="text-blue-700 underline space-y-2">
-                <li><a href="https://drive.google.com/file/d/1-NxvzvkST9tT2tyXPyqxaPItIWquCIPk/view?usp=drivesdk" >Course Notes (PDF)</a></li>
-                <li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer">Practice Problems (Excel)</a></li>
-<li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer">Lab Manual</a></li>
-
+            <h2 class="text-2xl sm:text-3xl font-bold mb-6">Study Resources</h2>
+            <p class="mb-4 text-base sm:text-lg">Here are some downloadable resources to help you succeed in this course:</p>
+            <ul class="text-blue-700 underline space-y-2 text-base sm:text-lg">
+                <li><a href="https://drive.google.com/file/d/1-NxvzvkST9tT2tyXPyqxaPItIWquCIPk/view?usp=drivesdk" aria-label="Download Course Notes">Course Notes (PDF)</a></li>
+                <li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer" aria-label="Practice Problems">Practice Problems (Excel)</a></li>
+                <li><a href="#" onclick="showResourceNotice(event)" class="cursor-pointer" aria-label="Lab Manual">Lab Manual</a></li>
             </ul>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-blue-800 text-white text-center py-6 mt-10">
-        <p class="text-sm">&copy; 2024 Scient E-Library. Developed by B. Varun Goud | CSE Dept, Scient Institute of Technology.</p>
+        <p class="text-sm">© 2024 Scient E-Library. Developed by B. Varun Goud | CSE Dept, Scient Institute of Technology.</p>
     </footer>
 
     <!-- Modal for Maintenance Message -->
-    <div id="maintenance-modal" class="modal">
+    <div id="maintenance-modal" class="modal" role="dialog" aria-labelledby="modal-title">
         <div class="modal-content">
-            <h2 class="text-2xl font-semibold text-red-600">We Are Under Maintenance</h2>
+            <h2 id="modal-title" class="text-2xl font-semibold text-red-600">We Are Under Maintenance</h2>
             <p class="mt-4 text-lg">We are currently performing some updates on our site. Please check back later.</p>
-            <button class="modal-close mt-6" onclick="closeModal()">Close</button>
+            <button class="modal-close mt-6" onclick="closeModal()" aria-label="Close modal">Close</button>
         </div>
     </div>
 
@@ -141,20 +180,53 @@
             modal.style.display = 'none';
         }
 
-        document.addEventListener('contextmenu', function(event) {
+        // Consolidated event listeners for security and touch support
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled for security purposes.");
+        });
+
+        document.addEventListener('dblclick', (event) => {
             event.preventDefault();
         });
 
-        document.addEventListener('dblclick', function(event) {
-            event.preventDefault();
-        });
-
-        document.addEventListener('keydown', function(event) {
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
+                alert("Inspect Element is disabled.");
             }
+        });
+
+        // Add touch support for navbar links
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('touchstart', () => {
+                link.classList.add('hover');
+            });
+            link.addEventListener('touchend', () => {
+                link.classList.remove('hover');
+            });
+        });
+
+        // Add touch support for resource links
+        document.querySelectorAll('#resources a').forEach(link => {
+            link.addEventListener('touchstart', () => {
+                link.classList.add('hover');
+            });
+            link.addEventListener('touchend', () => {
+                link.classList.remove('hover');
+            });
+        });
+
+        // Add touch support for modal close button
+        document.querySelectorAll('.modal-close').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('hover');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('hover');
+            });
         });
     </script>
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Basic Electrical Engineering (BEE) | Scient E-Library</title>
     <link rel="icon" type="image/png" href="logo11.jpg">
@@ -19,10 +19,11 @@
         .cta-button {
             background-color: #002f6c;
             color: white;
-            padding: 12px 25px;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
         }
 
         .cta-button:hover {
@@ -34,9 +35,10 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        .card:hover,
+        .card:active {
+            transform: translateY(-0.625rem);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -51,10 +53,11 @@
         }
 
         section {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
 
-        .navbar a:hover {
+        .navbar a:hover,
+        .navbar a:active {
             color: #ffeb3b;
             transition: color 0.3s ease;
         }
@@ -67,30 +70,58 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            max-width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .popup .popup-content {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #333;
             text-align: center;
         }
 
         .popup .close-btn {
             margin-top: 1rem;
-            padding: 8px 16px;
+            padding: 0.5rem 1rem;
             background-color: #002f6c;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             cursor: pointer;
         }
 
-        .popup .close-btn:hover {
+        .popup .close-btn:hover,
+        .popup .close-btn:active {
             background-color: #003366;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 640px) {
+            .text-5xl {
+                font-size: 2.5rem;
+            }
+
+            .text-3xl {
+                font-size: 1.875rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1.5rem 0;
+            }
         }
     </style>
 </head>
@@ -99,9 +130,9 @@
 
     <!-- Fixed Navigation Bar -->
     <nav class="bg-blue-800 text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
             <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
-            <div class="space-x-6 navbar">
+            <div class="navbar flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-4 sm:mt-0">
                 <a href="#important-questions" class="hover:text-yellow-400">Important Questions</a>
                 <a href="#previous-questions" class="hover:text-yellow-400">Previous Year Questions</a>
                 <a href="#reference-notes" class="hover:text-yellow-400">Reference Notes</a>
@@ -110,20 +141,20 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="bg-blue-900 text-white text-center py-20">
-        <h1 class="text-5xl font-extrabold">Welcome to Basic Electrical Engineering (BEE)</h1>
-        <p class="text-xl mt-4 max-w-3xl mx-auto">Explore key resources related to **Basic Electrical Engineering**, an essential subject for B.Tech students. This includes important questions, previous year exam papers, and detailed reference notes.</p>
-        <a href="#important-questions" class="cta-button mt-8 inline-block">Start Exploring</a>
+    <section id="home" class="bg-blue-900 text-white text-center py-12 sm:py-20">
+        <h1 class="text-4xl sm:text-5xl font-extrabold">Welcome to Basic Electrical Engineering (BEE)</h1>
+        <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">Explore key resources related to **Basic Electrical Engineering**, an essential subject for B.Tech students. This includes important questions, previous year exam papers, and detailed reference notes.</p>
+        <a href="#important-questions" class="cta-button mt-8">Start Exploring</a>
     </section>
 
     <!-- Important Questions Section -->
-    <section id="important-questions" class="bg-gray-50 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Important Questions - BEE</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Here you'll find a curated list of important questions for **Basic Electrical Engineering** that will help you excel in your exams.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+    <section id="important-questions" class="bg-gray-50 text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Important Questions - BEE</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Here you'll find a curated list of important questions for **Basic Electrical Engineering** that will help you excel in your exams.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 sm:mt-12 px-4">
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Electrical Circuits</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Electrical Circuits</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Explain Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL).</li>
                     <li>Analyze the series and parallel combinations of resistors.</li>
                     <li>Define Ohm's Law and solve problems based on it.</li>
@@ -131,8 +162,8 @@
                 </ul>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">AC Circuits</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">AC Circuits</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Explain the concept of reactance and impedance.</li>
                     <li>What is resonance in AC circuits? Explain with examples.</li>
                     <li>Write short notes on power factor and its importance in AC circuits.</li>
@@ -140,8 +171,8 @@
                 </ul>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Electromagnetic Fields</h3>
-                <ul class="mt-4 text-left">
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Electromagnetic Fields</h3>
+                <ul class="mt-4 text-left text-sm sm:text-base">
                     <li>Explain the laws of electromagnetic induction.</li>
                     <li>State and explain Faraday's Law of Electromagnetic Induction.</li>
                     <li>Describe the working principle of transformers and their applications.</li>
@@ -152,44 +183,44 @@
     </section>
 
     <!-- Previous Year Questions Section -->
-    <section id="previous-questions" class="bg-blue-100 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Previous Year Questions - BEE</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Explore previous year question papers for **Basic Electrical Engineering**. These papers will help you understand the exam pattern and types of questions asked.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+    <section id="previous-questions" class="bg-blue-100 text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Previous Year Questions - BEE</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Explore previous year question papers for **Basic Electrical Engineering**. These papers will help you understand the exam pattern and types of questions asked.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 sm:mt-12 px-4">
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Electrical Circuits - Previous Year Papers</h3>
-                <p class="mt-4">Download and practice questions related to circuit analysis, resistive networks, and AC circuits.</p>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Electrical Circuits - Previous Year Papers</h3>
+                <p class="mt-4 text-sm sm:text-base">Download and practice questions related to circuit analysis, resistive networks, and AC circuits.</p>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">AC Circuits - Previous Year Papers</h3>
-                <p class="mt-4">Access previous year question papers covering AC power analysis, resonance, and impedance.</p>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">AC Circuits - Previous Year Papers</h3>
+                <p class="mt-4 text-sm sm:text-base">Access previous year question papers covering AC power analysis, resonance, and impedance.</p>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Electromagnetic Fields - Previous Year Papers</h3>
-                <p class="mt-4">Review past papers on electromagnetic theory, induction, and transformer operation.</p>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Electromagnetic Fields - Previous Year Papers</h3>
+                <p class="mt-4 text-sm sm:text-base">Review past papers on electromagnetic theory, induction, and transformer operation.</p>
             </div>
         </div>
     </section>
 
     <!-- Reference Notes Section -->
-    <section id="reference-notes" class="bg-white text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - BEE</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Download reference notes that cover fundamental concepts in **Basic Electrical Engineering**.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+    <section id="reference-notes" class="bg-white text-center py-12 sm:py-16">
+        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-900">Reference Notes - BEE</h2>
+        <p class="text-base sm:text-lg mt-4 max-w-3xl mx-auto">Download reference notes that cover fundamental concepts in **Basic Electrical Engineering**.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 sm:mt-12 px-4">
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Circuit Theory & Network Analysis</h3>
-                <p class="mt-4">Detailed notes on circuit theory, network theorems, and problem-solving techniques.</p>
-                <a href="#" class="cta-button mt-4" onclick="showPopup(event)">Download Notes</a>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Circuit Theory & Network Analysis</h3>
+                <p class="mt-4 text-sm sm:text-base">Detailed notes on circuit theory, network theorems, and problem-solving techniques.</p>
+                <a href="#" class="cta-button mt-4" onclick="showPopup(event)" aria-label="Download Circuit Theory Notes">Download Notes</a>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">AC Circuits & Power Systems</h3>
-                <p class="mt-4">Comprehensive notes on AC analysis, power factor correction, and power systems.</p>
-                <a href="#" class="cta-button mt-4" onclick="showPopup(event)">Download Notes</a>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">AC Circuits & Power Systems</h3>
+                <p class="mt-4 text-sm sm:text-base">Comprehensive notes on AC analysis, power factor correction, and power systems.</p>
+                <a href="#" class="cta-button mt-4" onclick="showPopup(event)" aria-label="Download AC Circuits Notes">Download Notes</a>
             </div>
             <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Electromagnetic Theory & Machines</h3>
-                <p class="mt-4">In-depth notes on electromagnetic theory, magnetic fields, and electrical machines.</p>
-                <a href="#" class="cta-button mt-4" onclick="showPopup(event)">Download Notes</a>
+                <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Electromagnetic Theory & Machines</h3>
+                <p class="mt-4 text-sm sm:text-base">In-depth notes on electromagnetic theory, magnetic fields, and electrical machines.</p>
+                <a href="#" class="cta-button mt-4" onclick="showPopup(event)" aria-label="Download Electromagnetic Theory Notes">Download Notes</a>
             </div>
         </div>
     </section>
@@ -201,18 +232,17 @@
     </footer>
 
     <!-- Popup Modal -->
-    <div class="popup" id="popup">
+    <div class="popup" id="popup" role="dialog" aria-labelledby="popup-message">
         <div class="popup-content">
-            <p>Currently under maintenance</p>
-            <button class="close-btn" onclick="closePopup()">Close</button>
+            <p id="popup-message">Currently under maintenance</p>
+            <button class="close-btn" onclick="closePopup()" aria-label="Close popup">Close</button>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script>
-        // Prevent double clicks and show pop-up for links with href="#"
         function showPopup(event) {
-            event.preventDefault();  // Prevent default link action
+            event.preventDefault();
             document.getElementById("popup").style.display = "block";
         }
 
@@ -220,42 +250,35 @@
             document.getElementById("popup").style.display = "none";
         }
 
-        // Disable inspect element attempt
-        document.oncontextmenu = function() {
+        // Consolidated event listeners for security
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
             alert("Right-click is disabled for security purposes.");
-            return false;
-        };
+        });
 
-        // Disable F12 and right-click
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-                alert("Inspect Element is disabled.");
-                return false;
-            }
-        };
-    </script>
-    <script>
-        // Disable Right-Click
-        document.addEventListener('contextmenu', function(event) {
+        document.addEventListener('dblclick', (event) => {
             event.preventDefault();
         });
-    
-        // Disable Double-Click
-        document.addEventListener('dblclick', function(event) {
-            event.preventDefault();
-        });
-    
-        // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
-        document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
+                alert("Inspect Element is disabled.");
             }
         });
+
+        // Add touch support for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.classList.add('hover');
+            });
+            card.addEventListener('touchend', () => {
+                card.classList.remove('hover');
+            });
+        });
     </script>
-    
 
 </body>
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Course Details - I Year I Semester</title>
     <link rel="icon" type="image/png" href="logo11.jpg">
@@ -24,32 +24,33 @@
         header {
             background-color: #002f6c;
             color: white;
-            padding: 30px 0;
+            padding: 1.5rem 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 2.5rem;
         }
 
         header p {
-            font-size: 20px;
-            margin-top: 10px;
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
         }
 
         table {
-            width: 80%;
-            margin: 50px auto;
+            width: 90%;
+            max-width: 100%;
+            margin: 2rem auto;
             border-collapse: collapse;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
         }
 
         table th,
         table td {
-            padding: 15px;
+            padding: 0.75rem;
             text-align: center;
             border: 1px solid #ddd;
+            font-size: 0.875rem;
         }
 
         table th {
@@ -69,12 +70,12 @@
             background-color: #004a94;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            padding: 1rem 0;
+            margin-top: 2rem;
         }
 
         footer p {
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         /* Style for links in course names */
@@ -83,7 +84,8 @@
             text-decoration: none;
         }
 
-        a:hover {
+        a:hover,
+        a:active {
             text-decoration: underline;
         }
 
@@ -98,27 +100,62 @@
             background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            z-index: 1000;
         }
 
         .popup-content {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            width: 50%;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
             text-align: center;
         }
 
         .popup-content button {
             background-color: #002f6c;
             color: white;
-            padding: 10px 20px;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.3125rem;
             cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .popup-content button:hover {
+        .popup-content button:hover,
+        .popup-content button:active {
             background-color: #003366;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 640px) {
+            header h1 {
+                font-size: 1.875rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            table {
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+            }
+
+            table th,
+            table td {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+
+            footer p {
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -148,7 +185,7 @@
             <tr>
                 <td>1</td>
                 <td>MA101BS</td>
-                <td><a href="/m1.html">Matrices and Calculus</a></td>
+                <td><a href="/m1.html" aria-label="Matrices and Calculus">Matrices and Calculus</a></td>
                 <td>3</td>
                 <td>1</td>
                 <td>0</td>
@@ -157,7 +194,7 @@
             <tr>
                 <td>2</td>
                 <td>CH102BS</td>
-                <td><a href="chemistry.html">Engineering Chemistry</a></td>
+                <td><a href="chemistry.html" aria-label="Engineering Chemistry">Engineering Chemistry</a></td>
                 <td>3</td>
                 <td>1</td>
                 <td>0</td>
@@ -166,7 +203,7 @@
             <tr>
                 <td>3</td>
                 <td>CS103ES</td>
-                <td><a href="pps.html">Programming for Problem Solving</a></td>
+                <td><a href="pps.html" aria-label="Programming for Problem Solving">Programming for Problem Solving</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -175,7 +212,7 @@
             <tr>
                 <td>4</td>
                 <td>EE104ES</td>
-                <td><a href="bee.html">Basic Electrical Engineering</a></td>
+                <td><a href="bee.html" aria-label="Basic Electrical Engineering">Basic Electrical Engineering</a></td>
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
@@ -184,7 +221,7 @@
             <tr>
                 <td>5</td>
                 <td>ME105ES</td>
-                <td><a href="cieg.html">Computer Aided Engineering Graphics</a></td>
+                <td><a href="cieg.html" aria-label="Computer Aided Engineering Graphics">Computer Aided Engineering Graphics</a></td>
                 <td>1</td>
                 <td>0</td>
                 <td>4</td>
@@ -193,7 +230,7 @@
             <tr>
                 <td>6</td>
                 <td>CS106ES</td>
-                <td><a href="#" onclick="showPopup()">Elements of Computer Science & Engineering</a></td>
+                <td><a href="#" onclick="showPopup()" aria-label="Elements of Computer Science & Engineering">Elements of Computer Science & Engineering</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -202,7 +239,7 @@
             <tr>
                 <td>7</td>
                 <td>CH107BS</td>
-                <td><a href="#" onclick="showPopup()">Engineering Chemistry Laboratory</a></td>
+                <td><a href="#" onclick="showPopup()" aria-label="Engineering Chemistry Laboratory">Engineering Chemistry Laboratory</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -211,7 +248,7 @@
             <tr>
                 <td>8</td>
                 <td>CS108ES</td>
-                <td><a href="#" onclick="showPopup()">Programming for Problem Solving Laboratory</a></td>
+                <td><a href="#" onclick="showPopup()" aria-label="Programming for Problem Solving Laboratory">Programming for Problem Solving Laboratory</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -220,7 +257,7 @@
             <tr>
                 <td>9</td>
                 <td>EE109ES</td>
-                <td><a href="#" onclick="showPopup()">Basic Electrical Engineering Laboratory</a></td>
+                <td><a href="#" onclick="showPopup()" aria-label="Basic Electrical Engineering Laboratory">Basic Electrical Engineering Laboratory</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -237,14 +274,14 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
+        <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
     </footer>
 
     <!-- Popup Section -->
-    <div class="popup" id="popup">
+    <div class="popup" id="popup" role="dialog" aria-labelledby="popup-message">
         <div class="popup-content">
-            <p>Lab Notes/Non-credit Subject notes are not available.</p>
-            <button onclick="closePopup()">Close</button>
+            <p id="popup-message">Lab Notes/Non-credit Subject notes are not available.</p>
+            <button onclick="closePopup()" aria-label="Close popup">Close</button>
         </div>
     </div>
 
@@ -258,29 +295,46 @@
         function closePopup() {
             document.getElementById("popup").style.display = "none";
         }
-    </script>
-    <script>
-        // Disable Right-Click
-        document.addEventListener('contextmenu', function(event) {
+
+        // Consolidated event listeners for security and touch support
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled for security purposes.");
+        });
+
+        document.addEventListener('dblclick', (event) => {
             event.preventDefault();
         });
-    
-        // Disable Double-Click
-        document.addEventListener('dblclick', function(event) {
-            event.preventDefault();
-        });
-    
-        // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
-        document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
+                alert("Inspect Element is disabled.");
             }
         });
+
+        // Add touch support for table links
+        document.querySelectorAll('table a').forEach(link => {
+            link.addEventListener('touchstart', () => {
+                link.classList.add('hover');
+            });
+            link.addEventListener('touchend', () => {
+                link.classList.remove('hover');
+            });
+        });
+
+        // Add touch support for popup button
+        document.querySelectorAll('.popup-content button').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('hover');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('hover');
+            });
+        });
     </script>
-    
 
 </body>
 

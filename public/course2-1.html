@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Course Details - II Year II Semester</title>
     <link rel="icon" type="image/png" href="logo11.jpg">
-    
+
     <style>
         /* General Reset */
         * {
@@ -24,32 +24,33 @@
         header {
             background-color: #002f6c;
             color: white;
-            padding: 30px 0;
+            padding: 1.5rem 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 2.5rem;
         }
 
         header p {
-            font-size: 20px;
-            margin-top: 10px;
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
         }
 
         table {
-            width: 80%;
-            margin: 50px auto;
+            width: 90%;
+            max-width: 100%;
+            margin: 2rem auto;
             border-collapse: collapse;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
         }
 
         table th,
         table td {
-            padding: 15px;
+            padding: 0.75rem;
             text-align: center;
             border: 1px solid #ddd;
+            font-size: 0.875rem;
         }
 
         table th {
@@ -75,12 +76,12 @@
             background-color: #004a94;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            padding: 1rem 0;
+            margin-top: 2rem;
         }
 
         footer p {
-            font-size: 14px;
+            font-size: 0.875rem;
         }
 
         /* Style for links in course names */
@@ -89,7 +90,8 @@
             text-decoration: none;
         }
 
-        a:hover {
+        a:hover,
+        a:active {
             text-decoration: underline;
         }
 
@@ -109,25 +111,57 @@
 
         .modal-content {
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
+            padding: 1.5rem;
+            border-radius: 0.375rem;
+            width: 90%;
             max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
             text-align: center;
         }
 
         .modal-close {
             background-color: red;
             color: white;
-            padding: 10px 15px;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 0.375rem;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .modal-close:hover {
+        .modal-close:hover,
+        .modal-close:active {
             background-color: darkred;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 640px) {
+            header h1 {
+                font-size: 1.875rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            table {
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+            }
+
+            table th,
+            table td {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+
+            footer p {
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -136,7 +170,7 @@
 
     <!-- Header Section -->
     <header>
-        <h1>Course Details - II Year II Semester</h1>
+        <h1>Course Details - II Year I Semester</h1>
         <p>List of courses and their corresponding details for the II Year II Semester</p>
     </header>
 
@@ -157,7 +191,7 @@
             <tr>
                 <td>1</td>
                 <td>CS401PC</td>
-                <td><a href="cosm.html" class="course-link">Computer oriented statistical Methods</a></td>
+                <td><a href="cosm.html" class="course-link" aria-label="Computer oriented statistical Methods">Computer oriented statistical Methods</a></td>
                 <td>4</td>
                 <td>0</td>
                 <td>0</td>
@@ -166,7 +200,7 @@
             <tr>
                 <td>2</td>
                 <td>SM402MS</td>
-                <td><a href="coa.html" class="course-link">Computer organization and Architecture </a></td>
+                <td><a href="coa.html" class="course-link" aria-label="Computer organization and Architecture">Computer organization and Architecture</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -175,7 +209,7 @@
             <tr>
                 <td>3</td>
                 <td>CS403PC</td>
-                <td><a href="java.html" class="course-link">Java</a></td>
+                <td><a href="java.html" class="course-link" aria-label="Java">Java</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -184,7 +218,7 @@
             <tr>
                 <td>4</td>
                 <td>CS404PC</td>
-                <td><a href="ds.html" class="course-link">Data Structures</a></td>
+                <td><a href="ds.html" class="course-link" aria-label="Data Structures">Data Structures</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -193,7 +227,7 @@
             <tr>
                 <td>5</td>
                 <td>CS405PC</td>
-                <td><a href="de.html" class="course-link">Digital Electronics</a></td>
+                <td><a href="de.html" class="course-link" aria-label="Digital Electronics">Digital Electronics</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -202,7 +236,7 @@
             <tr>
                 <td>6</td>
                 <td>CS406PC</td>
-                <td><a href="#" class="course-link">Operating Systems Lab</a></td>
+                <td><a href="#" class="course-link" onclick="showModal()" aria-label="Operating Systems Lab">Operating Systems Lab</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -211,7 +245,7 @@
             <tr>
                 <td>7</td>
                 <td>CS407PC</td>
-                <td><a href="#" class="course-link">Database Management Systems Lab</a></td>
+                <td><a href="#" class="course-link" onclick="showModal()" aria-label="Database Management Systems Lab">Database Management Systems Lab</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -220,7 +254,7 @@
             <tr>
                 <td>8</td>
                 <td>CS408PC</td>
-                <td><a href="#" class="course-link">Real-time Research Project/ Societal Related Project</a></td>
+                <td><a href="#" class="course-link" onclick="showModal()" aria-label="Real-time Research Project/ Societal Related Project">Real-time Research Project/ Societal Related Project</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>4</td>
@@ -229,7 +263,7 @@
             <tr>
                 <td>9</td>
                 <td>CS409PC</td>
-                <td><a href="#" class="course-link">Node JS/ React JS/ Django</a></td>
+                <td><a href="#" class="course-link" onclick="showModal()" aria-label="Node JS/ React JS/ Django">Node JS/ React JS/ Django</a></td>
                 <td>0</td>
                 <td>0</td>
                 <td>2</td>
@@ -238,7 +272,7 @@
             <tr>
                 <td>10</td>
                 <td>MC410</td>
-                <td><a href="#" class="course-link">Constitution of India</a></td>
+                <td><a href="#" class="course-link" onclick="showModal()" aria-label="Constitution of India">Constitution of India</a></td>
                 <td>3</td>
                 <td>0</td>
                 <td>0</td>
@@ -255,63 +289,69 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; © 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
+        <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
     </footer>
 
     <!-- Modal for unavailable courses -->
-    <div id="unavailable-modal" class="modal">
+    <div id="unavailable-modal" class="modal" role="dialog" aria-labelledby="modal-title">
         <div class="modal-content">
-            <h2 class="text-2xl font-semibold text-red-600">Lab subject/Non Credit subject Currently unavailable</h2>
+            <h2 id="modal-title" class="text-2xl font-semibold text-red-600">Lab subject/Non Credit subject Currently unavailable</h2>
             <p class="mt-4 text-lg">This course is a lab subject or a non-credit subject, and is currently unavailable for detailed viewing. Please try again later.</p>
-            <button class="modal-close mt-6" onclick="closeModal()">Close</button>
+            <button class="modal-close mt-6" onclick="closeModal()" aria-label="Close modal">Close</button>
         </div>
     </div>
 
     <script>
-        // Get all the course links and the modal
-        const courseLinks = document.querySelectorAll('.course-link');
-        const modal = document.getElementById('unavailable-modal');
-
         // Function to open the modal
-        courseLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                const href = link.getAttribute('href');
-                if (href === "#") {
-                    event.preventDefault(); // Only prevent if it's a placeholder
-                    modal.style.display = 'flex';
-                }
-            });
-    
-        
-        });
+        function showModal() {
+            document.getElementById('unavailable-modal').style.display = 'flex';
+        }
 
         // Function to close the modal
         function closeModal() {
-            modal.style.display = 'none'; // Hide the modal
+            document.getElementById('unavailable-modal').style.display = 'none';
         }
-    </script>
-    <script>
-        // Disable Right-Click
-        document.addEventListener('contextmenu', function(event) {
+
+        // Consolidated event listeners for security and touch support
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert("Right-click is disabled for security purposes.");
+        });
+
+        document.addEventListener('dblclick', (event) => {
             event.preventDefault();
         });
-    
-        // Disable Double-Click
-        document.addEventListener('dblclick', function(event) {
-            event.preventDefault();
-        });
-    
-        // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
-        document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && event.key === 'I') || 
+                (event.ctrlKey && event.key === 'U')) {
                 event.preventDefault();
+                alert("Inspect Element is disabled.");
             }
         });
+
+        // Add touch support for table links
+        document.querySelectorAll('.course-link').forEach(link => {
+            link.addEventListener('touchstart', () => {
+                link.classList.add('hover');
+            });
+            link.addEventListener('touchend', () => {
+                link.classList.remove('hover');
+            });
+        });
+
+        // Add touch support for modal close button
+        document.querySelectorAll('.modal-close').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('hover');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('hover');
+            });
+        });
     </script>
-    
+
 </body>
 
 </html>
