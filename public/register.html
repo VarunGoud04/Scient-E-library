@@ -270,51 +270,66 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-  const form = document.getElementById("register-form");
-  const errorMessage = document.getElementById("error-message");
-  const successMessage = document.getElementById("success-message");
+const form = document.getElementById("register-form");
+const errorMessage = document.getElementById("error-message");
+const successMessage = document.getElementById("success-message");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    errorMessage.textContent = "";
-    successMessage.textContent = "";
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errorMessage.textContent = "";
+  successMessage.textContent = "";
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
-    const college = document.getElementById("college").value;
-    const regulation = document.getElementById("regulation").value;
-    const branch = document.getElementById("branch").value;
-    const university = "JNTUH";
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  const college = document.getElementById("college").value;
+  const regulation = document.getElementById("regulation").value;
+  const branch = document.getElementById("branch").value;
+  const university = "JNTUH";
 
-    if (password !== confirmPassword) {
-      errorMessage.textContent = "Passwords do not match.";
-      return;
+  if (password !== confirmPassword) {
+    errorMessage.textContent = "⚠️ Passwords do not match. Please check again.";
+    return;
+  }
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await addDoc(collection(db, "users"), {
+      uid: userCredential.user.uid,
+      name,
+      email,
+      college,
+      regulation,
+      branch,
+      university,
+      createdAt: new Date()
+    });
+
+    successMessage.textContent = "✅ Registration successful! Welcome to Scient E-Library!";
+    form.reset();
+  } catch (error) {
+    console.log(error.code); // for debugging, optional
+    switch (error.code) {
+      case "auth/email-already-in-use":
+        errorMessage.textContent = "⚠️ This email is already registered. Try logging in instead.";
+        break;
+      case "auth/invalid-email":
+        errorMessage.textContent = "⚠️ Please enter a valid email address.";
+        break;
+      case "auth/weak-password":
+        errorMessage.textContent = "⚠️ Password should be at least 6 characters.";
+        break;
+      default:
+        errorMessage.textContent = "⚠️ Something went wrong. Please try again later.";
+        break;
     }
+  }
+});
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await addDoc(collection(db, "users"), {
-        uid: userCredential.user.uid,
-        name,
-        email,
-        college,
-        regulation,
-        branch,
-        university,
-        createdAt: new Date()
-      });
-
-      successMessage.textContent = "Registration successful!";
-      form.reset();
-    } catch (error) {
-      errorMessage.textContent = error.message;
-    }
-  });
 </script>
 
 </body>
