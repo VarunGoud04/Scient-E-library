@@ -270,66 +270,112 @@
   };
 
   const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-const form = document.getElementById("register-form");
-const errorMessage = document.getElementById("error-message");
-const successMessage = document.getElementById("success-message");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  errorMessage.textContent = "";
-  successMessage.textContent = "";
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirm-password").value;
-  const college = document.getElementById("college").value;
-  const regulation = document.getElementById("regulation").value;
-  const branch = document.getElementById("branch").value;
-  const university = "JNTUH";
-
-  if (password !== confirmPassword) {
-    errorMessage.textContent = "⚠️ Passwords do not match. Please check again.";
-    return;
-  }
-
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    await addDoc(collection(db, "users"), {
-      uid: userCredential.user.uid,
-      name,
-      email,
-      college,
-      regulation,
-      branch,
-      university,
-      createdAt: new Date()
-    });
-
-    successMessage.textContent = "✅ Registration successful! Welcome to Scient E-Library!";
-    form.reset();
-  } catch (error) {
-    console.log(error.code); // for debugging, optional
-    switch (error.code) {
-      case "auth/email-already-in-use":
-        errorMessage.textContent = "⚠️ This email is already registered. Try logging in instead.";
-        break;
-      case "auth/invalid-email":
-        errorMessage.textContent = "⚠️ Please enter a valid email address.";
-        break;
-      case "auth/weak-password":
-        errorMessage.textContent = "⚠️ Password should be at least 6 characters.";
-        break;
-      default:
-        errorMessage.textContent = "⚠️ Something went wrong. Please try again later.";
-        break;
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  
+  const form = document.getElementById("register-form");
+  const errorMessage = document.getElementById("error-message");
+  const successMessage = document.getElementById("success-message");
+  
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorMessage.textContent = "";
+    successMessage.textContent = "";
+  
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    const college = document.getElementById("college").value;
+    const regulation = document.getElementById("regulation").value;
+    const branch = document.getElementById("branch").value;
+    const university = "JNTUH";
+  
+    if (password !== confirmPassword) {
+      errorMessage.textContent = "⚠️ Passwords do not match. Please check again.";
+      return;
     }
-  }
+  
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await addDoc(collection(db, "users"), {
+        uid: userCredential.user.uid,
+        name,
+        email,
+        college,
+        regulation,
+        branch,
+        university,
+        createdAt: new Date()
+      });
+  
+      successMessage.textContent = "✅ Registration successful! Welcome to Scient E-Library!";
+      form.reset();
+    } catch (error) {
+      console.log(error.code); // optional for debugging
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          errorMessage.textContent = "⚠️ This email is already registered. Try logging in instead.";
+          break;
+        case "auth/invalid-email":
+          errorMessage.textContent = "⚠️ Please enter a valid email address.";
+          break;
+        case "auth/weak-password":
+          errorMessage.textContent = "⚠️ Password should be at least 6 characters.";
+          break;
+        case "auth/user-disabled":
+          errorMessage.textContent = "⚠️ This account has been disabled. Contact support for help.";
+          break;
+        default:
+          errorMessage.textContent = "⚠️ Something went wrong. Please try again later.";
+          break;
+      }
+    }
+  });
+  
+
+</script>
+<script>
+  function showModal() {
+    document.getElementById('registerModal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('registerModal').style.display = "none";
+}
+
+// Add event listener to trigger the modal when clicking on a link
+document.querySelectorAll('a[href="#"]').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent scrolling
+        showModal();             // Show the modal
+    });
 });
 
+// Close the modal if the user clicks anywhere outside of the modal content
+window.onclick = function(event) {
+    var modal = document.getElementById("registerModal");
+    if (event.target == modal) {
+        closeModal();
+    }
+};
+
+// Disable Right-Click, Double-Click, and Inspect Element
+document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener('dblclick', function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener('keydown', function (event) {
+    if ((event.key === 'F12') ||
+        (event.ctrlKey && event.shiftKey && (event.key === 'I')) ||
+        (event.ctrlKey && (event.key === 'U'))) {
+        event.preventDefault();
+    }
+});
 </script>
 
 </body>
