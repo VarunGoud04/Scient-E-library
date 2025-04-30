@@ -29,23 +29,39 @@
     }
 
     header {
-      background-color: #002f6c;
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-      position: relative;
-    }
+  background-color: #002f6c;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
 
-    #profile-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-    }
+header h1 {
+  font-size: 28px;
+  margin: 0 20px;
+  flex-grow: 1;
+  text-align: center;
+}
 
-    #profile-icon i {
-      color: white;
-    }
+#profile-icon i {
+  color: white;
+  font-size: 32px;
+  transition: transform 0.3s ease;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+#profile-icon i:hover {
+  transform: scale(1.2) rotate(5deg);
+}
 
     /* Full-screen Profile Modal */
     #user-popup {
@@ -226,6 +242,14 @@
         padding: 10px 14px;
       }
     }
+.course-section {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
   </style>
 
   <script>
@@ -323,7 +347,7 @@
       <span>Thanks for registering! Have a great experience with Scient E-Library 🚀</span>
     </div>
 
-    <div class="courses-container">
+    
       <!-- Course Content Here (Same as Your Original Code) -->
       <div class="courses-container">
         <div class="course-section">
