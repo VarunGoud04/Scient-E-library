@@ -42,7 +42,7 @@
       background-color: #003366;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: left;
       padding: 10px 20px;
       flex-wrap: wrap;
     }
@@ -231,15 +231,28 @@
     <h1>Scient E-Library - Login</h1>
   </header>
 
-  <nav class="navbar">
-    <div class="menu-icon" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-    <div class="navbar-links" id="navbarLinks">
-      <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  <nav>
+    <div class="logo">📚 Scient E-Library</div>
+    <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        <a href="#" class="text-2xl font-bold">Scient E-Library</a>
+        <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">
+          <a href="index.html" class="hover:text-yellow-400">Home</a>
+          <a href="about.html" class="hover:text-yellow-400">About Us</a>
+          <a href="/register" class="hover:text-yellow-400">Register</a>
+          <a href="login.html" class="hover:text-yellow-400">Login</a>
+          <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+        </div>
+      </div>
+    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">
+      <a href="index.html" class="hover:text-yellow-400">Home</a>
+      <a href="about.html" class="hover:text-yellow-400">About Us</a>
+      <a href="/register" class="hover:text-yellow-400">Register</a>
+      <a href="login.html" class="hover:text-yellow-400">Login</a>
+      <a href="contact.html" class="hover:text-yellow-400">Contact</a>
     </div>
   </nav>
 
