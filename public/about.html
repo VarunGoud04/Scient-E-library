@@ -197,34 +197,33 @@
         .footer-bottom a:hover {
             text-decoration: underline;
         }
-       
-      
-          .social-media a {
-            margin: 0 10px;          /* Space between icons */
-            font-size: 24px;         /* Size of icons */
-            text-decoration: none;   /* Remove underline from links */
-          }
-      
-          .fab.fa-facebook {
-            color: #1877f2;          /* Facebook Blue */
-          }
-      
-          .fab.fa-twitter {
-            color: #1da1f2;          /* Twitter Blue */
-          }
-      
-          .fab.fa-instagram {
-            color: #e1306c;          /* Instagram Pinkish */
-          }
-      
-          .fab.fa-linkedin {
-            color: #0a66c2;          /* LinkedIn Blue */
-          }
-      
-          /* Hover effect */
-          .social-media a:hover {
-            opacity: 0.8;            /* Slightly transparent on hover */
-          }
+
+        .social-media a {
+            margin: 0 10px; /* Space between icons */
+            font-size: 24px; /* Size of icons */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .fab.fa-facebook {
+            color: #1877f2; /* Facebook Blue */
+        }
+
+        .fab.fa-twitter {
+            color: #1da1f2; /* Twitter Blue */
+        }
+
+        .fab.fa-instagram {
+            color: #e1306c; /* Instagram Pinkish */
+        }
+
+        .fab.fa-linkedin {
+            color: #0a66c2; /* LinkedIn Blue */
+        }
+
+        /* Hover effect */
+        .social-media a:hover {
+            opacity: 0.8; /* Slightly transparent on hover */
+        }
     </style>
 </head>
 
@@ -258,8 +257,9 @@
             in various fields of study. We cater to students, educators, and anyone passionate about learning and academic
             excellence.
         </p>
-    </div>
 
+     
+      
     <!-- Footer Section -->
     <footer>
         <!-- Footer Links -->
@@ -276,9 +276,9 @@
                 </ul>
             </div>
 
-             <!-- Courses & Resources Section -->
-             <div>
-                <h5 class="text-xl font-semibold mb-4">COURSES & RESOURCES</h5>
+            <!-- Courses & Resources Section -->
+            <div>
+                <h5>COURSES & RESOURCES</h5>
                 <ul>
                     <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">Browse Courses</a></li>
                     <li><a href="#" class="text-sm hover:text-yellow-400" onclick="showAlertAndRedirect()">E-Books Library</a></li>
@@ -301,29 +301,27 @@
             </div>
 
             <!-- Social Media Section -->
-          
-                <div>
-                    <h5 class="text-xl font-semibold mb-4">FOLLOW US ON</h5>
-                    <div class="social-media">
-                        <a href="https://www.facebook.com" target="_blank">
-                          <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://www.twitter.com" target="_blank">
-                          <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/varungoud___21/" target="_blank">
-                          <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank">
-                          <i class="fab fa-linkedin"></i>
-                        </a>
-                      </div>
+            <div>
+                <h5>FOLLOW US ON</h5>
+                <div class="social-media">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/varungoud___21/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <script>
             function showAlertAndRedirect() {
                 alert("Kindly Register & Access the content with login details. No content is shared without login details.");
-                 // Redirect to register page
             }
         </script>
 
@@ -331,30 +329,26 @@
         <div class="footer-bottom">
             <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
         </div>
-        
     </footer>
+
     <script>
         // Disable Right-Click
         document.addEventListener('contextmenu', function(event) {
             event.preventDefault();
         });
-    
+
         // Disable Double-Click
         document.addEventListener('dblclick', function(event) {
             event.preventDefault();
         });
-    
+
         // Disable F12, Ctrl+Shift+I, and Ctrl+U for Inspect Element
         document.addEventListener('keydown', function(event) {
-            // Check for F12 key or Ctrl+Shift+I or Ctrl+U
-            if ((event.key === 'F12') || 
-                (event.ctrlKey && event.shiftKey && (event.key === 'I')) || 
-                (event.ctrlKey && (event.key === 'U'))) {
+            if ((event.key === 'F12') || (event.ctrlKey && event.shiftKey && (event.key === 'I')) || (event.ctrlKey && (event.key === 'U'))) {
                 event.preventDefault();
             }
         });
     </script>
-    
 
 </body>
 
