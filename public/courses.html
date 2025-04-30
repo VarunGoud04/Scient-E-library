@@ -39,38 +39,40 @@
     header {
   background-color: #002f6c;
   color: white;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   position: relative;
 }
 
 header h1 {
+  margin: 0;
   font-size: 28px;
-  margin: 0 20px;
-  flex-grow: 1;
-  text-align: center;
+}
+
+#profile-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #profile-icon i {
   color: white;
   font-size: 32px;
   transition: transform 0.3s ease;
-  animation: pulse 3s infinite;
+  animation: pulse 2.5s infinite;
+}
+
+#profile-icon:hover i {
+  transform: scale(1.2);
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
-
-#profile-icon i:hover {
-  transform: scale(1.2) rotate(5deg);
-}
-
     /* Full-screen Profile Modal */
     #user-popup {
       display: none;
@@ -336,13 +338,15 @@ header h1 {
     Loading...
   </div>
 
-  <div id="main-content" style="display:none;">
-    <header>
-      <h1>Scient E-Library - Courses</h1>
-      <div id="profile-icon">
-        <i class="fas fa-user-circle fa-2x"></i>
-      </div>
-    </header>
+ <header>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Scient E-Library - Courses</h1>
+    <div id="profile-icon">
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </div>
+</header>
+      
 
     <nav>
       <a href="index.html">Home</a>
