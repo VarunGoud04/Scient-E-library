@@ -1,265 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Scient E-Library</title>
-    <link rel="icon" type="image/png" href="logo11.jpg">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Scient E-Library</title>
+  <link rel="icon" type="image/png" href="logo11.jpg">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f6f8;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f6f8;
+      line-height: 1.6;
+    }
 
-        header {
-            background-color: #002f6c;
-            color: white;
-            padding: 30px 10px;
-            text-align: center;
-        }
+    header {
+      background-color: #002f6c;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
 
-        header h1 {
-            font-size: 36px;
-        }
+    header h1 {
+      font-size: 2.5rem;
+    }
 
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
 
-        /* Responsive Nav Bar */
-        nav {
-            background-color: #004a94;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px;
-        }
+    nav {
+      background-color: #004a94;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        nav a {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
+    nav a {
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
 
-        nav a:hover {
-            background-color: #003366;
-        }
+    nav a:hover {
+      background-color: #003366;
+    }
 
-        .about-content {
-            padding: 40px 20px;
-            text-align: center;
-        }
+    .hero {
+      background: linear-gradient(to right, #004a94, #002f6c);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
 
-        .about-content h2 {
-            font-size: 32px;
-            color: #002f6c;
-            margin-bottom: 20px;
-        }
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
 
-        .about-content p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-        footer {
-            background-color: #004a94;
-            color: white;
-            padding: 50px 20px;
-            margin-top: 40px;
-        }
+    .about-content {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
 
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+    .about-content h2 {
+      font-size: 2rem;
+      color: #002f6c;
+      margin-bottom: 1.5rem;
+    }
 
-        footer h5 {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
+    .about-content p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.2rem;
+    }
 
-        footer ul {
-            list-style: none;
-            padding-left: 0;
-        }
+    footer {
+      background-color: #004a94;
+      color: white;
+      padding: 3rem 1.5rem;
+      margin-top: 2rem;
+    }
 
-        footer ul li {
-            margin-bottom: 10px;
-        }
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
 
-        footer ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
+    footer h5 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
 
-        footer ul li a:hover {
-            color: #FFD700;
-        }
+    footer ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-        .social-media {
-            margin-top: 10px;
-        }
+    footer ul li {
+      margin-bottom: 0.8rem;
+    }
 
-        .social-media a {
-            font-size: 24px;
-            margin-right: 15px;
-            color: white;
-        }
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
 
-        .social-media a:hover {
-            opacity: 0.8;
-        }
+    footer ul li a:hover {
+      color: #FFD700;
+    }
 
-        .fab.fa-facebook { color: #1877f2; }
-        .fab.fa-twitter { color: #1da1f2; }
-        .fab.fa-instagram { color: #e1306c; }
-        .fab.fa-linkedin { color: #0a66c2; }
+    .social-media {
+      margin-top: 0.5rem;
+    }
 
-        .footer-bottom {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 30px;
-        }
+    .social-media a {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: white;
+    }
 
-        @media screen and (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
-            }
+    .social-media a:hover {
+      opacity: 0.8;
+    }
 
-            .about-content h2 {
-                font-size: 26px;
-            }
+    .fab.fa-facebook { color: #1877f2; }
+    .fab.fa-twitter { color: #1da1f2; }
+    .fab.fa-instagram { color: #e1306c; }
+    .fab.fa-linkedin { color: #0a66c2; }
 
-            .about-content p {
-                font-size: 16px;
-            }
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
 
-            nav {
-                flex-direction: column;
-            }
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
 
-            nav a {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .about-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .about-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>About Scient E-Library</h1>
-        <p>Your gateway to academic excellence, innovation, and limitless knowledge.</p>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1>About Scient E-Library</h1>
+    <p>Your gateway to academic excellence, innovation, and limitless knowledge.</p>
+  </header>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="/register">Register</a>
-        <a href="login.html">Login</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="/register">Register</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <!-- About Content Section -->
-    <div class="about-content">
-        <h2>Welcome to Scient E-Library</h2>
-        <p>
-            Scient E-Library is an innovative platform designed to provide students with access to high-quality academic
-            resources. We are committed to empowering the next generation of learners with the tools and knowledge they
-            need to succeed.
-        </p>
-        <p>
-            Our library houses a vast collection of resources ranging from books, research papers, articles, and tutorials
-            in various fields of study. We cater to students, educators, and anyone passionate about learning and academic
-            excellence.
-        </p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Discover a Smarter Way to Learn</h2>
+    <p>Explore a digital library designed to empower students with accessible knowledge and modern learning tools.</p>
+  </section>
+
+  <!-- About Section -->
+  <div class="about-content">
+    <h2>Welcome to Scient E-Library</h2>
+    <p>
+      Scient E-Library is an innovative platform designed to provide students with access to high-quality academic
+      resources. We are committed to empowering the next generation of learners with the tools and knowledge they
+      need to succeed.
+    </p>
+    <p>
+      Our library houses a vast collection of resources ranging from books, research papers, articles, and tutorials
+      in various fields of study. We cater to students, educators, and anyone passionate about learning and academic
+      excellence.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <div>
+        <h5>ABOUT US</h5>
+        <ul>
+          <li><a href="about.html">About Scient E-Library</a></li>
+          <li><a href="vision-mission.html">Vision & Mission</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>COURSES & RESOURCES</h5>
+        <ul>
+          <li><a href="#" onclick="showAlertAndRedirect()">Browse Courses</a></li>
+          <li><a href="#" onclick="showAlertAndRedirect()">E-Books Library</a></li>
+          <li><a href="#" onclick="showAlertAndRedirect()">Tutorials</a></li>
+          <li><a href="#" onclick="showAlertAndRedirect()">Research Papers</a></li>
+          <li><a href="#" onclick="showAlertAndRedirect()">Webinars</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>QUICK LINKS</h5>
+        <ul>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FOLLOW US ON</h5>
+        <div class="social-media">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-links">
-            <div>
-                <h5>ABOUT US</h5>
-                <ul>
-                    <li><a href="about.html">About Scient E-Library</a></li>
-                    <li><a href="vision-mission.html">Vision & Mission</a></li>
-                    <li><a href="team.html">Our Team</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5>COURSES & RESOURCES</h5>
-                <ul>
-                    <li><a href="#" onclick="showAlertAndRedirect()">Browse Courses</a></li>
-                    <li><a href="#" onclick="showAlertAndRedirect()">E-Books Library</a></li>
-                    <li><a href="#" onclick="showAlertAndRedirect()">Tutorials</a></li>
-                    <li><a href="#" onclick="showAlertAndRedirect()">Research Papers</a></li>
-                    <li><a href="#" onclick="showAlertAndRedirect()">Webinars</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5>QUICK LINKS</h5>
-                <ul>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="terms.html">Terms of Use</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5>FOLLOW US ON</h5>
-                <div class="social-media">
-                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
+    <script>
+      function showAlertAndRedirect() {
+        alert("Kindly Register & Access the content with login details. No content is shared without login details.");
+      }
 
-        <script>
-            function showAlertAndRedirect() {
-                alert("Kindly Register & Access the content with login details. No content is shared without login details.");
-            }
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('dblclick', e => e.preventDefault());
+      document.addEventListener('keydown', function (event) {
+        if ((event.key === 'F12') || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {
+          event.preventDefault();
+        }
+      });
+    </script>
 
-            // Disable Right-Click, Double-Click, Inspect
-            document.addEventListener('contextmenu', e => e.preventDefault());
-            document.addEventListener('dblclick', e => e.preventDefault());
-            document.addEventListener('keydown', function (event) {
-                if ((event.key === 'F12') || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {
-                    event.preventDefault();
-                }
-            });
-        </script>
-
-        <div class="footer-bottom">
-            <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
-        </div>
-    </footer>
+    <div class="footer-bottom">
+      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
+    </div>
+  </footer>
 </body>
-
 </html>
