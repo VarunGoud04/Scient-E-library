@@ -2,163 +2,190 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Matrices | Scient E-Library</title>
-    <link rel="icon" type="image/png" href="logo11.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Matrices | Scient E-Library</title>
+  <link rel="icon" type="image/png" href="logo11.jpg" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <style>
+    .navbar a:hover {
+      color: #ffeb3b;
+      transition: color 0.3s ease;
+    }
 
-    <style>
-        .navbar a:hover {
-            color: #ffeb3b;
-            transition: color 0.3s ease;
-        }
+    footer {
+      background-color: #1a202c;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
 
-        footer {
-            background-color: #1a202c;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
+    footer a {
+      color: #ffeb3b;
+    }
 
-        footer a {
-            color: #ffeb3b;
-        }
+    .cta-button {
+      background-color: #002f6c;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
 
-        section {
-            padding: 4rem 0;
-        }
+    .cta-button:hover {
+      background-color: #003366;
+      transform: scale(1.05);
+    }
 
-        .cta-button {
-            background-color: #002f6c;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-        .cta-button:hover {
-            background-color: #003366;
-            transform: scale(1.05);
-        }
-
-        .card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 text-gray-800">
 
-    <nav class="bg-blue-800 text-white py-4 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
-            <div class="space-x-6 navbar">
-                <a href="#important-questions" class="hover:text-yellow-400">Important Questions</a>
-                <a href="#previous-questions" class="hover:text-yellow-400">Previous Year Questions</a>
-                <a href="#reference-notes" class="hover:text-yellow-400">Reference Notes</a>
-            </div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="bg-blue-800 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <div id="menu" class="hidden md:flex space-x-6 navbar flex-col md:flex-row md:items-center">
+        <a href="#important-questions" class="block mt-2 md:mt-0 hover:text-yellow-400">Important Questions</a>
+        <a href="#previous-questions" class="block mt-2 md:mt-0 hover:text-yellow-400">Previous Year Questions</a>
+        <a href="#reference-notes" class="block mt-2 md:mt-0 hover:text-yellow-400">Reference Notes</a>
+      </div>
+    </div>
+  </nav>
 
-    <section id="home" class="bg-blue-900 text-white text-center py-20">
-        <h1 class="text-5xl font-extrabold">Welcome to Scient E-Library</h1>
-        <p class="text-xl mt-4 max-w-3xl mx-auto">Your one-stop destination for important academic resources on <strong>Matrices and Calculus</strong>. Access study materials, important questions, previous year questions, and reference notes designed specifically for B.Tech students (JNTUH).</p>
-        <a href="#important-questions" class="cta-button mt-8 inline-block">Start Exploring</a>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="bg-blue-900 text-white text-center py-20 px-4">
+    <h1 class="text-4xl sm:text-5xl font-extrabold">Welcome to Scient E-Library</h1>
+    <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
+      Your one-stop destination for important academic resources on <strong>Matrices and Calculus</strong>.
+      Access study materials, important questions, previous year questions, and reference notes designed for B.Tech students (JNTUH).
+    </p>
+    <a href="#important-questions" class="cta-button mt-8 inline-block">Start Exploring</a>
+  </section>
 
-    <section id="important-questions" class="bg-gray-50 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Important Questions - Matrices & Calculus</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Access a curated list of important questions for <strong>Matrices and Calculus</strong>.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <!-- Cards remain same as before -->
-        </div>
-    </section>
+  <!-- Important Questions -->
+  <section id="important-questions" class="bg-gray-50 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Important Questions - Matrices & Calculus</h2>
+    <p class="text-lg mt-4 max-w-3xl mx-auto">Access a curated list of important questions for <strong>Matrices and Calculus</strong>.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <!-- Placeholder: Add cards here if needed -->
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
+        <p class="mt-4">Matrix Inverse, Rank, Determinants</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
+        <p class="mt-4">Differentiation Rules, Chain Rule</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
+        <p class="mt-4">Integration, Definite and Indefinite</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="previous-questions" class="bg-blue-100 text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Previous Year Questions - Matrices & Calculus</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Practice previous year questions to prepare effectively.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <!-- Cards remain same as before -->
-        </div>
-    </section>
+ <!-- Previous Year Questions -->
+<section id="previous-questions" class="bg-blue-100 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Previous Year Questions - Matrices & Calculus</h2>
+    <p class="text-lg mt-4 max-w-3xl mx-auto">Practice previous year questions to prepare effectively.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">2022 Regular</h3>
+        <p class="mt-4">Matrices & Eigenvalues Questions</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">JNTUH Supplementary Portal</h3>
+        <p class="mt-4">Official previous and supplementary papers</p>
+        <a href="https://shorturl.at/AUsiv" class="cta-button mt-4" target="_blank">View Papers</a>
+      </div>
+    </div>
+  </section>
+  
 
-    <section id="reference-notes" class="bg-white text-center py-16">
-        <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - Matrices & Calculus</h2>
-        <p class="text-lg mt-4 max-w-3xl mx-auto">Download detailed notes for each unit:</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Unit 1 - Matrices</h3>
-                <p class="mt-4">Inverse, Eigenvalues, Diagonalization</p>
-                <a href="https://drive.google.com/file/d/13IX_GNsZjHzMHg88oCdp8K9gfelOGPA3/view?usp=drive_link" class="cta-button mt-4" target="_blank">Download</a>
-            </div>
-            <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Unit 2 - Calculus</h3>
-                <p class="mt-4">Limits, Continuity, Integration</p>
-                <a href="https://drive.google.com/file/d/13VbiosCYWxrVX7HPNA2Eh55x7_o7JGvy/view?usp=drive_link" class="cta-button mt-4" target="_blank">Download</a>
-            </div>
-            <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
-                <p class="mt-4">Differentiation, Volumes, Optimization</p>
-                <a href="https://drive.google.com/file/d/13T17IpfvPrMt8lpsgR3FsKcLMT_9t3xE/view?usp=drive_link" class="cta-button mt-4" target="_blank">Download</a>
-            </div>
-            <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
-                <p class="mt-4">Advanced Calculus, Series</p>
-                <a href="https://drive.google.com/file/d/13SlbKipbLUW_VlwDcArgc820VAFmjELi/view?usp=drive_link" class="cta-button mt-4" target="_blank">Download</a>
-            </div>
-            <div class="card p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
-                <p class="mt-4">Matrix Calculus and Applications</p>
-                <a href="https://drive.google.com/file/d/13RRk05wLIOzPZFBOdH6bVS_rbKp10T03/view?usp=drive_link" class="cta-button mt-4" target="_blank">Download</a>
-            </div>
-        </div>
-    </section>
+  <!-- Reference Notes -->
+  <section id="reference-notes" class="bg-white text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - Matrices & Calculus</h2>
+    <p class="text-lg mt-4 max-w-3xl mx-auto">Download detailed notes for each unit:</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1 - Matrices</h3>
+        <p class="mt-4">Inverse, Eigenvalues, Diagonalization</p>
+        <a href="https://shorturl.at/hVjKA" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2 - Calculus</h3>
+        <p class="mt-4">Limits, Continuity, Integration</p>
+        <a href="https://shorturl.at/eXQbD" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
+        <p class="mt-4">Differentiation, Volumes, Optimization</p>
+        <a href="https://shorturl.at/exdLT" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
+        <p class="mt-4">Advanced Calculus, Series</p>
+        <a href="https://shorturl.at/kXKVz" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
+        <p class="mt-4">Matrix Calculus and Applications</p>
+        <a href="https://shorturl.at/H68Z6" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
-        <div class="mt-4">
-            <a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a> | 
-            <a href="terms.html" class="hover:text-yellow-400">Terms of Service</a>
-        </div>
-    </footer>
-    <script>
-        // Prevent double clicks and show pop-up for links with href="#"
-        function showPopup(event) {
-            event.preventDefault();  // Prevent default link action
-            document.getElementById("popup").style.display = "block";
-        }
+  <!-- Footer -->
+  <footer class="mt-12">
+    <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022–2026).</p>
+    <div class="mt-4">
+      <a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a> |
+      <a href="terms.html" class="hover:text-yellow-400">Terms of Service</a>
+    </div>
+  </footer>
 
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
+  <!-- JavaScript -->
+  <script>
+    // Navbar toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
 
-        // Disable inspect element attempt
-        document.oncontextmenu = function() {
-            alert("Right-click is disabled for security purposes.");
-            return false;
-        };
+    // Disable right-click and dev tools
+    document.oncontextmenu = () => {
+      alert("Right-click is disabled for security purposes.");
+      return false;
+    };
 
-        // Disable F12 and right-click
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-                alert("Inspect Element is disabled.");
-                return false;
-            }
-        };
-    </script>
+    document.onkeydown = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        alert("Inspect Element is disabled.");
+        return false;
+      }
+    };
+  </script>
+
 </body>
 
 </html>
