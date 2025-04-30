@@ -20,6 +20,7 @@
       line-height: 1.6;
     }
 
+    /* Header */
     header {
       background-color: #002f6c;
       color: white;
@@ -36,32 +37,89 @@
       margin-top: 0.5rem;
     }
 
-    nav {
+    /* Navbar */
+    .navbar {
       background-color: #004a94;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    nav a {
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
       color: white;
-      padding: 0.6rem 1.2rem;
+      font-size: 1.5rem;
       text-decoration: none;
-      font-weight: 500;
-      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 4px;
       transition: background 0.3s;
     }
 
-    nav a:hover {
+    .nav-links li a:hover,
+    .nav-links li a.active {
       background-color: #003366;
     }
 
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #004a94;
+        margin-top: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        text-align: center;
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Hero Section */
     .hero {
       background: linear-gradient(to right, #004a94, #002f6c);
       color: white;
@@ -80,6 +138,7 @@
       margin: 0 auto;
     }
 
+    /* About Section */
     .about-content {
       padding: 3rem 1.5rem;
       max-width: 900px;
@@ -99,6 +158,7 @@
       margin-bottom: 1.2rem;
     }
 
+    /* Footer */
     footer {
       background-color: #004a94;
       color: white;
@@ -167,15 +227,6 @@
         font-size: 1.8rem;
       }
 
-      nav {
-        flex-direction: column;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: center;
-      }
-
       .hero h2 {
         font-size: 1.8rem;
       }
@@ -195,19 +246,32 @@
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <h1>About Scient E-Library</h1>
     <p>Your gateway to academic excellence, innovation, and limitless knowledge.</p>
   </header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="/register">Register</a>
-    <a href="login.html">Login</a>
-    <a href="contact.html">Contact</a>
+  <!-- Responsive Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html">Scient E-Library</a>
+      </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero Section -->
@@ -275,44 +339,31 @@
       </div>
     </div>
 
-    <script>
-      function showAlertAndRedirect() {
-        alert("Kindly Register & Access the content with login details. No content is shared without login details.");
-      }
-
-      document.addEventListener('contextmenu', e => e.preventDefault());
-      document.addEventListener('dblclick', e => e.preventDefault());
-      document.addEventListener('keydown', function (event) {
-        if ((event.key === 'F12') || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {
-          event.preventDefault();
-        }
-      });
-    </script>
-
     <div class="footer-bottom">
-      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
+      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud  | Department of CSE (AY 2022-2026)</p>
     </div>
   </footer>
+
   <script>
-    // Navbar toggle
-    const toggleBtn = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-    toggleBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    function showAlertAndRedirect() {
+      alert("Kindly Register & Access the content with login details. No content is shared without login details.");
+    }
+
+    // Responsive nav toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
 
-    // Disable right-click and dev tools
-    document.oncontextmenu = () => {
-      alert("Right-click is disabled for security purposes.");
-      return false;
-    };
-
-    document.onkeydown = (e) => {
-      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-        alert("Inspect Element is disabled.");
-        return false;
+    // Disable right-click and F12
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function (event) {
+      if ((event.key === 'F12') || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {
+        event.preventDefault();
       }
-    };
+    });
   </script>
 </body>
 </html>
