@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -53,11 +54,14 @@
             transform: scale(1.05);
         }
 
-        /* Custom Styles */
+        /* Navbar Styles */
+        .navbar a {
+            transition: color 0.3s ease;
+        }
+
         .navbar a:hover,
         .navbar a:active {
             color: #ffeb3b;
-            transition: color 0.3s ease;
         }
 
         /* Responsive Adjustments */
@@ -77,6 +81,7 @@
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
+                text-align: center;
             }
 
             section {
@@ -85,6 +90,24 @@
 
             ul.list-disc {
                 text-align: left;
+            }
+
+            /* Ensure that the modal doesn't overflow */
+            .modal-content {
+                width: 100%;
+                max-width: 90%;
+            }
+        }
+
+        /* Large Screen */
+        @media (min-width: 1024px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .modal-content {
+                width: 60%;
             }
         }
     </style>
