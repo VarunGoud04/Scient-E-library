@@ -157,10 +157,9 @@
       align-items: center;
       z-index: 1000;
     }
-
-  #user-popup-content {
-  background: #002f6c;
-  color: #ffffff;
+#user-popup-content {
+  background: #002f6c; /* Dark Blue Background */
+  color: #ffffff; /* White Text for readability */
   padding: 30px;
   border-radius: 12px;
   width: 90%;
@@ -169,43 +168,45 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
+#user-popup-content p {
+  margin: 12px 0;
+  font-size: 18px;
+}
+
 #user-popup-content p span {
-  color: #ffe119;
   font-weight: 600;
 }
 
-#close-profile, #logout-btn {
-  margin-top: 12px;
+/* Specific Field Coloring */
+#user-name span { color: #e6194b; } /* Red color for name */
+#user-email span { color: #3cb44b; } /* Green color for email */
+#user-branch span { color: #ffe119; } /* Yellow color for branch */
+#user-regulation span { color: #0082c8; } /* Blue color for regulation */
+#user-college span { color: #f58231; } /* Orange color for college */
+#user-university span { color: #911eb4; } /* Purple color for university */
+
+/* Buttons Styling */
+#close-profile {
+  margin-top: 20px;
   padding: 10px 20px;
-  font-size: 16px;
+  background-color: #ffffff;
+  color: #002f6c;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
-#close-profile {
-  background-color: #ffffff;
-  color: #002f6c;
-}
-
 #logout-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
   background-color: crimson;
   color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-    #user-popup-content p span {
-      font-weight: bold;
-      color: #003366;
-    }
-
-    #close-profile, #logout-btn {
-      margin-top: 12px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    
 
     #close-profile {
       background-color: #002f6c;
