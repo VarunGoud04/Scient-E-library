@@ -21,7 +21,7 @@
       background-color: #003366;
       display: flex;
       justify-content: space-between;
-      align-items: left;
+      align-items: center;
       padding: 0.8rem 1rem;
       flex-wrap: wrap;
     }
@@ -150,6 +150,7 @@
 
       .menu-toggle {
         display: block;
+        align-self: flex-end; /* Aligns menu toggle to the right */
       }
 
       nav {
@@ -314,7 +315,6 @@
         <option>Scient Institute of Technology</option>
         <option>Shadan College of Engineering and Technology</option>
         <option>Shadan Women's College of Engineering & Technology</option>
-        <option>Shadan Women's College of Engineering and Technology</option>
         <option>Siddhartha Institute of Engineering & Technology</option>
         <option>Siddhartha Institute of Technology & Sciences</option>
         <option>Sreenidhi Institute of Science & Technology</option>
@@ -337,10 +337,8 @@
         <option>VNR Vignana Jyothi Institute of Engineering & Technology</option>
         <option>Vivekananda Institute of Technology & Science</option>
         <option>Vaagdevi College of Engineering</option>
-        <option>Vignana Bharathi Institute of Technology</option>
         <option>Vikram College of Engineering</option>
         <option>Vishwakarma Institute of Technology</option>
-        <option>VNR Vignana Jyothi Institute of Engineering & Technology</option>
         <option>Sree Dattha Group of Institutions</option>
       </select>
 
@@ -374,7 +372,7 @@
     </div>
   </footer>
 
-  <!-- Firebase Script (same as your original) -->
+  <!-- Firebase Script -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
