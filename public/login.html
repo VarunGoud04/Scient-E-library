@@ -9,87 +9,67 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; }
 
-    html, body {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background-color: #002f6c;
-      color: white;
-      padding: 20px 10px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2rem;
-    }
-
-    /* Responsive nav bar with hamburger */
+    /* Navbar Styles */
     .navbar {
       background-color: #003366;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
-      align-items: left;
-      padding: 10px 20px;
-      flex-wrap: wrap;
+      align-items: center;
+      color: white;
     }
-
     .navbar a {
-      color: white;
       text-decoration: none;
-      padding: 10px 15px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .navbar a:hover,
-    .navbar a.active {
-      background-color: #004a94;
-      border-radius: 4px;
-    }
-
-    .navbar .menu-icon {
-      display: none;
-      font-size: 22px;
-      cursor: pointer;
       color: white;
+      margin-left: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #ccc;
     }
 
-    .navbar-links {
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
       display: flex;
-      gap: 10px;
     }
 
-    @media (max-width: 600px) {
-      .navbar-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .navbar-links.active {
-        display: flex;
-      }
-
-      .navbar .menu-icon {
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .menu-toggle {
         display: block;
       }
 
-      .navbar a {
-        padding: 12px;
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003366;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        z-index: 100;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
       }
     }
 
@@ -224,37 +204,24 @@
         font-size: 15px;
       }
     }
+    .menu-toggle {
+      display: block;
+    }
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>Scient E-Library - Login</h1>
-  </header>
-
-  <nav>
-    <div class="logo">📚 Scient E-Library</div>
-    <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <a href="#" class="text-2xl font-bold">Scient E-Library</a>
-        <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">
-          <a href="index.html" class="hover:text-yellow-400">Home</a>
-          <a href="about.html" class="hover:text-yellow-400">About Us</a>
-          <a href="/register" class="hover:text-yellow-400">Register</a>
-          <a href="login.html" class="hover:text-yellow-400">Login</a>
-          <a href="contact.html" class="hover:text-yellow-400">Contact</a>
-        </div>
-      </div>
-    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">
-      <a href="index.html" class="hover:text-yellow-400">Home</a>
-      <a href="about.html" class="hover:text-yellow-400">About Us</a>
-      <a href="/register" class="hover:text-yellow-400">Register</a>
-      <a href="login.html" class="hover:text-yellow-400">Login</a>
-      <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+  <header class="navbar">
+    <a href="/" class="text-xl">Scient E-Library</a>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="login.html">Login</a>
+       <a href="register.html">Register</a>
+        <a href="contact.html">Contact</a>
     </div>
-  </nav>
+  </header>
 
   <div class="form-wrapper">
     <div class="form-container">
@@ -382,32 +349,31 @@
     }
   </script>
 
-  <!-- Toggle hamburger menu -->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("navbarLinks");
-      menu.classList.toggle("active");
-    }
+    document.addEventListener("contextmenu", e => e.preventDefault());
+ document.addEventListener("keydown", e => {
+   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
+     e.preventDefault();
+   }
+ });
 
-    // Optional: Highlight active nav link
-    const links = document.querySelectorAll(".navbar a");
-    const path = window.location.pathname.split("/").pop();
-    links.forEach(link => {
-      if (link.getAttribute("href") === path) {
-        link.classList.add("active");
-      }
-    });
-  </script>
+ // Menu Toggle for Mobile View
+ const menuToggle = document.getElementById("menu-toggle");
+ const navLinks = document.getElementById("nav-links");
+ menuToggle.addEventListener("click", () => {
+   navLinks.classList.toggle("open");
+ });
+ document.oncontextmenu = () => {
+   alert("Right-click is disabled for security purposes.");
+   return false;
+ };
 
-  <!-- Disable Inspect Tools -->
-  <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dblclick', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
-        e.preventDefault();
-      }
-    });
-  </script>
+ document.onkeydown = (e) => {
+   if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+     alert("Inspect Element is disabled.");
+     return false;
+   }
+ }
+</script>
 </body>
 </html>
