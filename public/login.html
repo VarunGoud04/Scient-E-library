@@ -1,351 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login - Scient E-Library</title>
-    <link rel="icon" type="image/png" href="logo11.jpg" />
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Login - Scient E-Library</title>
+  <link rel="icon" type="image/png" href="logo11.jpg" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        /* Header */
-        header {
-            background-color: #002f6c;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-            font-weight: bold;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: #003366;
-            text-align: center;
-            padding: 15px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 14px 25px;
-            text-transform: uppercase;
-            font-weight: 500;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            background-color: #004a94;
-            border-radius: 4px;
-        }
-
-        /* Form */
-        .form-container {
-            width: 100%;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #002f6c;
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        .form-container input,
-        .form-container select {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-container button {
-            width: 100%;
-            padding: 15px;
-            background-color: #002f6c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .form-container button:hover {
-            background-color: #004a94;
-        }
-
-        .form-container p {
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .form-container p a {
-            color: #002f6c;
-            text-decoration: none;
-        }
-
-        .form-container p a:hover {
-            text-decoration: underline;
-        }
-
-        .error-message {
-            color: red;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .forgot-password {
-          text-align: left;
-          font-size: 14px;
-          margin-top: -10px;
-          margin-bottom: 20px;
-      }
-      
-      .forgot-password a {
-          color: red !important;
-          text-decoration: none;
-          cursor: pointer;
-      }
-      
-      .forgot-password a:hover {
-          text-decoration: underline;
-      }
-      
-        /* Footer */
-        footer {
-            background-color: #7cb0e4;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .social-media a {
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
-        }
-
-        .fab.fa-facebook { color: #1877f2; }
-        .fab.fa-twitter { color: #1da1f2; }
-        .fab.fa-instagram { color: #e1306c; }
-        .fab.fa-linkedin { color: #0a66c2; }
-
-        .social-media a:hover {
-            opacity: 0.8;
-        }
-
-        /* Responsive */
-       /* This media query might be unnecessary after the fix */
-@media screen and (max-width: 768px) {
-    .form-container {
-        width: 80%;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-        }
-    </style>
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #002f6c;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    /* Responsive nav bar with hamburger */
+    .navbar {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      background-color: #004a94;
+      border-radius: 4px;
+    }
+
+    .navbar .menu-icon {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .navbar .menu-icon {
+        display: block;
+      }
+
+      .navbar a {
+        padding: 12px;
+      }
+    }
+
+    .form-wrapper {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 450px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #002f6c;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 14px;
+      background-color: #002f6c;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #004a94;
+    }
+
+    .form-container p {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .form-container p a {
+      color: #002f6c;
+      text-decoration: none;
+    }
+
+    .form-container p a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: red;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .forgot-password {
+      text-align: left;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    .forgot-password a {
+      color: red;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #7cb0e4;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer h5 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .social-media a {
+      margin: 0 10px;
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .fab.fa-facebook { color: #1877f2; }
+    .fab.fa-twitter { color: #1da1f2; }
+    .fab.fa-instagram { color: #e1306c; }
+    .fab.fa-linkedin { color: #0a66c2; }
+
+    .social-media a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      .form-container {
+        padding: 20px;
+      }
+
+      .form-container button {
+        padding: 12px;
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>Scient E-Library - Login</h1>
-    </header>
+  <header>
+    <h1>Scient E-Library - Login</h1>
+  </header>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="register.html">Register</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <!-- Login Form -->
-    <div class="form-container">
-        <h2>Login</h2>
-        <div class="error-message" id="error-message"><p id="message"></p></div>
-
-        <form action="/login" method="POST">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email">
-      
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required placeholder="Enter your password">
-      
-          <label for="regulations">Regulations</label>
-          <select id="regulations" name="regulation" required onchange="checkRegulation()">
-              <option value="choose">Choose Regulation</option>
-              <option value="R18" id="R18Option">R18</option>
-              <option value="R22">R22</option>
-          </select>
-      
-          
-      
-          <button type="submit">Login</button><br>
-          <br>
-          <p class="forgot-password">
-            <a id="forgot-password-link">Forgot Password?</a>
-          </p>
-          
-      
-          <p>Don't have an account? <a href="/register">Register here</a></p>
-      </form>
-      
+  <nav class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
     </div>
+    <div class="navbar-links" id="navbarLinks">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer>
-        <h5>FOLLOW US ON</h5>
-        <div class="social-media">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-        <p>Developed by Varun Goud & Team | Department of CSE (AY 2022-2026) | All rights reserved</p>
-    </footer>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <h2>Login</h2>
+      <div class="error-message" id="error-message"><p id="message"></p></div>
 
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-      import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-      import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-  
-      const firebaseConfig = {
-          apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
-          authDomain: "scient-e-library.firebaseapp.com",
-          projectId: "scient-e-library",
-          storageBucket: "scient-e-library.appspot.com",
-          messagingSenderId: "724674392756",
-          appId: "1:724674392756:web:631eb7c59445f5a2509de1"
-      };
-  
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-  
-      function showError(message) {
-          const error = document.getElementById('error-message');
-          error.textContent = message;
-          error.style.display = 'block';
+      <form id="loginForm">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required placeholder="Enter your email">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="Enter your password">
+
+        <label for="regulations">Regulation</label>
+        <select id="regulations" required onchange="checkRegulation()">
+          <option value="choose">Choose Regulation</option>
+          <option value="R18" id="R18Option">R18</option>
+          <option value="R22">R22</option>
+        </select>
+
+        <button type="submit">Login</button>
+
+        <p class="forgot-password">
+          <a id="forgot-password-link">Forgot Password?</a>
+        </p>
+
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <h5>FOLLOW US ON</h5>
+    <div class="social-media">
+      <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/varungoud___21/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>Developed by Varun Goud & Team | Department of CSE (AY 2022–2026) | All rights reserved</p>
+  </footer>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
+      authDomain: "scient-e-library.firebaseapp.com",
+      projectId: "scient-e-library",
+      storageBucket: "scient-e-library.appspot.com",
+      messagingSenderId: "724674392756",
+      appId: "1:724674392756:web:631eb7c59445f5a2509de1"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    function showError(message) {
+      const error = document.getElementById('error-message');
+      error.textContent = message;
+      error.style.display = 'block';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const regulation = document.getElementById('regulations').value;
+
+      document.getElementById('error-message').style.display = 'none';
+
+      if (!email || !password || regulation === 'choose') {
+        showError('Please fill out all fields and choose a valid regulation.');
+        return;
       }
-  
-      document.querySelector('form').addEventListener('submit', async (e) => {
-          e.preventDefault();
-  
-          const email = document.getElementById('email').value.trim();
-          const password = document.getElementById('password').value;
-          const regulation = document.getElementById('regulations').value;
-  
-          document.getElementById('error-message').style.display = 'none';
-  
-          if (!email || !password || regulation === 'choose') {
-              showError('Please fill out all fields and choose a valid regulation to continue.');
-              return;
-          }
-  
-          if (regulation === 'R18') {
-              showError('R18 Regulations are not supported at this time. Please select R22 or stay tuned for updates!');
-              return;
-          }
-  
-          try {
-              const userCredential = await signInWithEmailAndPassword(auth, email, password);
-              const user = userCredential.user;
-  
-              const q = query(collection(db, "users"), where("uid", "==", user.uid));
-              const querySnapshot = await getDocs(q);
-  
-              if (querySnapshot.empty) {
-                  showError('We couldn’t find an account with that email. Please register or try a different email.');
-                  return;
-              }
-  
-              // Success
-              window.location.href = 'courses.html';
-          } catch (error) {
-              // Map Firebase error codes to user-friendly messages
-              switch (error.code) {
-                  case 'auth/invalid-credential':
-                      showError('Incorrect email or password. Please double-check and try again, or reset your password.');
-                      break;
-                  case 'auth/user-not-found':
-                      showError('No account exists with this email. Sign up to create one!');
-                      break;
-                  case 'auth/wrong-password':
-                      showError('Incorrect password. Please try again or reset your password.');
-                      break;
-                  case 'auth/too-many-requests':
-                      showError('Too many login attempts. Please wait a moment and try again, or reset your password.');
-                      break;
-                  case 'auth/invalid-email':
-                      showError('The email address is not valid. Please check for typos and try again.');
-                      break;
-                  case 'auth/user-disabled':
-                      showError('This account has been disabled. Please contact support for assistance.');
-                      break;
-                  default:
-                      showError('Something went wrong. Please try again later or contact support.');
-                      console.error('Unhandled error:', error.message);
-              }
-          }
-      });
+
+      if (regulation === 'R18') {
+        showError('R18 Regulations are not supported at this time.');
+        return;
+      }
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        const q = query(collection(db, "users"), where("uid", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+          showError('We couldn’t find an account with that email.');
+          return;
+        }
+
+        window.location.href = 'courses.html';
+      } catch (error) {
+        const code = error.code;
+        const messages = {
+          'auth/invalid-credential': 'Incorrect email or password.',
+          'auth/user-not-found': 'No account exists with this email.',
+          'auth/wrong-password': 'Incorrect password.',
+          'auth/too-many-requests': 'Too many attempts. Try again later.',
+          'auth/invalid-email': 'The email address is invalid.',
+          'auth/user-disabled': 'This account has been disabled.',
+        };
+        showError(messages[code] || 'Something went wrong. Try again.');
+      }
+    });
+
+    document.getElementById('forgot-password-link').addEventListener('click', () => {
+      window.location.href = 'forgot.html';
+    });
+
+    function checkRegulation() {
+      const selected = document.getElementById('regulations').value;
+      if (selected === 'R18') {
+        alert("We are currently not accepting R18 Regulations... Stay tuned.");
+        document.getElementById('R18Option').disabled = true;
+        document.getElementById('regulations').value = 'choose';
+      }
+    }
   </script>
 
-    <!-- Disable R18 Selection -->
-    <script>
-        function checkRegulation() {
-            const selected = document.getElementById('regulations').value;
-            if (selected === 'R18') {
-                alert("We are currently not accepting R18 Regulations... Stay tuned for updates.");
-                document.getElementById('R18Option').disabled = true;
-                document.getElementById('regulations').value = 'choose';
-            }
-        }
-    </script>
-    <script>
-      document.getElementById('forgot-password-link').addEventListener('click', () => {
-        window.location.href = 'forgot.html';
-      });
-    </script>
-    
-    
+  <!-- Toggle hamburger menu -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("navbarLinks");
+      menu.classList.toggle("active");
+    }
 
-    <!-- Security: Disable Inspect Tools -->
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
-        document.addEventListener('dblclick', e => e.preventDefault());
-        document.addEventListener('keydown', e => {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
-            }
-        });
-    </script>
+    // Optional: Highlight active nav link
+    const links = document.querySelectorAll(".navbar a");
+    const path = window.location.pathname.split("/").pop();
+    links.forEach(link => {
+      if (link.getAttribute("href") === path) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <!-- Disable Inspect Tools -->
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dblclick', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+      }
+    });
+  </script>
 </body>
 </html>
