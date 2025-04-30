@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Login - Scient E-Library</title>
   <link rel="icon" type="image/png" href="logo11.jpg" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background-color: #f7f7f7; }
@@ -21,18 +21,21 @@
       align-items: center;
       color: white;
     }
+
     .navbar a {
       text-decoration: none;
       color: white;
       margin-left: 1.5rem;
       font-weight: bold;
     }
+
     .navbar a:hover {
       color: #ccc;
     }
 
+    /* Hide menu toggle button by default */
     .menu-toggle {
-      display: none;
+      display: none;  /* Hidden on larger screens */
       font-size: 2rem;
       cursor: pointer;
     }
@@ -41,14 +44,14 @@
       display: flex;
     }
 
-    /* Mobile Menu */
+    /* Mobile Menu - Show .menu-toggle only on smaller screens */
     @media (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        display: block;  /* Show menu toggle button on mobile */
       }
 
       .nav-links {
-        display: none;
+        display: none; /* Hide the nav links by default */
         flex-direction: column;
         width: 100%;
         background-color: #003366;
@@ -60,7 +63,7 @@
       }
 
       .nav-links.open {
-        display: flex;
+        display: flex; /* Show the menu links when the menu is toggled */
       }
 
       .nav-links a {
@@ -204,13 +207,11 @@
         font-size: 15px;
       }
     }
-    .menu-toggle {
-      display: block;
-    }
 
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <header class="navbar">
     <a href="/" class="text-xl">Scient E-Library</a>
     <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
@@ -218,8 +219,8 @@
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
       <a href="login.html">Login</a>
-       <a href="register.html">Register</a>
-        <a href="contact.html">Contact</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
     </div>
   </header>
 
@@ -261,7 +262,7 @@
       <a href="https://www.instagram.com/varungoud___21/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
     </div>
-    <p>Developed by Varun Goud & Team | Department of CSE (AY 2022–2026) | All rights reserved</p>
+    <p> © 2024 Scient E-Library. All rights reserved.|Developed by Varun Goud | Department of CSE (AY 2022–2026) | All rights reserved</p>
   </footer>
 
   <!-- Firebase Scripts -->
@@ -348,7 +349,15 @@
       }
     }
   </script>
+  <script>
+    // Menu Toggle for Mobile View
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
 
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");  // Toggle the open class to show/hide menu
+    });
+  </script>
   <script>
     document.addEventListener("contextmenu", e => e.preventDefault());
  document.addEventListener("keydown", e => {
@@ -357,16 +366,12 @@
    }
  });
 
- // Menu Toggle for Mobile View
- const menuToggle = document.getElementById("menu-toggle");
- const navLinks = document.getElementById("nav-links");
- menuToggle.addEventListener("click", () => {
-   navLinks.classList.toggle("open");
- });
+
  document.oncontextmenu = () => {
    alert("Right-click is disabled for security purposes.");
    return false;
  };
+
 
  document.onkeydown = (e) => {
    if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {

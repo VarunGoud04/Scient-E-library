@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,21 +9,12 @@
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Firebase -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-
-  <!-- SEO & Social Meta -->
-  <meta name="description" content="Scient E-Library - Explore resources by department and semester." />
-  <meta property="og:title" content="Scient E-Library Courses" />
-  <meta property="og:description" content="Find course materials for CSE, AI&ML, ECE, EEE, and CSD - R22 regulations." />
-  <meta property="og:image" content="logo11.jpg" />
-  <meta property="og:type" content="website" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <style>
     html {
@@ -43,11 +33,74 @@
       color: white;
       padding: 30px 0;
       text-align: center;
+      position: relative;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
+    #profile-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    #profile-icon i {
+      color: white;
+    }
+
+    /* Full-screen Profile Modal */
+    #user-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 30px;
+    }
+
+    #user-popup-content {
+      background-color: #fff;
+      color: #333;
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    #user-popup-content p {
+      margin: 12px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    #user-popup-content p span {
+      font-weight: normal;
+    }
+
+    #user-name span { color: #e6194b; }
+    #user-email span { color: #3cb44b; }
+    #user-branch span { color: #ffe119; }
+    #user-regulation span { color: #0082c8; }
+    #user-college span { color: #f58231; }
+    #user-university span { color: #911eb4; }
+
+    #close-profile {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #002f6c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     nav {
@@ -70,46 +123,38 @@
     }
 
     .scroll-banner {
-        background-color: #e0ebf5;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 10px 0;
-        overflow: hidden;
-        position: relative;
-      }
-      
-      .scroll-banner span {
-        display: inline-block;
-        white-space: nowrap;
-        padding-left: 100%;
-        animation: 
-          scroll-text 15s linear infinite,
-          color-change 10s linear infinite;
-      }
-      
-      /* Scrolling animation */
-      @keyframes scroll-text {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-      
-      /* Continuous color changing animation (no pause) */
-      @keyframes color-change {
-        0%   { color: #e6194b; }   /* Red */
-  12.5% { color: #3cb44b; }  /* Green */
-  25%  { color: #ffe119; }   /* Yellow */
-  37.5% { color: #0082c8; }  /* Blue */
-  50%  { color: #f58231; }   /* Orange */
-  62.5% { color: #911eb4; }  /* Purple */
-  75%  { color: #46f0f0; }   /* Cyan */
-  87.5% { color: #000000; }  /* Black */
-  100% { color: #e6194b; }
-      }
-      
+      background-color: #e0ebf5;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scroll-banner span {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      animation: scroll-text 15s linear infinite, color-change 10s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes color-change {
+      0%   { color: #e6194b; }
+      12.5% { color: #3cb44b; }
+      25%  { color: #ffe119; }
+      37.5% { color: #0082c8; }
+      50%  { color: #f58231; }
+      62.5% { color: #911eb4; }
+      75%  { color: #46f0f0; }
+      87.5% { color: #000000; }
+      100% { color: #e6194b; }
+    }
+
     .courses-container {
       width: 80%;
       margin: 50px auto;
@@ -184,18 +229,6 @@
   </style>
 
   <script>
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "login.html";
-      });
-    }
-
-    function showPopup(event) {
-      event.preventDefault();
-      alert("Currently under maintenance. We are continuously updating resources. Stay tuned!");
-    }
-
-    // Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
       authDomain: "scient-e-library.firebaseapp.com",
@@ -207,25 +240,59 @@
 
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    }
+
+    function showPopup(event) {
+      event.preventDefault();
+      alert("Currently under maintenance. We are continuously updating resources. Stay tuned!");
+    }
+
+    function toggleProfilePopup(show) {
+      const popup = document.getElementById("user-popup");
+      popup.style.display = show ? "flex" : "none";
+    }
 
     auth.onAuthStateChanged(user => {
       if (user) {
         document.getElementById("main-content").style.display = "block";
         document.getElementById("loading-screen").style.display = "none";
         document.documentElement.style.visibility = "visible";
+
+        db.collection("users").where("uid", "==", user.uid).get().then(snapshot => {
+          if (!snapshot.empty) {
+            const data = snapshot.docs[0].data();
+            document.getElementById("user-name").innerHTML = `Name: <span>${data.name || "N/A"}</span>`;
+            document.getElementById("user-email").innerHTML = `Email: <span>${data.email || user.email}</span>`;
+            document.getElementById("user-branch").innerHTML = `Branch: <span>${data.branch || "N/A"}</span>`;
+            document.getElementById("user-regulation").innerHTML = `Regulation: <span>${data.regulation || "N/A"}</span>`;
+            document.getElementById("user-college").innerHTML = `College: <span>${data.college || "N/A"}</span>`;
+            document.getElementById("user-university").innerHTML = `University: <span>${data.university || "N/A"}</span>`;
+          }
+        }).catch(error => {
+          console.error("Error fetching user details:", error);
+        });
       } else {
         window.location.href = "login.html";
       }
     });
 
-    // Disable right-click and developer tools
+    document.addEventListener("DOMContentLoaded", () => {
+      const profileIcon = document.getElementById("profile-icon");
+      profileIcon.addEventListener("click", () => toggleProfilePopup(true));
+
+      document.getElementById("close-profile").addEventListener("click", () => toggleProfilePopup(false));
+    });
+
+    // Disable right-click and dev tools
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", e => {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && e.key === "I") ||
-        (e.ctrlKey && e.key === "U")
-      ) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
         e.preventDefault();
       }
     });
@@ -240,6 +307,9 @@
   <div id="main-content" style="display:none;">
     <header>
       <h1>Scient E-Library - Courses</h1>
+      <div id="profile-icon">
+        <i class="fas fa-user-circle fa-2x"></i>
+      </div>
     </header>
 
     <nav>
@@ -254,62 +324,56 @@
     </div>
 
     <div class="courses-container">
-      <!-- Example Course Section -->
-      <div class="course-section">
-        <h2>CSE (Computer Science Engineering) - R22 Regulations</h2>
-        <h3>1st Year</h3>
-        <ul>
-          <li><a href="course1-1.html">Semester 1</a></li>
-          <li><a href="course1-2.html">Semester 2</a></li>
-        </ul>
-        <h3>2nd Year</h3>
-        <ul>
-          <li><a href="course2-1.html">Semester 1</a></li>
-          <li><a href="course2-2.html">Semester 2</a></li>
-        </ul>
-        <h3>3rd Year</h3>
-        <ul>
-          <li><a href="course3-1.html">Semester 1</a></li>
-          <li><a href="course3-2.html">Semester 2</a></li>
-        </ul>
-        <h3>4th Year</h3>
-        <ul>
-          <li><a href="course4-1.html">Semester 1</a></li>
-          <li><a href="course4-2.html">Semester 2</a></li>
-        </ul>
-      </div>
-
-      <div class="course-section">
-        <h2>AI & ML (Artificial Intelligence & Machine Learning)</h2>
-        <ul>
-          <li><a href="#" onclick="showPopup(event)">Coming Soon</a></li>
-        </ul>
-      </div>
-
-      <div class="course-section">
-        <h2>ECE (Electronics & Communication Engineering)</h2>
-        <ul>
-          <li><a href="#" onclick="showPopup(event)">Coming Soon</a></li>
-        </ul>
-      </div>
-
-      <div class="course-section">
-        <h2>EEE (Electrical & Electronics Engineering)</h2>
-        <ul>
-          <li><a href="#" onclick="showPopup(event)">Coming Soon</a></li>
-        </ul>
-      </div>
-
-      <div class="course-section">
-        <h2>CSD (Computer Science & Design)</h2>
-        <ul>
-          <li><a href="#" onclick="showPopup(event)">Coming Soon</a></li>
-        </ul>
+      <!-- Course Content Here (Same as Your Original Code) -->
+      <div class="courses-container">
+        <div class="course-section">
+          <h2>CSE (Computer Science Engineering) - R22 Regulations</h2>
+          <h3>1st Year</h3>
+          <ul>
+            <li><a href="course1-1.html">Semester 1</a></li>
+            <li><a href="course1-2.html">Semester 2</a></li>
+          </ul>
+          <h3>2nd Year</h3>
+          <ul>
+            <li><a href="course2-1.html">Semester 1</a></li>
+            <li><a href="course2-2.html">Semester 2</a></li>
+          </ul>
+          <h3>3rd Year</h3>
+          <ul>
+            <li><a href="course3-1.html">Semester 1</a></li>
+            <li><a href="course3-2.html">Semester 2</a></li>
+          </ul>
+          <h3>4th Year</h3>
+          <ul>
+            <li><a href="course4-1.html">Semester 1</a></li>
+            <li><a href="course4-2.html">Semester 2</a></li>
+          </ul>
+        </div>
+  
+        <div class="course-section">
+          <h2>AI & ML (Artificial Intelligence & Machine Learning)</h2>
+          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
+        </div>
+  
+        <div class="course-section">
+          <h2>ECE (Electronics & Communication Engineering)</h2>
+          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
+        </div>
+  
+        <div class="course-section">
+          <h2>EEE (Electrical & Electronics Engineering)</h2>
+          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
+        </div>
+  
+        <div class="course-section">
+          <h2>CSD (Computer Science & Design)</h2>
+          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
+        </div>
       </div>
     </div>
 
     <footer>
-      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026).</p>
+      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud  | Department of CSE (AY 2022-2026).</p>
       <div class="social-icons">
         <a href="https://www.instagram.com/Varungoud___21/" target="_blank">
           <i class="fab fa-instagram"></i> Follow us on Instagram
@@ -317,6 +381,42 @@
       </div>
     </footer>
   </div>
-</body>
 
+<!-- Profile Modal -->
+<div id="user-popup">
+  <div id="user-popup-content">
+    <p id="user-name">Name: <span>...</span></p>
+    <p id="user-email">Email: <span>...</span></p>
+    <p id="user-branch">Branch: <span>...</span></p>
+    <p id="user-regulation">Regulation: <span>...</span></p>
+    <p id="user-college">College: <span>...</span></p>
+    <p id="user-university">University: <span>...</span></p>
+    
+    <button id="close-profile">Close</button>
+    <button onclick="logout()" style="margin-top: 10px; padding: 10px 20px; background-color: crimson; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">Logout</button>
+  </div>
+</div>
+<script>
+  document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("keydown", e => {
+ if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
+   e.preventDefault();
+ }
+});
+
+
+document.oncontextmenu = () => {
+ alert("Right-click is disabled for security purposes.");
+ return false;
+};
+
+
+document.onkeydown = (e) => {
+ if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+   alert("Inspect Element is disabled.");
+   return false;
+ }
+}
+</script>
+</body>
 </html>

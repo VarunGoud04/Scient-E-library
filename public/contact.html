@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Contact Us | Scient E-Library</title>
   <link rel="icon" type="image/png" href="logo11.jpg">
@@ -17,30 +17,72 @@
     }
 
     header {
-      background-color: #002f6c;
+      background: linear-gradient(135deg, #002f6c, #00509e);
       color: white;
       padding: 1.5rem 0;
       text-align: center;
     }
 
-    nav {
-      background-color: #004a94;
-      text-align: center;
-      padding: 0.75rem 0;
-    }
-
-    nav a {
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      display: inline-block;
-    }
-
-    nav a:hover,
-    nav a:active {
+    .navbar {
       background-color: #003366;
-      border-radius: 0.25rem;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      margin-left: 1.5rem;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: #fff;
+      background-color: #004b99;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003366;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1rem;
+        z-index: 100;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
     }
 
     .contact-form-section {
@@ -72,26 +114,34 @@
       box-sizing: border-box;
     }
 
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border: 2px solid #0073e6;
+      outline: none;
+      box-shadow: 0 0 6px rgba(0, 115, 230, 0.3);
+    }
+
     .contact-form button {
-      background-color: #002f6c;
+      background: linear-gradient(90deg, #0052cc, #0073e6);
       color: white;
       padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 0.3125rem;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 82, 204, 0.3);
+      transition: background 0.3s, transform 0.3s;
     }
 
     .contact-form button:hover,
     .contact-form button:active {
-      background-color: #003366;
+      background: linear-gradient(90deg, #0041a3, #0066cc);
       transform: scale(1.05);
     }
 
     .contact-info-section {
       padding: 2rem 1rem;
-      background-color: #f2f5f6;
+      background: linear-gradient(to right, #eaf4ff, #f5fbff);
     }
 
     .contact-info-section h3 {
@@ -116,6 +166,16 @@
       color: #002f6c;
     }
 
+    .contact-details a {
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: bold;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       background-color: #7cb0e4;
       padding: 1.5rem;
@@ -133,41 +193,9 @@
     .fab.fa-instagram { color: #e1306c; }
     .fab.fa-linkedin { color: #0a66c2; }
 
-    .social-media a:hover,
-    .social-media a:active {
-      opacity: 0.8;
-    }
-
-    /* Responsive Adjustments */
-    @media screen and (max-width: 640px) {
-      header h1 {
-        font-size: 1.875rem;
-      }
-
-      .contact-form-section h2 {
-        font-size: 1.5rem;
-      }
-
-      .contact-info-section h3 {
-        font-size: 1.25rem;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      nav a {
-        margin: 0.25rem 0;
-      }
-
-      .contact-form {
-        padding: 1rem;
-      }
-
-      .contact-details {
-        flex-direction: column;
-      }
+    .social-media a:hover i {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transform: scale(1.2);
     }
 
     #response-message {
@@ -179,18 +207,17 @@
 </head>
 <body>
 
-  <header>
-    <h1>Contact Us</h1>
-    <p>Get in touch with us for inquiries, support, or feedback.</p>
+  <header class="navbar">
+    <a href="/" class="text-xl">Scient E-Library</a>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </header>
-
-  <nav>
-    <a href="index.html" aria-label="Home">Home</a>
-    <a href="about.html" aria-label="About Us">About Us</a>
-    <a href="/register" aria-label="Register">Register</a>
-    <a href="login.html" aria-label="Login">Login</a>
-    <a href="contact.html" aria-label="Contact">Contact</a>
-  </nav>
 
   <div class="contact-form-section">
     <h2>We'd Love to Hear From You</h2>
@@ -210,12 +237,16 @@
     <p>Feel free to reach out to us through any of the following means:</p>
     <div class="contact-details">
       <div>
-        <i class="fas fa-envelope"></i>
-        <p>Email: <a href="mailto:scient.e.library.info@gmail.com">scient.e.library.info@gmail.com</a></p>
+        <a href="mailto:scient.e.library.info@gmail.com">
+          <i class="fas fa-envelope"></i>
+          <p>Email: scient.e.library.info@gmail.com</p>
+        </a>
       </div>
       <div>
-        <i class="fas fa-map-marker-alt"></i>
-        <p>Location: Scient Institute of Technology, Ibrahimpatnam, Telangana 501506</p>
+        <a href="https://www.google.com/maps?q=Scient+Institute+of+Technology,+Ibrahimpatnam" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Location: Scient Institute of Technology, Ibrahimpatnam, Telangana 501506</p>
+        </a>
       </div>
     </div>
   </div>
@@ -224,7 +255,7 @@
     <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Dept. of CSE (AY 2022-2026)</p>
     <div>
       <h5>FOLLOW US ON</h5>
-      <div class="social-media flex justify-center gap-4 mt-2">
+      <div class="social-media">
         <a href="https://www.facebook.com" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://www.twitter.com" target="_blank" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com/varungoud___21/" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
@@ -233,7 +264,6 @@
     </div>
   </footer>
 
-  <!-- EmailJS SDK -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function(){
@@ -252,26 +282,35 @@
         });
     });
 
-    // Add touch support for buttons
-    document.querySelectorAll('.contact-form button').forEach(button => {
-      button.addEventListener('touchstart', () => {
-        button.classList.add('hover');
-      });
-      button.addEventListener('touchend', () => {
-        button.classList.remove('hover');
-      });
-    });
-
-    // Add touch support for social media links
-    document.querySelectorAll('.social-media a').forEach(link => {
-      link.addEventListener('touchstart', () => {
-        link.classList.add('hover');
-      });
-      link.addEventListener('touchend', () => {
-        link.classList.remove('hover');
-      });
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
     });
   </script>
+  
+    <script>
+      document.addEventListener("contextmenu", e => e.preventDefault());
+   document.addEventListener("keydown", e => {
+     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
+       e.preventDefault();
+     }
+   });
+ 
+  
+   document.oncontextmenu = () => {
+     alert("Right-click is disabled for security purposes.");
+     return false;
+   };
+ 
+
+   document.onkeydown = (e) => {
+     if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+       alert("Inspect Element is disabled.");
+       return false;
+     }
+   }
+ </script>
 
 </body>
 </html>
