@@ -6,6 +6,7 @@
   <title>Register - Scient E-Library</title>
   <link rel="icon" type="image/png" href="logo11.jpg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background-color: #f7f7f7; }
@@ -166,30 +167,29 @@
     <h1>Scient E-Library - Register</h1>
   </header>
 
-  <nav>
-    <div class="logo">📚 Scient E-Library</div>
-    <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <a href="#" class="text-2xl font-bold">Scient E-Library</a>
-        <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">
-          <a href="index.html" class="hover:text-yellow-400">Home</a>
-          <a href="about.html" class="hover:text-yellow-400">About Us</a>
-          <a href="/register" class="hover:text-yellow-400">Register</a>
-          <a href="login.html" class="hover:text-yellow-400">Login</a>
-          <a href="contact.html" class="hover:text-yellow-400">Contact</a>
-        </div>
-      </div>
-    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">
-      <a href="index.html" class="hover:text-yellow-400">Home</a>
-      <a href="about.html" class="hover:text-yellow-400">About Us</a>
-      <a href="/register" class="hover:text-yellow-400">Register</a>
-      <a href="login.html" class="hover:text-yellow-400">Login</a>
-      <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+  <!-- Responsive Navbar -->
+<nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+    <a href="#" class="text-2xl font-bold">📚 Scient E-Library</a>
+    <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">
+      <a href="index.html" class="hover:text-yellow-400 uppercase">Home</a>
+      <a href="about.html" class="hover:text-yellow-400 uppercase">About Us</a>
+      <a href="register.html" class="hover:text-yellow-400 uppercase">Register</a>
+      <a href="login.html" class="hover:text-yellow-400 uppercase">Login</a>
+      <a href="contact.html" class="hover:text-yellow-400 uppercase">Contact</a>
     </div>
-  </nav>
+  </div>
+  <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">
+    <a href="index.html" class="hover:text-yellow-400 uppercase">Home</a>
+    <a href="about.html" class="hover:text-yellow-400 uppercase">About Us</a>
+    <a href="register.html" class="hover:text-yellow-400 uppercase">Register</a>
+    <a href="login.html" class="hover:text-yellow-400 uppercase">Login</a>
+    <a href="contact.html" class="hover:text-yellow-400 uppercase">Contact</a>
+  </div>
+</nav>
 
   <div class="form-container">
     <h2>Create an Account</h2>
