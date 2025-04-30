@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,12 +8,7 @@
   <link rel="icon" type="image/png" href="logo11.jpg" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    body {
-      background-color: #f9fafb;
-    }
-
     .cta-button {
       background-color: #002f6c;
       color: white;
@@ -67,104 +61,16 @@
       text-decoration: none;
     }
 
-    .fab.fa-facebook {
-      color: #1877f2;
-    }
+    .fab.fa-facebook { color: #1877f2; }
+    .fab.fa-twitter { color: #1da1f2; }
+    .fab.fa-instagram { color: #e1306c; }
+    .fab.fa-linkedin { color: #0a66c2; }
 
-    .fab.fa-twitter {
-      color: #1da1f2;
-    }
-
-    .fab.fa-instagram {
-      color: #e1306c;
-    }
-
-    .fab.fa-linkedin {
-      color: #0a66c2;
-    }
-
-    .social-media a:hover {
-      opacity: 0.8;
-    }
+    .social-media a:hover { opacity: 0.8; }
   </style>
-
-  <script>
-    window.onload = function () {
-      alert("Kindly Register & Access the content with login details. No content is shared without login details.");
-    };
-  </script>
-    <!-- Restrict Mobile Access & Show Warning -->
-    <style>
-      #mobile-block {
-        display: none;
-        position: fixed;
-        z-index: 99999;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ffffff;
-        color: #000000;
-        padding: 30px;
-        text-align: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        overflow-y: auto;
-      }
-  
-      #mobile-block h2 {
-        font-size: 26px;
-        color: #c53030;
-        margin-bottom: 20px;
-      }
-  
-      #mobile-block p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin: 10px 0;
-      }
-  
-      #mobile-block ul {
-        text-align: left;
-        max-width: 600px;
-        margin: 20px auto;
-        font-size: 16px;
-        padding-left: 20px;
-      }
-  
-      #mobile-block ul li {
-        margin-bottom: 10px;
-      }
-    </style>
-  
-    <script>
-      window.onload = function () {
-        if (window.innerWidth <= 768) {
-          // Clear the current page and show a warning
-          document.body.innerHTML = '';
-          const warning = document.createElement('div');
-          warning.id = 'mobile-block';
-          warning.innerHTML = `
-            <h2>⚠️ Desktop Site Required</h2>
-            <p>This website is designed for desktop and laptop devices only.</p>
-            <p>If you're seeing a blank screen, it's because you're currently on a mobile or tablet device.</p>
-            <p>To access the content, please enable <strong>Desktop Site Mode</strong> on your browser:</p>
-            <ul>
-              <li><strong>Android (Chrome):</strong> Tap the three dots (⋮) in the top-right > Check <em>"Desktop site"</em>.</li>
-              <li><strong>iPhone (Safari):</strong> Tap the "aA" icon in the address bar > Select <em>"Request Desktop Website"</em>.</li>
-            </ul>
-            <p>Once enabled, reload the page to view the content.</p>
-            <p>Thank you for your understanding!</p>
-          `;
-          document.body.appendChild(warning);
-        } else {
-          alert("Kindly Register & Access the content with login details. No content is shared without login details.");
-        }
-      };
-    </script>
-  
 </head>
 
-<body class="text-gray-900">
+<body class="text-gray-900 bg-gray-50">
 
   <!-- Responsive Navbar -->
   <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
@@ -192,8 +98,8 @@
 
   <!-- Hero Section -->
   <header class="bg-blue-900 text-white py-12 md:py-16 px-4 text-center shadow-lg">
-    <h1 class="text-2xl md:text-4xl font-extrabold">Scient E-Library</h1>
-    <p class="text-base md:text-xl mt-4 max-w-3xl mx-auto">Empowering students with limitless knowledge. Explore a world of academic excellence, innovation, and success.</p>
+    <h1 class="text-3xl md:text-4xl font-extrabold">Scient E-Library</h1>
+    <p class="text-base md:text-xl mt-4 max-w-3xl mx-auto">Empowering students with limitless knowledge.</p>
     <a href="/register" class="cta-button mt-8 inline-block text-center">Join Now and Start Learning</a>
   </header>
 
@@ -201,43 +107,43 @@
   <section class="my-12 max-w-7xl mx-auto px-4">
     <div class="text-center">
       <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">Welcome to Scient E-Library</h2>
-      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto px-4 sm:px-0">Explore cutting-edge technology, timeless literature, and all the academic resources you need for success.</p>
+      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">Explore cutting-edge technology, timeless literature, and all the academic resources you need for success.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h5 class="text-lg md:text-xl font-semibold text-blue-900">Our Vision</h5>
-        <p class="mt-4">To be the global leader in providing high-quality academic resources, fostering growth and lifelong learning.</p>
+        <p class="mt-4">To be the global leader in providing high-quality academic resources.</p>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h5 class="text-lg md:text-xl font-semibold text-blue-900">Our Courses</h5>
-        <p class="mt-4">Courses across disciplines including technology, business, humanities, and arts for future leaders.</p>
+        <p class="mt-4">Courses across disciplines including tech, business, humanities, and arts.</p>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h5 class="text-lg md:text-xl font-semibold text-blue-900">Student Resources</h5>
-        <p class="mt-4">Access a vast library of e-books, research papers, and tutorials to enhance academic performance.</p>
+        <p class="mt-4">Access e-books, research papers, and tutorials to enhance your academic growth.</p>
       </div>
     </div>
   </section>
 
-  <!-- Courses -->
+  <!-- Courses Section -->
   <section class="py-12 bg-gray-100 px-4">
     <div class="text-center">
       <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">Featured Courses</h2>
-      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">Browse our range of online courses, designed for academic and professional success.</p>
+      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">Courses designed for academic and professional excellence.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
       <div class="course-card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-lg md:text-xl font-semibold text-blue-900">Advanced Web Development</h3>
-        <p class="mt-4">Learn frameworks and tools for modern, responsive websites and apps.</p>
+        <p class="mt-4">Learn tools for modern, responsive websites and apps.</p>
       </div>
       <div class="course-card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-lg md:text-xl font-semibold text-blue-900">Digital Marketing</h3>
-        <p class="mt-4">Master SEO, content creation, and social media strategies.</p>
+        <p class="mt-4">Master SEO, content creation, and social media strategy.</p>
       </div>
       <div class="course-card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-lg md:text-xl font-semibold text-blue-900">Data Science and AI</h3>
-        <p class="mt-4">Explore machine learning and AI with real-world applications.</p>
+        <p class="mt-4">Explore machine learning and AI in real-world scenarios.</p>
       </div>
     </div>
   </section>
@@ -246,7 +152,6 @@
   <footer class="bg-gray-900 text-white py-12 mt-16 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-        <!-- About -->
         <div>
           <h5 class="text-xl font-semibold mb-4">ABOUT US</h5>
           <ul class="space-y-2 text-sm">
@@ -257,8 +162,6 @@
             <li><a href="faq.html" class="hover:text-yellow-400">FAQ</a></li>
           </ul>
         </div>
-
-        <!-- Courses -->
         <div>
           <h5 class="text-xl font-semibold mb-4">COURSES & RESOURCES</h5>
           <ul class="space-y-2 text-sm">
@@ -269,8 +172,6 @@
             <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">Webinars</a></li>
           </ul>
         </div>
-
-        <!-- Quick Links -->
         <div>
           <h5 class="text-xl font-semibold mb-4">QUICK LINKS</h5>
           <ul class="space-y-2 text-sm">
@@ -281,11 +182,9 @@
             <li><a href="contact.html" class="hover:text-yellow-400">Contact Us</a></li>
           </ul>
         </div>
-
-        <!-- Social Media -->
         <div>
           <h5 class="text-xl font-semibold mb-4">FOLLOW US ON</h5>
-          <div class="social-media flex flex-wrap justify-start gap-4 mt-4">
+          <div class="social-media flex flex-wrap gap-4 mt-4">
             <a href="./aa.html" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -294,7 +193,7 @@
         </div>
       </div>
 
-      <div class="text-center mt-12 border-t border-gray-700 pt-6 px-4 text-sm">
+      <div class="text-center mt-12 border-t border-gray-700 pt-6 text-sm">
         <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
       </div>
     </div>
@@ -307,6 +206,7 @@
       window.location.href = "index.html";
     }
 
+    // Disable developer tools and context menu
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('dblclick', event => event.preventDefault());
     document.addEventListener('keydown', function (event) {
@@ -324,5 +224,4 @@
   </script>
 
 </body>
-
 </html>
