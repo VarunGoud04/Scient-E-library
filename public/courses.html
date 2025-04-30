@@ -7,8 +7,6 @@
   <title>Courses - Scient E-Library</title>
   <link rel="icon" type="image/png" href="logo11.jpg" />
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Firebase SDKs -->
@@ -17,17 +15,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <style>
-#main-content {
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-    html {
-      visibility: hidden;
-    }
+    html { visibility: hidden; }
 
     body {
       font-family: Arial, sans-serif;
@@ -37,124 +25,52 @@
     }
 
     header {
-  background-color: #002f6c;
-  color: white;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 28px;
-}
-
-#profile-icon {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#profile-icon i {
-  color: white;
-  font-size: 32px;
-  transition: transform 0.3s ease;
-  animation: pulse 2.5s infinite;
-}
-
-#profile-icon:hover i {
-  transform: scale(1.2);
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-    /* Full-screen Profile Modal */
-    #user-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 30px;
-    }
-
-    #user-popup-content {
-      background-color: #fff;
-      color: #333;
-      border-radius: 12px;
-      padding: 30px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      text-align: center;
-    }
-
-    #user-popup-content p {
-      margin: 12px 0;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    #user-popup-content p span {
-      font-weight: normal;
-    }
-
-    #user-name span { color: #e6194b; }
-    #user-email span { color: #3cb44b; }
-    #user-branch span { color: #ffe119; }
-    #user-regulation span { color: #0082c8; }
-    #user-college span { color: #f58231; }
-    #user-university span { color: #911eb4; }
-
-    #close-profile {
-      margin-top: 20px;
-      padding: 10px 20px;
       background-color: #002f6c;
       color: white;
-      border: none;
-      border-radius: 6px;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    #profile-icon i {
+      font-size: 32px;
       cursor: pointer;
-      font-size: 16px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
     nav {
       background-color: #003366;
+      padding: 12px;
       text-align: center;
-      padding: 15px 0;
     }
 
     nav a {
       color: white;
-      text-decoration: none;
       margin: 0 15px;
-      padding: 12px 20px;
+      text-decoration: none;
       font-weight: bold;
     }
 
     nav a:hover {
-      background-color: #e9ecf1;
-      border-radius: 5px;
+      text-decoration: underline;
     }
 
     .scroll-banner {
       background-color: #e0ebf5;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 10px 0;
+      padding: 10px;
+      font-size: 18px;
       overflow: hidden;
-      position: relative;
     }
 
     .scroll-banner span {
@@ -170,46 +86,42 @@ header h1 {
     }
 
     @keyframes color-change {
-      0%   { color: #e6194b; }
-      12.5% { color: #3cb44b; }
-      25%  { color: #ffe119; }
-      37.5% { color: #0082c8; }
-      50%  { color: #f58231; }
-      62.5% { color: #911eb4; }
-      75%  { color: #46f0f0; }
-      87.5% { color: #000000; }
-      100% { color: #e6194b; }
+      0%, 100% { color: #e6194b; }
+      25% { color: #ffe119; }
+      50% { color: #3cb44b; }
+      75% { color: #0082c8; }
     }
 
     .courses-container {
-      width: 80%;
-      margin: 50px auto;
+      width: 85%;
+      margin: 30px auto;
     }
 
     .course-section {
       background: white;
-      border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .course-section h2 {
       color: #002f6c;
     }
 
-    .course-section h3 {
-      margin-top: 20px;
-      color: #003366;
-    }
-
     .course-section ul {
+      padding: 0;
       list-style: none;
-      padding-left: 0;
     }
 
     .course-section ul li {
-      padding: 5px 0;
+      padding: 6px 0;
     }
 
     .course-section ul li a {
@@ -225,7 +137,7 @@ header h1 {
       background-color: #003366;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       font-size: 14px;
     }
 
@@ -234,33 +146,141 @@ header h1 {
       text-decoration: none;
     }
 
-    .social-icons a:hover {
-      text-decoration: underline;
+    #user-popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #user-popup-content {
+      background: #fff;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    #user-popup-content p span {
+      font-weight: bold;
+      color: #003366;
+    }
+
+    #close-profile, #logout-btn {
+      margin-top: 12px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #close-profile {
+      background-color: #002f6c;
+      color: white;
+    }
+
+    #logout-btn {
+      background-color: crimson;
+      color: white;
     }
 
     @media (max-width: 768px) {
-      .courses-container {
-        width: 95%;
-      }
-
       header h1 {
-        font-size: 28px;
+        font-size: 20px;
       }
 
       nav a {
-        margin: 0 8px;
-        padding: 10px 14px;
+        margin: 5px;
+        display: inline-block;
+      }
+
+      .courses-container {
+        width: 95%;
       }
     }
-.course-section {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.course-section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
   </style>
+</head>
+
+<body>
+  <div id="loading-screen" style="height:100vh;display:flex;align-items:center;justify-content:center;font-size:24px;">Loading...</div>
+
+  <header>
+    <h1>Scient E-Library - Courses</h1>
+    <div id="profile-icon"><i class="fas fa-user-circle"></i></div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <div class="scroll-banner">
+    <span>Thanks for registering! Have a great experience with Scient E-Library</span>
+  </div>
+
+  <div class="courses-container" id="main-content" style="display:none;">
+    <div class="course-section">
+      <h2>CSE - R22 Regulation</h2>
+      <h3>1st Year</h3>
+      <ul>
+        <li><a href="course1-1.html">Semester 1</a></li>
+        <li><a href="course1-2.html">Semester 2</a></li>
+      </ul>
+      <h3>2nd Year</h3>
+      <ul>
+        <li><a href="course2-1.html">Semester 1</a></li>
+        <li><a href="course2-2.html">Semester 2</a></li>
+      </ul>
+      <h3>3rd Year</h3>
+      <ul>
+        <li><a href="course3-1.html">Semester 1</a></li>
+        <li><a href="course3-2.html">Semester 2</a></li>
+      </ul>
+      <h3>4th Year</h3>
+      <ul>
+        <li><a href="course4-1.html">Semester 1</a></li>
+        <li><a href="course4-2.html">Semester 2</a></li>
+      </ul>
+    </div>
+
+    <div class="course-section"><h2>AI & ML</h2><ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul></div>
+    <div class="course-section"><h2>ECE</h2><ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul></div>
+    <div class="course-section"><h2>EEE</h2><ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul></div>
+    <div class="course-section"><h2>CSD</h2><ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul></div>
+  </div>
+
+  <footer>
+    <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud | Department of CSE (AY 2022–2026)</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/Varungoud___21/" target="_blank">
+        <i class="fab fa-instagram"></i> Follow us on Instagram
+      </a>
+    </div>
+  </footer>
+
+  <!-- Profile Popup -->
+  <div id="user-popup">
+    <div id="user-popup-content">
+      <p id="user-name">Name: <span>Loading...</span></p>
+      <p id="user-email">Email: <span>Loading...</span></p>
+      <p id="user-branch">Branch: <span>Loading...</span></p>
+      <p id="user-regulation">Regulation: <span>Loading...</span></p>
+      <p id="user-college">College: <span>Loading...</span></p>
+      <p id="user-university">University: <span>Loading...</span></p>
+      <button id="close-profile">Close</button>
+      <button id="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </div>
 
   <script>
     const firebaseConfig = {
@@ -275,22 +295,6 @@ header h1 {
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
-
-    function logout() {
-      auth.signOut().then(() => {
-        window.location.href = "login.html";
-      });
-    }
-
-    function showPopup(event) {
-      event.preventDefault();
-      alert("Currently under maintenance. We are continuously updating resources. Stay tuned!");
-    }
-
-    function toggleProfilePopup(show) {
-      const popup = document.getElementById("user-popup");
-      popup.style.display = show ? "flex" : "none";
-    }
 
     auth.onAuthStateChanged(user => {
       if (user) {
@@ -308,149 +312,41 @@ header h1 {
             document.getElementById("user-college").innerHTML = `College: <span>${data.college || "N/A"}</span>`;
             document.getElementById("user-university").innerHTML = `University: <span>${data.university || "N/A"}</span>`;
           }
-        }).catch(error => {
-          console.error("Error fetching user details:", error);
         });
       } else {
         window.location.href = "login.html";
       }
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const profileIcon = document.getElementById("profile-icon");
-      profileIcon.addEventListener("click", () => toggleProfilePopup(true));
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    }
 
-      document.getElementById("close-profile").addEventListener("click", () => toggleProfilePopup(false));
+    function toggleProfilePopup(show) {
+      document.getElementById("user-popup").style.display = show ? "flex" : "none";
+    }
+
+    document.getElementById("profile-icon").addEventListener("click", () => toggleProfilePopup(true));
+    document.getElementById("close-profile").addEventListener("click", () => toggleProfilePopup(false));
+
+    function showPopup(event) {
+      event.preventDefault();
+      alert("Currently under maintenance. We are updating resources.");
+    }
+
+    // Disable right-click and F12
+    document.addEventListener("contextmenu", e => {
+      e.preventDefault();
+      alert("Right-click is disabled for security.");
     });
 
-    // Disable right-click and dev tools
-    document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", e => {
-      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
+      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
         e.preventDefault();
       }
     });
   </script>
-</head>
-
-<body>
-  <div id="loading-screen" style="height:100vh;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;">
-    Loading...
-  </div>
-
-<header>
-  <h1>Scient E-Library - Courses</h1>
-  <div id="profile-icon">
-    <i class="fas fa-user-circle"></i>
-  </div>
-</header>
-      
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="#" onclick="logout()">Logout</a>
-    </nav>
-
-    <div class="scroll-banner">
-      <span>Thanks for registering! Have a great experience with Scient E-Library 🚀</span>
-    </div>
-
-    
-      <!-- Course Content Here (Same as Your Original Code) -->
-      <div class="courses-container">
-        <div class="course-section">
-          <h2>CSE (Computer Science Engineering) - R22 Regulations</h2>
-          <h3>1st Year</h3>
-          <ul>
-            <li><a href="course1-1.html">Semester 1</a></li>
-            <li><a href="course1-2.html">Semester 2</a></li>
-          </ul>
-          <h3>2nd Year</h3>
-          <ul>
-            <li><a href="course2-1.html">Semester 1</a></li>
-            <li><a href="course2-2.html">Semester 2</a></li>
-          </ul>
-          <h3>3rd Year</h3>
-          <ul>
-            <li><a href="course3-1.html">Semester 1</a></li>
-            <li><a href="course3-2.html">Semester 2</a></li>
-          </ul>
-          <h3>4th Year</h3>
-          <ul>
-            <li><a href="course4-1.html">Semester 1</a></li>
-            <li><a href="course4-2.html">Semester 2</a></li>
-          </ul>
-        </div>
-  
-        <div class="course-section">
-          <h2>AI & ML (Artificial Intelligence & Machine Learning)</h2>
-          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
-        </div>
-  
-        <div class="course-section">
-          <h2>ECE (Electronics & Communication Engineering)</h2>
-          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
-        </div>
-  
-        <div class="course-section">
-          <h2>EEE (Electrical & Electronics Engineering)</h2>
-          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
-        </div>
-  
-        <div class="course-section">
-          <h2>CSD (Computer Science & Design)</h2>
-          <ul><li><a href="#" onclick="showPopup(event)">Coming Soon</a></li></ul>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud  | Department of CSE (AY 2022-2026).</p>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/Varungoud___21/" target="_blank">
-          <i class="fab fa-instagram"></i> Follow us on Instagram
-        </a>
-      </div>
-    </footer>
-  </div>
-
-<!-- Profile Modal -->
-<div id="user-popup">
-  <div id="user-popup-content">
-    <p id="user-name">Name: <span>...</span></p>
-    <p id="user-email">Email: <span>...</span></p>
-    <p id="user-branch">Branch: <span>...</span></p>
-    <p id="user-regulation">Regulation: <span>...</span></p>
-    <p id="user-college">College: <span>...</span></p>
-    <p id="user-university">University: <span>...</span></p>
-    
-    <button id="close-profile">Close</button>
-    <button onclick="logout()" style="margin-top: 10px; padding: 10px 20px; background-color: crimson; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">Logout</button>
-  </div>
-</div>
-<script>
-  document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("keydown", e => {
- if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
-   e.preventDefault();
- }
-});
-
-
-document.oncontextmenu = () => {
- alert("Right-click is disabled for security purposes.");
- return false;
-};
-
-
-document.onkeydown = (e) => {
- if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-   alert("Inspect Element is disabled.");
-   return false;
- }
-}
-</script>
 </body>
 </html>
