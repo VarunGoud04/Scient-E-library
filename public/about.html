@@ -293,5 +293,26 @@
       <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>
     </div>
   </footer>
+  <script>
+    // Navbar toggle
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Disable right-click and dev tools
+    document.oncontextmenu = () => {
+      alert("Right-click is disabled for security purposes.");
+      return false;
+    };
+
+    document.onkeydown = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        alert("Inspect Element is disabled.");
+        return false;
+      }
+    };
+  </script>
 </body>
 </html>
