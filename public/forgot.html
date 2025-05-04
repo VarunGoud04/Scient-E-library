@@ -102,10 +102,9 @@
     <div class="message" id="message"></div>
   </div>
 
-  <script type="module">
+    <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAuth, sendPasswordResetEmail, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-    import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
@@ -118,7 +117,6 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const db = getFirestore(app);
 
     async function sendResetLink() {
       const email = document.getElementById("email").value.trim().toLowerCase();
@@ -132,23 +130,14 @@
       }
 
       try {
-        // Sign in anonymously to allow Firestore read
-        await signInAnonymously(auth);
-
-        const usersRef = collection(db, "users");
-        const q = query(usersRef, where("email", "==", email));
-        const querySnapshot = await getDocs(q);
-
-        if (querySnapshot.empty) {
-          messageBox.textContent = "Email is not registered.";
-        } else {
-          await sendPasswordResetEmail(auth, email);
-          messageBox.textContent = "Reset link sent. Check your inbox.";
-          messageBox.style.color = "green";
-        }
+        await sendPasswordResetEmail(auth, email);
+        messageBox.textContent = "Reset link sent. Check your inbox.";
+        messageBox.style.color = "green";
       } catch (error) {
         console.error("Error:", error.message);
-        if (error.code === "auth/invalid-email") {
+        if (error.code === "auth/user-not-found") {
+          messageBox.textContent = "Email is not registered.";
+        } else if (error.code === "auth/invalid-email") {
           messageBox.textContent = "Invalid email format.";
         } else {
           messageBox.textContent = "Error sending reset link.";
