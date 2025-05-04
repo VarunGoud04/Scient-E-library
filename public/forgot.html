@@ -104,8 +104,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAuth, signInAnonymously, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
@@ -118,20 +117,6 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    // Ensure anonymous auth for Firestore access
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        signInAnonymously(auth)
-          .then(() => {
-            console.log("Signed in anonymously.");
-          })
-          .catch((error) => {
-            console.error("Anonymous sign-in failed:", error);
-          });
-      }
-    });
 
     async function sendResetLink() {
       const email = document.getElementById("email").value.trim().toLowerCase();
@@ -152,22 +137,6 @@
       }
 
       try {
-        const usersRef = collection(db, "users");
-        const querySnapshot = await getDocs(usersRef);
-
-        let emailFound = false;
-        querySnapshot.forEach((doc) => {
-          const userEmail = doc.data().email;
-          if (userEmail && userEmail.toLowerCase() === email) {
-            emailFound = true;
-          }
-        });
-
-        if (!emailFound) {
-          messageBox.textContent = "Email not registered in our records.";
-          return;
-        }
-
         await sendPasswordResetEmail(auth, email);
         messageBox.textContent = "Password reset link sent! Check your inbox.";
         messageBox.style.color = "green";
@@ -175,8 +144,8 @@
         console.error("Error:", error.message);
         if (error.code === "auth/invalid-email") {
           messageBox.textContent = "Invalid email format.";
-        } else if (error.code === "permission-denied") {
-          messageBox.textContent = "Database access denied. Please check Firestore rules.";
+        } else if (error.code === "auth/user-not-found") {
+          messageBox.textContent = "No account found with this email.";
         } else {
           messageBox.textContent = "Failed to send link. Please try again.";
         }
