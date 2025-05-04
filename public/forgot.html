@@ -114,37 +114,37 @@
       storageBucket: "scient-e-library.firebasestorage.app",
       messagingSenderId: "724674392756",
       appId: "1:724674392756:web:631eb7c59445f5a2509de1"
-  
     };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      signInAnonymously(auth)
-        .then(() => {
-          console.log("Signed in anonymously to access Firestore.");
-        })
-        .catch((error) => {
-          console.error("Anonymous sign-in failed:", error);
-        });
+
+    // Ensure anonymous auth for Firestore access
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        signInAnonymously(auth)
+          .then(() => {
+            console.log("Signed in anonymously.");
+          })
+          .catch((error) => {
+            console.error("Anonymous sign-in failed:", error);
+          });
+      }
+    });
 
     async function sendResetLink() {
       const email = document.getElementById("email").value.trim().toLowerCase();
       const messageBox = document.getElementById("message");
 
-      // Reset message
       messageBox.textContent = "";
       messageBox.style.color = "red";
 
-      // Validate email input
       if (!email) {
         messageBox.textContent = "Please enter your email.";
         return;
       }
 
-      // Check if email format is valid
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         messageBox.textContent = "Please enter a valid email address.";
@@ -152,8 +152,6 @@ onAuthStateChanged(auth, (user) => {
       }
 
       try {
-        // Fetch all users and manually check emails (case-insensitive)
-        console.log("Checking Firestore for email:", email);
         const usersRef = collection(db, "users");
         const querySnapshot = await getDocs(usersRef);
 
@@ -166,13 +164,10 @@ onAuthStateChanged(auth, (user) => {
         });
 
         if (!emailFound) {
-          console.log("Email not found in Firestore 'users' collection.");
           messageBox.textContent = "Email not registered in our records.";
           return;
         }
 
-        console.log("Email found in Firestore 'users' collection.");
-        // If email is found, send password reset email
         await sendPasswordResetEmail(auth, email);
         messageBox.textContent = "Password reset link sent! Check your inbox.";
         messageBox.style.color = "green";
