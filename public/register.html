@@ -365,11 +365,12 @@
   <!-- Firebase Script -->
 
    <!-- Firebase Script -->
-  <script type="module">
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
   import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+  // 1) Your Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
     authDomain: "scient-e-library.firebaseapp.com",
@@ -379,10 +380,12 @@
     appId: "1:724674392756:web:631eb7c59445f5a2509de1"
   };
 
+  // 2) Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
 
+  // 3) Grab form + error/success elements
   const form = document.getElementById("register-form");
   const errorMessage = document.getElementById("error-message");
   const successMessage = document.getElementById("success-message");
@@ -407,30 +410,41 @@
     }
 
     try {
-      // 1. Create the user in Firebase Auth
+      // 4) Create the user in Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // 2. Write a Firestore document at "users/{uid}"
-      await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        name,
-        email,
-        college,
-        regulation,
-        branch,
-        university,
-        createdAt: new Date()
-      });
+      // 5) Attempt to write to Firestore under "users/{uid}"
+      //    Wrap in its own try/catch to surface Firestore errors
+      try {
+        await setDoc(doc(db, "users", user.uid), {
+          uid: user.uid,
+          name,
+          email,
+          college,
+          regulation,
+          branch,
+          university,
+          createdAt: new Date()
+        });
 
-      successMessage.textContent = "✅ Registration successful! You can now log in.";
-      form.reset();
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 2000);
+        successMessage.textContent = "✅ Registration successful! You can now log in.";
+        form.reset();
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 2000);
 
-    } catch (error) {
-      switch (error.code) {
+      } catch (firestoreError) {
+        console.error("❌ Firestore write failed:", firestoreError);
+        // Show a message about Firestore failing
+        errorMessage.textContent = "⚠️ Registration succeeded, but we couldn’t save your profile data. Please contact support.";
+        // Optionally you could also delete the Auth user here if you want to roll back:
+        // await user.delete();
+      }
+
+    } catch (authError) {
+      // 6) Handle any Auth errors (e.g. email already in use)
+      switch (authError.code) {
         case "auth/email-already-in-use":
           errorMessage.textContent = "⚠️ This email is already registered.";
           break;
@@ -441,8 +455,8 @@
           errorMessage.textContent = "⚠️ Password is too weak.";
           break;
         default:
-          errorMessage.textContent = "⚠️ Something went wrong. Try again.";
-          console.error("Registration error:", error);
+          errorMessage.textContent = "⚠️ Something went wrong during registration. Try again.";
+          console.error("❌ Auth error:", authError);
           break;
       }
     }
