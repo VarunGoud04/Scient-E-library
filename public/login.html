@@ -266,11 +266,12 @@
   </footer>
 
   <!-- Firebase Scripts -->
-  <script type="module">
+    <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-    import { getFirestore, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
+    // 1) Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyBB31ymV2vgVHVgA4Tp_jUZLy4c8VUkPY4",
       authDomain: "scient-e-library.firebaseapp.com",
@@ -280,24 +281,26 @@
       appId: "1:724674392756:web:631eb7c59445f5a2509de1"
     };
 
+    // 2) Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+    // 3) Show an error message
     function showError(message) {
-      const error = document.getElementById('error-message');
-      error.textContent = message;
-      error.style.display = 'block';
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
     }
 
+    // 4) Login form handler
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
+      document.getElementById('error-message').style.display = 'none';
 
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const regulation = document.getElementById('regulations').value;
-
-      document.getElementById('error-message').style.display = 'none';
 
       if (!email || !password || regulation === 'choose') {
         showError('Please fill out all fields and choose a valid regulation.');
@@ -310,22 +313,26 @@
       }
 
       try {
+        // 5) Sign in with Firebase Auth
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        const q = query(collection(db, "users"), where("uid", "==", user.uid));
-        const querySnapshot = await getDocs(q);
+        // 6) Check Firestore document at "users/{uid}"
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
 
-        if (querySnapshot.empty) {
-          showError('We couldn’t find an account with that email.');
+        if (!userDocSnap.exists()) {
+          showError('We couldn’t find an account with that email in our database.');
           return;
         }
 
+        // 7) Everything is good → redirect
         window.location.href = 'courses.html';
+
       } catch (error) {
+        // 8) Map common Auth errors to friendly messages
         const code = error.code;
         const messages = {
-          'auth/invalid-credential': 'Incorrect email or password.',
           'auth/user-not-found': 'No account exists with this email.',
           'auth/wrong-password': 'Incorrect password.',
           'auth/too-many-requests': 'Too many attempts. Try again later.',
@@ -336,10 +343,22 @@
       }
     });
 
-    document.getElementById('forgot-password-link').addEventListener('click', () => {
-      window.location.href = 'forgot.html';
+    // 9) "Forgot Password?" handler
+    document.getElementById('forgot-password-link').addEventListener('click', async () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        showError('Please enter your email above to reset your password.');
+        return;
+      }
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert('Password reset email sent! Check your inbox.');
+      } catch (err) {
+        showError('Failed to send reset email. Make sure the email is correct.');
+      }
     });
 
+    // 10) Disable R18 once chosen
     function checkRegulation() {
       const selected = document.getElementById('regulations').value;
       if (selected === 'R18') {
@@ -349,36 +368,38 @@
       }
     }
   </script>
+
   <script>
     // Menu Toggle for Mobile View
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
-
     menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");  // Toggle the open class to show/hide menu
+      navLinks.classList.toggle("open");
     });
   </script>
+
   <script>
+    // Disable right-click and certain keys
     document.addEventListener("contextmenu", e => e.preventDefault());
- document.addEventListener("keydown", e => {
-   if (e.key === "F12" || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) || (e.ctrlKey && e.key === "U")) {
-     e.preventDefault();
-   }
- });
+    document.addEventListener("keydown", e => {
+      if (e.key === "F12" 
+          || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) 
+          || (e.ctrlKey && e.key === "U")) {
+        e.preventDefault();
+      }
+    });
 
+    document.oncontextmenu = () => {
+      alert("Right-click is disabled for security purposes.");
+      return false;
+    };
 
- document.oncontextmenu = () => {
-   alert("Right-click is disabled for security purposes.");
-   return false;
- };
-
-
- document.onkeydown = (e) => {
-   if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-     alert("Inspect Element is disabled.");
-     return false;
-   }
- }
-</script>
+    document.onkeydown = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        alert("Inspect Element is disabled.");
+        return false;
+      }
+    };
+  </script>
 </body>
 </html>
