@@ -1,23 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://scient-e-library.vercel.app/</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/ai.html</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/ml.html</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/iot.html</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/fsd.html</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/flat.html</loc>
-</url>
-<url>
-<loc>https://scient-e-library.vercel.app/t.html</loc>
-</url>
+  <url>
+    <loc>https://scient-e-library.vercel.app/</loc>
+    <lastmod>2025-06-29</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://scient-e-library.vercel.app/about.html</loc>
+    <lastmod>2025-06-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://scient-e-library.vercel.app/register.html</loc>
+    <lastmod>2025-06-29</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://scient-e-library.vercel.app/login.html</loc>
+    <lastmod>2025-06-29</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://scient-e-library.vercel.app/contact.html</loc>
+    <lastmod>2025-06-29</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <!-- Add more pages if you have them -->
 </urlset>
