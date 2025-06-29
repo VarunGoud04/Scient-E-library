@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Scient E-Library</title>
+  <link rel="icon" href="logo11.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes popUp {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .popup-animate {
+      animation: popUp 0.8s ease-out forwards;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 5px #ffffff, 0 0 10px #00c8ff, 0 0 20px #00c8ff;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center min-h-screen text-white">
+
+  <div class="text-center p-8 popup-animate">
+    <img src="logo11.jpg" alt="Scient Logo" class="w-20 h-20 mx-auto mb-4 rounded-full border-4 border-white shadow-lg">
+    <h1 class="text-4xl sm:text-5xl font-extrabold glow-text">Thank You!</h1>
+    <p class="mt-4 text-lg sm:text-xl max-w-xl mx-auto">
+      We appreciate your visit to <strong>Scient E-Library</strong> 📚. Hope you found what you needed for your academic journey!
+    </p>
+    <p class="mt-2 text-sm text-gray-300">Made with ❤️ by Varun Goud & Scient CSE Team</p>
+
+    <div class="mt-8 space-x-4">
+      <a href="index.html" class="inline-block bg-white text-blue-800 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-yellow-300 transition">
+        Go to Home
+      </a>
+      <a href="mailto:bandivarungoudintern@gmail.com" class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold shadow-md hover:bg-yellow-400 transition">
+        Contact Us
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
