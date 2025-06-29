@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artificial Intelligence - JNTUH R22</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav {
+      background: #343a40;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffc107;
+    }
+    .container {
+      padding: 2rem;
+    }
+    h1 {
+      color: #007bff;
+      text-align: center;
+    }
+    .unit {
+      margin-bottom: 2rem;
+      background: #f1f1f1;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      border: none;
+      background: #222;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    .dark-mode .unit {
+      background: #1e1e1e;
+      box-shadow: 2px 2px 8px rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Notes</a>
+    <a href="#">PYQs</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h1>Artificial Intelligence (JNTUH R22)</h1>
+
+    <div class="unit">
+      <h2>Unit 1: Introduction to Artificial Intelligence</h2>
+      <p>Definition, history, applications, types of AI, and basic concepts. Intelligent agents – agents and environments, the nature of environments, structure of agents, goal formulation.</p>
+    </div>
+
+    <div class="unit">
+      <h2>Unit 2: Problem Solving</h2>
+      <p>Solving problems by searching – problem-solving agents, uninformed search strategies, informed search strategies, heuristic functions, and constraint satisfaction problems.</p>
+    </div>
+
+    <div class="unit">
+      <h2>Unit 3: Knowledge and Reasoning</h2>
+      <p>Propositional logic, first-order logic, inference in first-order logic, forward and backward chaining, knowledge-based agents.</p>
+    </div>
+
+    <div class="unit">
+      <h2>Unit 4: Learning</h2>
+      <p>Introduction to machine learning, types of learning: supervised, unsupervised, reinforcement learning. Decision tree learning, neural networks, and basics of deep learning.</p>
+    </div>
+
+    <div class="unit">
+      <h2>Unit 5: Applications of AI</h2>
+      <p>Natural Language Processing (NLP), expert systems, robotics, computer vision, AI in games, ethics of AI, and current trends in AI research.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
