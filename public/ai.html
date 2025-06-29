@@ -2,109 +2,192 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Artificial Intelligence - JNTUH R22</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Artificial Intelligence | Scient E-Library</title>
+  <link rel="icon" type="image/png" href="logo11.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
+    .navbar a:hover {
+      color: #ffeb3b;
+      transition: color 0.3s ease;
     }
-    nav {
-      background: #343a40;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
+
+    footer {
+      background-color: #1a202c;
       color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ffc107;
-    }
-    .container {
       padding: 2rem;
-    }
-    h1 {
-      color: #007bff;
       text-align: center;
     }
-    .unit {
-      margin-bottom: 2rem;
-      background: #f1f1f1;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+
+    footer a {
+      color: #ffeb3b;
     }
-    .toggle-btn {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 8px 12px;
-      border: none;
-      background: #222;
+
+    .cta-button {
+      background-color: #002f6c;
       color: white;
+      padding: 12px 25px;
+      text-decoration: none;
       border-radius: 5px;
-      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
-    .dark-mode {
-      background: #121212;
-      color: #e0e0e0;
+
+    .cta-button:hover {
+      background-color: #003366;
+      transform: scale(1.05);
     }
-    .dark-mode .unit {
-      background: #1e1e1e;
-      box-shadow: 2px 2px 8px rgba(255,255,255,0.1);
+
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
-<body>
-  <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Syllabus</a>
-    <a href="#">Notes</a>
-    <a href="#">PYQs</a>
-    <a href="#">Contact</a>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-800 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <div id="menu" class="hidden md:flex space-x-6 navbar flex-col md:flex-row md:items-center">
+        <a href="#important-questions" class="block mt-2 md:mt-0">Important Questions</a>
+        <a href="#previous-questions" class="block mt-2 md:mt-0">Previous Year Questions</a>
+        <a href="#reference-notes" class="block mt-2 md:mt-0">Reference Notes</a>
+      </div>
+    </div>
   </nav>
 
-  <div class="container">
-    <h1>Artificial Intelligence (JNTUH R22)</h1>
+  <!-- Hero Section -->
+  <section id="home" class="bg-blue-900 text-white text-center py-20 px-4">
+    <h1 class="text-4xl sm:text-5xl font-extrabold">Artificial Intelligence - JNTUH R22</h1>
+    <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
+      Access syllabus, questions, and downloadable study notes tailored for B.Tech CSE students.
+    </p>
+    <a href="#important-questions" class="cta-button mt-8 inline-block">Start Learning</a>
+  </section>
 
-    <div class="unit">
-      <h2>Unit 1: Introduction to Artificial Intelligence</h2>
-      <p>Definition, history, applications, types of AI, and basic concepts. Intelligent agents – agents and environments, the nature of environments, structure of agents, goal formulation.</p>
+  <!-- Important Questions -->
+  <section id="important-questions" class="bg-gray-50 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Important Questions - AI</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
+        <p class="mt-4">Introduction to AI, Agents, Environment</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
+        <p class="mt-4">Problem Solving: Search Strategies</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
+        <p class="mt-4">Knowledge & Reasoning, Propositional Logic</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
+        <p class="mt-4">Machine Learning: Supervised & Unsupervised</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
+        <p class="mt-4">Applications: NLP, Robotics, Ethics</p>
+      </div>
     </div>
+  </section>
 
-    <div class="unit">
-      <h2>Unit 2: Problem Solving</h2>
-      <p>Solving problems by searching – problem-solving agents, uninformed search strategies, informed search strategies, heuristic functions, and constraint satisfaction problems.</p>
+  <!-- Previous Year Questions -->
+  <section id="previous-questions" class="bg-blue-100 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Previous Year Questions - AI</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">2022 Regular</h3>
+        <p class="mt-4">Search Algorithms & Inference Based Qs</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">2023 Supply</h3>
+        <p class="mt-4">Machine Learning & Knowledge-Based Systems</p>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Download Portal</h3>
+        <a href="https://shorturl.at/AUsiv" class="cta-button mt-4" target="_blank">View Official Papers</a>
+      </div>
     </div>
+  </section>
 
-    <div class="unit">
-      <h2>Unit 3: Knowledge and Reasoning</h2>
-      <p>Propositional logic, first-order logic, inference in first-order logic, forward and backward chaining, knowledge-based agents.</p>
+  <!-- Reference Notes -->
+  <section id="reference-notes" class="bg-white text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - AI</h2>
+    <p class="text-lg mt-4 max-w-3xl mx-auto">Download unit-wise notes for exam preparation:</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
+        <p class="mt-4">Agents, Types of AI</p>
+        <a href="https://shorturl.at/ai-unit1" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
+        <p class="mt-4">Problem Solving by Search</p>
+        <a href="https://shorturl.at/ai-unit2" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
+        <p class="mt-4">Logic, Inference</p>
+        <a href="https://shorturl.at/ai-unit3" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
+        <p class="mt-4">Learning Techniques</p>
+        <a href="https://shorturl.at/ai-unit4" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
+        <p class="mt-4">AI Applications</p>
+        <a href="https://shorturl.at/ai-unit5" class="cta-button mt-4" target="_blank">Download</a>
+      </div>
     </div>
+  </section>
 
-    <div class="unit">
-      <h2>Unit 4: Learning</h2>
-      <p>Introduction to machine learning, types of learning: supervised, unsupervised, reinforcement learning. Decision tree learning, neural networks, and basics of deep learning.</p>
+  <!-- Footer -->
+  <footer class="mt-12">
+    <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022–2026).</p>
+    <div class="mt-4">
+      <a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a> |
+      <a href="terms.html" class="hover:text-yellow-400">Terms of Service</a>
     </div>
+  </footer>
 
-    <div class="unit">
-      <h2>Unit 5: Applications of AI</h2>
-      <p>Natural Language Processing (NLP), expert systems, robotics, computer vision, AI in games, ethics of AI, and current trends in AI research.</p>
-    </div>
-  </div>
-
+  <!-- JavaScript -->
   <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-    }
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    document.oncontextmenu = () => {
+      alert("Right-click is disabled for security purposes.");
+      return false;
+    };
+
+    document.onkeydown = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        alert("Inspect Element is disabled.");
+        return false;
+      }
+    };
   </script>
+
 </body>
 </html>
