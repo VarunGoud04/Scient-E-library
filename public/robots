@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scient-e-library.vercel.app/sitemap.xml
