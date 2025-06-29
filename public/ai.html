@@ -36,6 +36,7 @@
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
     }
 
     .cta-button:hover {
@@ -50,6 +51,12 @@
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .disabled-btn {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -75,9 +82,9 @@
   <section id="home" class="bg-blue-900 text-white text-center py-20 px-4">
     <h1 class="text-4xl sm:text-5xl font-extrabold">Artificial Intelligence - JNTUH R22</h1>
     <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
-      Access syllabus, questions, and downloadable study notes tailored for B.Tech CSE students.
+      Access syllabus, important questions, and study materials crafted for B.Tech CSE students.
     </p>
-    <a href="#important-questions" class="cta-button mt-8 inline-block">Start Learning</a>
+    <a href="#important-questions" class="cta-button mt-8">Start Learning</a>
   </section>
 
   <!-- Important Questions -->
@@ -86,23 +93,28 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
-        <p class="mt-4">Introduction to AI, Agents, Environment</p>
+        <p class="mt-4">Introduction to AI, Agents, Environments</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
-        <p class="mt-4">Problem Solving: Search Strategies</p>
+        <p class="mt-4">Problem Solving, Search Strategies</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
-        <p class="mt-4">Knowledge & Reasoning, Propositional Logic</p>
+        <p class="mt-4">Knowledge, Reasoning, Logic</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
-        <p class="mt-4">Machine Learning: Supervised & Unsupervised</p>
+        <p class="mt-4">Machine Learning Approaches</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
         <p class="mt-4">Applications: NLP, Robotics, Ethics</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
     </div>
   </section>
@@ -113,15 +125,18 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">2022 Regular</h3>
-        <p class="mt-4">Search Algorithms & Inference Based Qs</p>
+        <p class="mt-4">Search, Logic-based Questions</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
         <h3 class="text-xl font-semibold text-blue-900">2023 Supply</h3>
-        <p class="mt-4">Machine Learning & Knowledge-Based Systems</p>
+        <p class="mt-4">ML & Knowledge System Qs</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Download Portal</h3>
-        <a href="https://shorturl.at/AUsiv" class="cta-button mt-4" target="_blank">View Official Papers</a>
+        <h3 class="text-xl font-semibold text-blue-900">JNTUH Portal</h3>
+        <p class="mt-4">Official Download Link</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">View</a>
       </div>
     </div>
   </section>
@@ -129,32 +144,31 @@
   <!-- Reference Notes -->
   <section id="reference-notes" class="bg-white text-center py-16 px-4">
     <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - AI</h2>
-    <p class="text-lg mt-4 max-w-3xl mx-auto">Download unit-wise notes for exam preparation:</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
-        <p class="mt-4">Agents, Types of AI</p>
-        <a href="https://shorturl.at/ai-unit1" class="cta-button mt-4" target="_blank">Download</a>
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1 Notes</h3>
+        <p class="mt-4">Agents, History, Scope</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
-        <p class="mt-4">Problem Solving by Search</p>
-        <a href="https://shorturl.at/ai-unit2" class="cta-button mt-4" target="_blank">Download</a>
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2 Notes</h3>
+        <p class="mt-4">Uninformed & Informed Search</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
-        <p class="mt-4">Logic, Inference</p>
-        <a href="https://shorturl.at/ai-unit3" class="cta-button mt-4" target="_blank">Download</a>
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3 Notes</h3>
+        <p class="mt-4">Propositional & FOL</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
-        <p class="mt-4">Learning Techniques</p>
-        <a href="https://shorturl.at/ai-unit4" class="cta-button mt-4" target="_blank">Download</a>
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4 Notes</h3>
+        <p class="mt-4">Learning Paradigms</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
       <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
-        <p class="mt-4">AI Applications</p>
-        <a href="https://shorturl.at/ai-unit5" class="cta-button mt-4" target="_blank">Download</a>
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5 Notes</h3>
+        <p class="mt-4">Real-time Applications</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
       </div>
     </div>
   </section>
