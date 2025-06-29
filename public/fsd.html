@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Full Stack Development | Scient E-Library</title>
+  <link rel="icon" type="image/png" href="logo11.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    .navbar a:hover {
+      color: #ffeb3b;
+      transition: color 0.3s ease;
+    }
+
+    footer {
+      background-color: #1a202c;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffeb3b;
+    }
+
+    .cta-button {
+      background-color: #002f6c;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background-color: #003366;
+      transform: scale(1.05);
+    }
+
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .disabled-btn {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-800 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-semibold">Scient E-Library</a>
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+      <div id="menu" class="hidden md:flex space-x-6 navbar flex-col md:flex-row md:items-center">
+        <a href="#important-questions" class="block mt-2 md:mt-0">Important Questions</a>
+        <a href="#previous-questions" class="block mt-2 md:mt-0">Previous Year Questions</a>
+        <a href="#reference-notes" class="block mt-2 md:mt-0">Reference Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="bg-blue-900 text-white text-center py-20 px-4">
+    <h1 class="text-4xl sm:text-5xl font-extrabold">Full Stack Development - JNTUH R22</h1>
+    <p class="text-lg sm:text-xl mt-4 max-w-3xl mx-auto">
+      Explore study resources, important questions, and notes for Full Stack Development tailored for B.Tech CSE students.
+    </p>
+    <a href="#important-questions" class="cta-button mt-8">Start Learning</a>
+  </section>
+
+  <!-- Important Questions -->
+  <section id="important-questions" class="bg-gray-50 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Important Questions - FSD</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1</h3>
+        <p class="mt-4">HTML, CSS, JavaScript Basics</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2</h3>
+        <p class="mt-4">Bootstrap, DOM, Form Validation</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3</h3>
+        <p class="mt-4">Node.js, Express.js Basics</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4</h3>
+        <p class="mt-4">MongoDB, CRUD Operations</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5</h3>
+        <p class="mt-4">ReactJS, Components, Routing</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Previous Year Questions -->
+  <section id="previous-questions" class="bg-blue-100 text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Previous Year Questions - FSD</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">2022 Regular</h3>
+        <p class="mt-4">HTML, JS, and Express</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">2023 Supply</h3>
+        <p class="mt-4">React, Node, MongoDB</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">JNTUH Portal</h3>
+        <p class="mt-4">Official Download Link</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">View</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reference Notes -->
+  <section id="reference-notes" class="bg-white text-center py-16 px-4">
+    <h2 class="text-3xl font-semibold text-blue-900">Reference Notes - FSD</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 1 Notes</h3>
+        <p class="mt-4">HTML5, CSS3, JavaScript</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 2 Notes</h3>
+        <p class="mt-4">Bootstrap & JS Events</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 3 Notes</h3>
+        <p class="mt-4">Node.js Server Setup</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 4 Notes</h3>
+        <p class="mt-4">MongoDB Operations</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+      <div class="card p-6 bg-white rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-blue-900">Unit 5 Notes</h3>
+        <p class="mt-4">React Components & Hooks</p>
+        <a href="#" class="cta-button mt-4 disabled-btn">Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-12">
+    <p>&copy; 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022–2026).</p>
+    <div class="mt-4">
+      <a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a> |
+      <a href="terms.html" class="hover:text-yellow-400">Terms of Service</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    document.oncontextmenu = () => {
+      alert("Right-click is disabled for security purposes.");
+      return false;
+    };
+
+    document.onkeydown = (e) => {
+      if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+        alert("Inspect Element is disabled.");
+        return false;
+      }
+    };
+  </script>
+
+</body>
+</html>
