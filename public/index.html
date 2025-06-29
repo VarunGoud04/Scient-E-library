@@ -1,215 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Scient E-Library | JNTUH CSE R22</title>
-  <link rel="icon" type="image/png" href="logo11.jpg" />
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />  
+  <title>Scient E-Library | College</title>  
+  <link rel="icon" type="image/png" href="logo11.jpg" />  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />  
+  <script src="https://cdn.tailwindcss.com"></script> 
+<!-- SEO Meta Tags -->
+<meta name="description" content="Scient E-Library is a student-developed platform offering JNTUH R22 CSE notes, previous papers, important questions, and digital study resources." />
+<meta name="keywords" content="Scient E-Library, JNTUH R22, CSE Notes, Engineering Resources, Scient College, Previous Papers, Varun Goud, AI ML Notes, Digital Library" />
+<meta name="author" content="B. Varun Goud" />
+<meta name="robots" content="index, follow" />
 
-  <!-- ✅ SEO Meta Tags -->
-  <meta name="description" content="Scient E-Library - JNTUH R22 CSE Notes, Important Questions, Previous Papers & more.">
-  <meta name="keywords" content="JNTUH, CSE R22, Scient E-Library, Notes, AI, ML, IoT, Engineering, College">
-  <meta name="author" content="B. Varun Goud">
-  <meta name="robots" content="index, follow">
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Scient E-Library | JNTUH R22 CSE Resources" />
+<meta property="og:description" content="Access well-organized notes, question banks, and academic tools curated for JNTUH R22 CSE students." />
+<meta property="og:image" content="https://scient-e-library.vercel.app/logo11.jpg" />
+<meta property="og:url" content="https://scient-e-library.vercel.app/" />
+<meta property="og:type" content="website" />
 
-  <!-- ✅ Social Sharing (Open Graph) -->
-  <meta property="og:title" content="Scient E-Library | JNTUH CSE R22 Resources">
-  <meta property="og:description" content="Explore notes, papers, and resources for JNTUH R22 CSE subjects.">
-  <meta property="og:image" content="https://scient-e-library.vercel.app/logo11.jpg">
-  <meta property="og:url" content="https://scient-e-library.vercel.app/">
-  <meta name="twitter:card" content="summary_large_image">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Scient E-Library | JNTUH R22 CSE" />
+<meta name="twitter:description" content="Built by Scient students — a free platform to access notes, previous papers, and academic resources for R22 curriculum." />
+<meta name="twitter:image" content="https://scient-e-library.vercel.app/logo11.jpg" /> 
+  <style>  
+    .cta-button {  
+      background-color: #002f6c;  
+      color: white;  
+      padding: 12px 25px;  
+      text-decoration: none;  
+      border-radius: 5px;  
+      transition: background-color 0.3s, transform 0.3s;  
+    }  .cta-button:hover {  
+  background-color: #003366;  
+  transform: scale(1.05);  
+}  
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+.social-icons a {  
+  color: white;  
+  font-size: 30px;  
+  margin: 0 20px;  
+  padding: 12px;  
+  background-color: #333;  
+  border-radius: 50%;  
+  transition: transform 0.3s, color 0.3s, background-color 0.3s;  
+}  
 
-  <style>
-    .cta-button {
-      background-color: #002f6c;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 5px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
+.social-icons a:hover {  
+  transform: scale(1.2);  
+  background-color: #ff9800;  
+}  
 
-    .cta-button:hover {
-      background-color: #003366;
-      transform: scale(1.05);
-    }
+.card,  
+.course-card {  
+  transition: transform 0.3s, box-shadow 0.3s;  
+}  
 
-    .card, .course-card {
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+.card:hover,  
+.course-card:hover {  
+  transform: scale(1.05);  
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);  
+}  
 
-    .card:hover, .course-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
+footer {  
+  background-color: #e7ecef;  
+  padding: 20px;  
+  text-align: center;  
+}  
 
-    .social-icons a {
-      color: white;
-      font-size: 30px;
-      margin: 0 20px;
-      padding: 12px;
-      background-color: #333;
-      border-radius: 50%;
-      transition: transform 0.3s, color 0.3s, background-color 0.3s;
-    }
+.social-media a {  
+  margin: 0 10px;  
+  font-size: 24px;  
+  text-decoration: none;  
+}  
 
-    .social-icons a:hover {
-      transform: scale(1.2);
-      background-color: #ff9800;
-    }
+.fab.fa-facebook { color: #1877f2; }  
+.fab.fa-twitter { color: #1da1f2; }  
+.fab.fa-instagram { color: #e1306c; }  
+.fab.fa-linkedin { color: #0a66c2; }  
 
-    footer {
-      background-color: #f1f5f9;
-      padding: 20px;
-      text-align: center;
-    }
+.social-media a:hover { opacity: 0.8; }
 
-    .social-media a {
-      margin: 0 10px;
-      font-size: 24px;
-      text-decoration: none;
-    }
+  </style>  
+</head>  <body class="text-gray-900 bg-gray-50">    <!-- Responsive Navbar -->    <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">  
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">  
+      <a href="#" class="text-2xl font-bold">Scient E-Library</a>  
+      <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">  
+        <i class="fas fa-bars"></i>  
+      </button>  
+      <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">  
+        <a href="index.html" class="hover:text-yellow-400">Home</a>  
+        <a href="about.html" class="hover:text-yellow-400">About Us</a>  
+        <a href="register.html" class="hover:text-yellow-400">Register</a>  
+        <a href="login.html" class="hover:text-yellow-400">Login</a>  
+        <a href="contact.html" class="hover:text-yellow-400">Contact</a>  
+      </div>  
+    </div>  
+    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">  
+      <a href="index.html" class="hover:text-yellow-400">Home</a>  
+      <a href="about.html" class="hover:text-yellow-400">About Us</a>  
+      <a href="register.html" class="hover:text-yellow-400">Register</a>  
+      <a href="login.html" class="hover:text-yellow-400">Login</a>  
+      <a href="contact.html" class="hover:text-yellow-400">Contact</a>  
+    </div>  
+  </nav>    <!-- Hero Section -->    <header class="bg-blue-900 text-white py-12 md:py-16 px-4 text-center shadow-lg">  
+    <h1 class="text-3xl md:text-4xl font-extrabold">Scient E-Library</h1>  
+    <p class="text-base md:text-xl mt-4 max-w-3xl mx-auto">Empowering students with limitless knowledge.</p>  
+    <a href="register.html" class="cta-button mt-8 inline-block text-center">Join Now and Start Learning</a>  
+  </header>    <!-- Main Section -->    <section class="my-12 max-w-7xl mx-auto px-4">  
+    <div class="text-center">  
+      <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">Welcome to Scient E-Library</h2>  
+      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">Explore cutting-edge technology, timeless literature, and all the academic resources you need for success.</p>  
+    </div>  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">  
+  <div class="card p-6 bg-white rounded-lg shadow-md">  
+    <h5 class="text-lg md:text-xl font-semibold text-blue-900">Our Vision</h5>  
+    <p class="mt-4">To be the global leader in providing high-quality academic resources.</p>  
+  </div>  
+  <div class="card p-6 bg-white rounded-lg shadow-md">  
+    <h5 class="text-lg md:text-xl font-semibold text-blue-900">Our Courses</h5>  
+    <p class="mt-4">Courses across disciplines including tech, business, humanities, and arts.</p>  
+  </div>  
+  <div class="card p-6 bg-white rounded-lg shadow-md">  
+    <h5 class="text-lg md:text-xl font-semibold text-blue-900">Student Resources</h5>  
+    <p class="mt-4">Access e-books, research papers, and tutorials to enhance your academic growth.</p>  
+  </div>  
+</div>
 
-    .fab.fa-facebook { color: #1877f2; }
-    .fab.fa-twitter { color: #1da1f2; }
-    .fab.fa-instagram { color: #e1306c; }
-    .fab.fa-linkedin { color: #0a66c2; }
+  </section>    <!-- Courses Section -->    <section class="py-12 bg-gray-100 px-4">  
+    <div class="text-center">  
+      <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">Featured Courses</h2>  
+      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">Courses designed for academic and professional excellence.</p>  
+    </div>  
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">  
+      <div class="course-card p-6 bg-white rounded-lg shadow-md">  
+        <h3 class="text-lg md:text-xl font-semibold text-blue-900">Advanced Web Development</h3>  
+        <p class="mt-4">Learn tools for modern, responsive websites and apps.</p>  
+      </div>  
+      <div class="course-card p-6 bg-white rounded-lg shadow-md">  
+        <h3 class="text-lg md:text-xl font-semibold text-blue-900">Digital Marketing</h3>  
+        <p class="mt-4">Master SEO, content creation, and social media strategy.</p>  
+      </div>  
+      <div class="course-card p-6 bg-white rounded-lg shadow-md">  
+        <h3 class="text-lg md:text-xl font-semibold text-blue-900">Data Science and AI</h3>  
+        <p class="mt-4">Explore machine learning and AI in real-world scenarios.</p>  
+      </div>  
+    </div>  
+  </section>    <!-- Footer -->    <footer class="bg-gray-900 text-white py-12 mt-16 px-4">  
+    <div class="max-w-7xl mx-auto">  
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">  
+        <div>  
+          <h5 class="text-xl font-semibold mb-4">ABOUT US</h5>  
+          <ul class="space-y-2 text-sm">  
+            <li><a href="about.html" class="hover:text-yellow-400">About Scient E-Library</a></li>  
+            <li><a href="vision-mission.html" class="hover:text-yellow-400">Vision & Mission</a></li>  
+            <li><a href="team.html" class="hover:text-yellow-400">Our Team</a></li>  
+            <li><a href="contact.html" class="hover:text-yellow-400">Contact Us</a></li>  
+            <li><a href="faq.html" class="hover:text-yellow-400">FAQ</a></li>  
+          </ul>  
+        </div>  
+        <div>  
+          <h5 class="text-xl font-semibold mb-4">COURSES & RESOURCES</h5>  
+          <ul class="space-y-2 text-sm">  
+            <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">Browse Courses</a></li>  
+            <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">E-Books Library</a></li>  
+            <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">Tutorials</a></li>  
+            <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">Research Papers</a></li>  
+            <li><a href="#" onclick="showAlertAndRedirect()" class="hover:text-yellow-400">Webinars</a></li>  
+          </ul>  
+        </div>  
+        <div>  
+          <h5 class="text-xl font-semibold mb-4">QUICK LINKS</h5>  
+          <ul class="space-y-2 text-sm">  
+            <li><a href="register.html" class="hover:text-yellow-400">Register</a></li>  
+            <li><a href="login.html" class="hover:text-yellow-400">Login</a></li>  
+            <li><a href="terms.html" class="hover:text-yellow-400">Terms of Use</a></li>  
+            <li><a href="privacy.html" class="hover:text-yellow-400">Privacy Policy</a></li>  
+            <li><a href="contact.html" class="hover:text-yellow-400">Contact Us</a></li>  
+          </ul>  
+        </div>  
+        <div>  
+          <h5 class="text-xl font-semibold mb-4">FOLLOW US ON</h5>  
+          <div class="social-media flex flex-wrap gap-4 mt-4">  
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>  
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>  
+            <a href="https://www.instagram.com/varungoud___21/" target="_blank"><i class="fab fa-instagram"></i></a>  
+            <a href="https://www.linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>  
+          </div>  
+        </div>  
+      </div>  <div class="text-center mt-12 border-t border-gray-700 pt-6 text-sm">  
+    <p>© 2024 Scient E-Library. All rights reserved. | Developed by Varun Goud & Team | Department of CSE (AY 2022-2026)</p>  
+  </div>  
+</div>
 
-    .social-media a:hover {
-      opacity: 0.8;
-    }
-  </style>
-</head>
-
-<body class="text-gray-900 bg-gray-50">
-
-  <!-- Navbar -->
-  <nav class="bg-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
-      <a href="index.html" class="text-2xl font-bold">Scient E-Library</a>
-      <button id="menu-btn" class="text-white sm:hidden text-2xl focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div id="nav-links" class="hidden sm:flex space-x-6 text-sm sm:text-base">
-        <a href="index.html" class="hover:text-yellow-400">Home</a>
-        <a href="about.html" class="hover:text-yellow-400">About</a>
-        <a href="register.html" class="hover:text-yellow-400">Register</a>
-        <a href="login.html" class="hover:text-yellow-400">Login</a>
-        <a href="contact.html" class="hover:text-yellow-400">Contact</a>
-        <a href="courses.html" class="hover:text-yellow-400">Courses</a>
-      </div>
-    </div>
-    <div id="mobile-menu" class="sm:hidden hidden px-4 pb-4 flex flex-col space-y-2 text-sm">
-      <a href="index.html" class="hover:text-yellow-400">Home</a>
-      <a href="about.html" class="hover:text-yellow-400">About</a>
-      <a href="register.html" class="hover:text-yellow-400">Register</a>
-      <a href="login.html" class="hover:text-yellow-400">Login</a>
-      <a href="contact.html" class="hover:text-yellow-400">Contact</a>
-      <a href="courses.html" class="hover:text-yellow-400">Courses</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="bg-blue-900 text-white py-16 px-4 text-center shadow-lg">
-    <h1 class="text-4xl font-extrabold">Welcome to Scient E-Library</h1>
-    <p class="text-lg mt-4 max-w-3xl mx-auto">Explore notes, papers & resources for all CSE subjects under JNTUH R22 Curriculum.</p>
-    <a href="register.html" class="cta-button mt-6 inline-block">Join Now</a>
-  </header>
-
-  <!-- Features -->
-  <section class="my-12 max-w-7xl mx-auto px-4">
-    <div class="text-center">
-      <h2 class="text-2xl md:text-3xl font-semibold text-blue-900">Why Choose Us?</h2>
-      <p class="text-base md:text-lg mt-4 max-w-3xl mx-auto">A free, student-focused platform curated by CSE students, for CSE students.</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
-      <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h5 class="text-xl font-semibold text-blue-900">Accurate Notes</h5>
-        <p class="mt-4">Get notes designed as per the official JNTUH syllabus.</p>
-      </div>
-      <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h5 class="text-xl font-semibold text-blue-900">Previous Papers</h5>
-        <p class="mt-4">Access scanned PDFs of past university exams.</p>
-      </div>
-      <div class="card p-6 bg-white rounded-lg shadow-md">
-        <h5 class="text-xl font-semibold text-blue-900">Easy to Use</h5>
-        <p class="mt-4">Mobile-first UI with zero distractions and no login popups.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12 mt-16 px-4">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-        <div>
-          <h5 class="text-xl font-semibold mb-4">ABOUT</h5>
-          <ul class="space-y-2 text-sm">
-            <li><a href="about.html" class="hover:text-yellow-400">About Us</a></li>
-            <li><a href="vision-mission.html" class="hover:text-yellow-400">Vision & Mission</a></li>
-            <li><a href="team.html" class="hover:text-yellow-400">Team</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-xl font-semibold mb-4">RESOURCES</h5>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" onclick="alertAndRedirect()" class="hover:text-yellow-400">E-Books</a></li>
-            <li><a href="#" onclick="alertAndRedirect()" class="hover:text-yellow-400">Tutorials</a></li>
-            <li><a href="#" onclick="alertAndRedirect()" class="hover:text-yellow-400">Papers</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-xl font-semibold mb-4">LEGAL</h5>
-          <ul class="space-y-2 text-sm">
-            <li><a href="privacy.html" class="hover:text-yellow-400">Privacy</a></li>
-            <li><a href="terms.html" class="hover:text-yellow-400">Terms</a></li>
-            <li><a href="contact.html" class="hover:text-yellow-400">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="text-xl font-semibold mb-4">FOLLOW</h5>
-          <div class="social-media mt-4">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/varungoud___21" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com/in/bandi-varun-goud" target="_blank"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-12 border-t border-gray-700 pt-6 text-sm">
-        <p>&copy; 2024 Scient E-Library. Developed by Varun Goud & Team | Dept. of CSE (AY 2022–2026)</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    function alertAndRedirect() {
-      alert("Please register and login to access the content.");
-      window.location.href = "register.html";
-    }
-
-    // Disable dev tools
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.addEventListener("dblclick", e => e.preventDefault());
-    document.addEventListener("keydown", e => {
-      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
-        e.preventDefault();
-      }
-    });
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
-</body>
-</html>
+  </footer>    <!-- Scripts -->    <script>  
+    function showAlertAndRedirect() {  
+      alert("Kindly Register & Access the content with login details. No content is shared without login details.");  
+      window.location.href = "index.html";  
+    }  
+  
+    // Disable developer tools and context menu  
+    document.addEventListener('contextmenu', event => event.preventDefault());  
+    document.addEventListener('dblclick', event => event.preventDefault());  
+    document.addEventListener('keydown', function (event) {  
+      if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {  
+        event.preventDefault();  
+      }  
+    });  
+  
+    // Mobile menu toggle  
+    const menuBtn = document.getElementById('menu-btn');  
+    const mobileMenu = document.getElementById('mobile-menu');  
+    menuBtn.addEventListener('click', () => {  
+      mobileMenu.classList.toggle('hidden');  
+    });  
+  </script>  </body>  
+</html>  
